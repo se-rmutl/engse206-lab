@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Agile Workshop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The SPA is structured as a single-page vertical scroll with a sticky top navigation for easy access to the three main sections: Lesson, Workshop 1 (User Stories), and Workshop 2 (Story Mapping). This linear-but-navigable structure follows the original document's pedagogical flow. Interactivity is introduced through clickable persona cards to encourage exploration, filterable user story "post-it" notes to demonstrate the connection between users and requirements, and an interactive story map with a "Focus on MVP" mode to visually teach the concept of release slicing. This design transforms passive reading into an active learning experience. -->
+    <!-- Visualization & Content Choices: Report Info: Persona details -> Goal: Exploration -> Presentation: Interactive tabs/cards -> Interaction: Click to reveal -> Justification: Breaks down info, encourages engagement. Report Info: User Story lists -> Goal: Organize/Compare -> Presentation: Kanban-style cards -> Interaction: Filter by persona -> Justification: Mimics real tools, connects stories to users. Report Info: Story Map table -> Goal: Organize/Plan -> Presentation: CSS Grid layout -> Interaction: Highlight MVP release -> Justification: Visually teaches release slicing. All implemented with HTML/CSS/JS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #FDFBF7;
+            color: #3D352E;
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link.active {
+            color: #D35400;
+            border-bottom-color: #D35400;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+        .persona-tab.active {
+            background-color: #E67E22;
+            color: white;
+        }
+        .story-card {
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .story-card.filtered-out {
+            opacity: 0.2;
+            transform: scale(0.95);
+        }
+        .story-map-card {
+            transition: background-color 0.4s ease, border-color 0.4s ease, opacity 0.4s ease;
+        }
+        .story-map.focus-mvp .story-map-card:not(.release-1) {
+            opacity: 0.3;
+            background-color: #F5F5F5;
+        }
+        .story-map.focus-mvp .story-map-card.release-1 {
+            border-color: #27AE60;
+            transform: scale(1.03);
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-[#D35400]">Agile Workshop</h1>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#lesson" class="nav-link text-gray-600 hover:text-[#D35400] border-b-2 border-transparent pb-1">บทเรียน</a>
+                    <a href="#workshop1" class="nav-link text-gray-600 hover:text-[#D35400] border-b-2 border-transparent pb-1">Workshop 1</a>
+                    <a href="#workshop2" class="nav-link text-gray-600 hover:text-[#D35400] border-b-2 border-transparent pb-1">Workshop 2</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Section 1: Lesson -->
+        <section id="lesson" class="mb-20 scroll-mt-24">
+            <h2 class="text-4xl font-bold text-center mb-4">User Story: หัวใจของ Agile</h2>
+            <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">ก่อนที่เราจะลงมือทำ Workshop เรามาทำความเข้าใจแนวคิดหลักกันก่อน User Story เป็นเครื่องมือสำคัญที่ช่วยให้ทีมเข้าใจผู้ใช้และสร้างผลิตภัณฑ์ที่มีคุณค่าอย่างแท้จริง</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div id="card-what" class="card bg-white p-6 rounded-xl shadow-md cursor-pointer">
+                    <h3 class="text-2xl font-bold mb-3 text-[#E67E22]">User Story คืออะไร?</h3>
+                    <p class="text-gray-700">คำอธิบายฟีเจอร์ของซอฟต์แวร์ที่สั้น กระชับ และเขียนในมุมมองของผู้ใช้งาน เพื่ออธิบาย "คุณค่าที่ผู้ใช้จะได้รับ"</p>
+                </div>
+                <div id="card-why" class="card bg-white p-6 rounded-xl shadow-md cursor-pointer">
+                    <h3 class="text-2xl font-bold mb-3 text-[#E67E22]">วัตถุประสงค์หลัก</h3>
+                    <ul class="space-y-2 text-gray-700 list-disc list-inside">
+                        <li>มุ่งเน้นที่ผู้ใช้เป็นศูนย์กลาง</li>
+                        <li>ส่งเสริมการทำงานร่วมกัน</li>
+                        <li>สร้างความยืดหยุ่น</li>
+                        <li>ช่วยในการวางแผนและประเมินงาน</li>
+                    </ul>
+                </div>
+                <div id="card-how" class="card bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold mb-3 text-[#E67E22]">โครงสร้างของ User Story</h3>
+                    <div class="bg-[#FFF9F2] p-4 rounded-lg border border-[#FADCB3]">
+                        <p class="font-mono text-gray-800">
+                            <span class="font-semibold">As a</span> &lt;type of user&gt;,<br>
+                            <span class="font-semibold">I want</span> &lt;to perform some task&gt;<br>
+                            <span class="font-semibold">so that</span> &lt;I can achieve some goal&gt;.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Workshop 1 -->
+        <section id="workshop1" class="mb-20 scroll-mt-24">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold">Workshop 1: เขียน User Story</h2>
+                <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">สำหรับแอปพลิเคชัน "Roomify" ระบบจองห้องประชุมออนไลน์</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg mb-12">
+                <h3 class="text-2xl font-bold mb-4">สถานการณ์สมมติ (Scenario)</h3>
+                <p class="text-gray-700">บริษัท TechForward Inc. เติบโตอย่างรวดเร็ว แต่การจองห้องประชุมผ่าน Google Calendar ที่แชร์กันสร้างปัญหามากมาย เช่น การจองซ้อน, ข้อมูลห้องไม่ชัดเจน และเสียเวลาในการหาห้องว่าง บริษัทจึงต้องการพัฒนาระบบ "Roomify" เพื่อแก้ปัญหาเหล่านี้</p>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-center">สำรวจผู้ใช้ (Personas)</h3>
+                <div class="flex justify-center mb-8 border-b">
+                    <button class="persona-tab px-6 py-3 font-semibold text-lg active" data-persona="mesa">คุณเมษา (PM)</button>
+                    <button class="persona-tab px-6 py-3 font-semibold text-lg" data-persona="win">คุณวิน (Dev)</button>
+                    <button class="persona-tab px-6 py-3 font-semibold text-lg" data-persona="joy">คุณจอย (Admin)</button>
+                </div>
+                <div id="persona-content" class="bg-white/50 p-6 rounded-lg">
+                    <!-- Persona content will be injected here -->
+                </div>
+            </div>
+
+            <div class="mt-16">
+                 <h3 class="text-2xl font-bold mb-4 text-center">ตัวอย่าง User Stories</h3>
+                 <div class="flex justify-center mb-8 gap-2">
+                     <button class="story-filter-btn bg-gray-200 px-4 py-2 rounded-full font-semibold" data-filter="all">ทั้งหมด</button>
+                     <button class="story-filter-btn bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-semibold" data-filter="mesa">เมษา</button>
+                     <button class="story-filter-btn bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold" data-filter="win">วิน</button>
+                     <button class="story-filter-btn bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-semibold" data-filter="joy">จอย</button>
+                 </div>
+                 
+                 <div class="space-y-10">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 border-b pb-2">Epic: การค้นหาและจองห้องประชุม</h4>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 story-container">
+                             <div class="story-card bg-yellow-100 p-4 rounded-lg shadow" data-persona="mesa">
+                                <strong>ในฐานะที่เป็น</strong> เมษา (ผู้จัดการโครงการ), <strong>ฉันต้องการ</strong> ค้นหาห้องประชุมโดยระบุวันที่, เวลา, จำนวนผู้เข้าร่วม และอุปกรณ์ <strong>เพื่อที่จะ</strong> ได้ห้องที่เหมาะสมกับการประชุมลูกค้าอย่างรวดเร็ว
+                             </div>
+                             <div class="story-card bg-yellow-100 p-4 rounded-lg shadow" data-persona="win">
+                                <strong>ในฐานะที่เป็น</strong> วิน (พนักงาน), <strong>ฉันต้องการ</strong> ดูสถานะห้องประชุมทั้งหมดแบบ Real-time บนแผนผังออฟฟิศ <strong>เพื่อที่จะ</strong> เห็นว่าห้องไหนว่างและเดินไปใช้ได้ทันที
+                             </div>
+                             <div class="story-card bg-yellow-100 p-4 rounded-lg shadow" data-persona="mesa">
+                                <strong>ในฐานะที่เป็น</strong> เมษา (ผู้จัดการโครงการ), <strong>ฉันต้องการ</strong> จองห้องประชุมล่วงหน้าและตั้งค่าการจองซ้ำ (Recurring) <strong>เพื่อที่จะ</strong> ไม่ต้องเสียเวลาจองใหม่ทุกครั้ง
+                             </div>
+                             <div class="story-card bg-yellow-100 p-4 rounded-lg shadow" data-persona="win">
+                                <strong>ในฐานะที่เป็น</strong> วิน (พนักงาน), <strong>ฉันต้องการ</strong> ยกเลิกการจองของตัวเองได้อย่างง่ายดายผ่านมือถือ <strong>เพื่อที่จะ</strong> ทำให้ห้องว่างสำหรับคนอื่นได้ใช้ต่อ
+                             </div>
+                             <div class="story-card bg-yellow-100 p-4 rounded-lg shadow" data-persona="all">
+                                <strong>ในฐานะที่เป็น</strong> ผู้ใช้งานทุกคน, <strong>ฉันต้องการ</strong> ได้รับอีเมลยืนยันการจองทันทีพร้อมไฟล์ Calendar (.ics) <strong>เพื่อที่จะ</strong> ไม่ลืมการประชุม
+                             </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xl font-bold mb-4 border-b pb-2">Epic: การจัดการระบบ</h4>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 story-container">
+                             <div class="story-card bg-pink-100 p-4 rounded-lg shadow" data-persona="joy">
+                                <strong>ในฐานะที่เป็น</strong> จอย (ผู้ดูแลระบบ), <strong>ฉันต้องการ</strong> หน้าแดชบอร์ดสำหรับเพิ่ม/แก้ไข/ลบข้อมูลห้องประชุม <strong>เพื่อที่จะ</strong> ให้ข้อมูลในระบบเป็นปัจจุบันเสมอ
+                             </div>
+                              <div class="story-card bg-pink-100 p-4 rounded-lg shadow" data-persona="joy">
+                                <strong>ในฐานะที่เป็น</strong> จอย (ผู้ดูแลระบบ), <strong>ฉันต้องการ</strong> ดูรายงานสรุปการใช้งานห้องประชุมรายเดือน <strong>เพื่อที่จะ</strong> นำข้อมูลไปวิเคราะห์และวางแผนทรัพยากร
+                             </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+
+        </section>
+
+        <!-- Section 3: Workshop 2 -->
+        <section id="workshop2" class="scroll-mt-24">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold">Workshop 2: Story Mapping</h2>
+                <p class="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">สำหรับแอปพลิเคชัน "YummyDash" แอปฯ สั่งอาหารออนไลน์</p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-xl shadow-lg mb-12">
+                <h3 class="text-2xl font-bold mb-4">สถานการณ์สมมติ (Scenario)</h3>
+                <p class="text-gray-700">เรากำลังจะสร้าง "YummyDash" เวอร์ชันแรก (MVP) เพื่อเปิดตัวในย่านธุรกิจใจกลางเมือง กลุ่มเป้าหมายหลักคือคนทำงานออฟฟิศที่ไม่มีเวลาพัก (คุณนัท) และนักศึกษาที่มองหาความคุ้มค่า (คุณฟ้า) เราต้องการสร้างประสบการณ์ที่ราบรื่นตั้งแต่การค้นหาร้านไปจนถึงอาหารมาส่ง</p>
+            </div>
+
+            <div class="story-map">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-2xl font-bold">YummyDash Story Map</h3>
+                    <div class="flex items-center">
+                        <label for="mvp-toggle" class="mr-3 font-semibold text-gray-700">Focus on MVP</label>
+                        <input type="checkbox" id="mvp-toggle" class="h-6 w-12 rounded-full appearance-none bg-gray-300 checked:bg-green-500 transition-colors cursor-pointer relative">
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto pb-6">
+                    <div class="grid grid-cols-6 gap-4 min-w-[1200px]">
+                        <!-- Backbone -->
+                        <div class="bg-[#34495E] text-white p-4 rounded-t-lg font-bold text-center">ลงทะเบียน/เข้าสู่ระบบ</div>
+                        <div class="bg-[#34495E] text-white p-4 rounded-t-lg font-bold text-center">ค้นหาร้านอาหาร</div>
+                        <div class="bg-[#34495E] text-white p-4 rounded-t-lg font-bold text-center">เลือกเมนู/ใส่ตะกร้า</div>
+                        <div class="bg-[#34495E] text-white p-4 rounded-t-lg font-bold text-center">ชำระเงิน</div>
+                        <div class="bg-[#34495E] text-white p-4 rounded-t-lg font-bold text-center">ติดตามสถานะ</div>
+                        <div class="bg-[#34495E] text-white p-4 rounded-t-lg font-bold text-center">หลังได้รับอาหาร</div>
+                        
+                        <!-- Release 1: MVP -->
+                        <div class="col-span-6 font-bold text-lg text-green-700 my-2 border-b-2 border-green-500 border-dashed">Release 1 (MVP)</div>
+                        <div class="story-map-card release-1 bg-white border-l-4 border-gray-300 p-3 rounded shadow">ลงทะเบียนด้วยอีเมล</div>
+                        <div class="story-map-card release-1 bg-white border-l-4 border-gray-300 p-3 rounded shadow">ค้นหาร้านจากชื่อ</div>
+                        <div class="story-map-card release-1 bg-white border-l-4 border-gray-300 p-3 rounded shadow">ดูเมนูพร้อมราคา</div>
+                        <div class="story-map-card release-1 bg-white border-l-4 border-gray-300 p-3 rounded shadow">ระบุที่อยู่จัดส่ง</div>
+                        <div class="story-map-card release-1 bg-white border-l-4 border-gray-300 p-3 rounded shadow">เห็นสถานะออเดอร์</div>
+                        <div class="story-map-card release-1 bg-white border-l-4 border-gray-300 p-3 rounded shadow">ให้คะแนนดาวร้านอาหาร</div>
+                        
+                        <div class="story-map-card release-1 bg-white border-l-4 border-gray-300 p-3 rounded shadow">เข้าสู่ระบบด้วยอีเมล</div>
+                        <div class="story-map-card release-1 bg-white border-l-4 border-gray-300 p-3 rounded shadow">ดูรายชื่อร้านอาหารทั้งหมด</div>
+                        <div class="story-map-card release-1 bg-white border-l-4 border-gray-300 p-3 rounded shadow">เพิ่ม/ลดจำนวนในตะกร้า</div>
+                        <div class="story-map-card release-1 bg-white border-l-4 border-gray-300 p-3 rounded shadow">ชำระด้วยบัตรเครดิต</div>
+                        <div class="story-map-card release-1 bg-white border-l-4 border-gray-300 p-3 rounded shadow">รับ Push Notification</div>
+                        <div></div>
+
+                        <div class="story-map-card release-1 bg-white border-l-4 border-gray-300 p-3 rounded shadow"></div>
+                        <div class="story-map-card release-1 bg-white border-l-4 border-gray-300 p-3 rounded shadow">กรองตามประเภทอาหาร</div>
+                        <div class="story-map-card release-1 bg-white border-l-4 border-gray-300 p-3 rounded shadow">ระบุรายละเอียดเพิ่มเติม</div>
+                        <div class="story-map-card release-1 bg-white border-l-4 border-gray-300 p-3 rounded shadow">ชำระด้วย QR PromptPay</div>
+                        <div></div>
+                        <div></div>
+
+                        <!-- Release 2 -->
+                        <div class="col-span-6 font-bold text-lg text-blue-700 my-2 mt-6 border-b-2 border-blue-500 border-dashed">Release 2</div>
+                        <div class="story-map-card release-2 bg-white border-l-4 border-gray-300 p-3 rounded shadow">เข้าสู่ระบบผ่าน Facebook/Google</div>
+                        <div class="story-map-card release-2 bg-white border-l-4 border-gray-300 p-3 rounded shadow">กรองตามโปรโมชัน</div>
+                        <div class="story-map-card release-2 bg-white border-l-4 border-gray-300 p-3 rounded shadow">บันทึกเมนูโปรด</div>
+                        <div class="story-map-card release-2 bg-white border-l-4 border-gray-300 p-3 rounded shadow">บันทึกบัตรเครดิต</div>
+                        <div class="story-map-card release-2 bg-white border-l-4 border-gray-300 p-3 rounded shadow">ดูตำแหน่งไรเดอร์</div>
+                        <div class="story-map-card release-2 bg-white border-l-4 border-gray-300 p-3 rounded shadow">เขียนรีวิว/อัปโหลดรูป</div>
+                        
+                        <div class="story-map-card release-2 bg-white border-l-4 border-gray-300 p-3 rounded shadow">รีเซ็ตรหัสผ่าน</div>
+                        <div class="story-map-card release-2 bg-white border-l-4 border-gray-300 p-3 rounded shadow">เรียงลำดับร้าน</div>
+                        <div></div>
+                        <div class="story-map-card release-2 bg-white border-l-4 border-gray-300 p-3 rounded shadow">ใช้โค้ดส่วนลด</div>
+                        <div class="story-map-card release-2 bg-white border-l-4 border-gray-300 p-3 rounded shadow">แชทกับไรเดอร์</div>
+                        <div class="story-map-card release-2 bg-white border-l-4 border-gray-300 p-3 rounded shadow">ดูประวัติการสั่งซื้อ</div>
+                        
+
+                        <!-- Release 3 -->
+                        <div class="col-span-6 font-bold text-lg text-purple-700 my-2 mt-6 border-b-2 border-purple-500 border-dashed">Release 3</div>
+                         <div></div>
+                        <div class="story-map-card release-3 bg-white border-l-4 border-gray-300 p-3 rounded shadow">ตั้งเวลาสั่งล่วงหน้า</div>
+                        <div class="story-map-card release-3 bg-white border-l-4 border-gray-300 p-3 rounded shadow">สร้าง Group Order</div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-20">
+        <div class="container mx-auto px-6 py-4 text-center">
+            <p>&copy; 2025 Interactive Agile Workshop for Software Engineers.</p>
+        </div>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Persona Data
+    const personas = {
+        mesa: {
+            name: 'คุณเมษา (Project Manager)',
+            content: `
+                <p class="mb-2"><strong>👤 บทบาท:</strong> จัดการหลายโครงการพร้อมกัน ตารางงานแน่นมาก ต้องการความรวดเร็วและประสิทธิภาพในการนัดหมายทีม</p>
+                <p class="mb-2"><strong>🎯 เป้าหมาย:</strong> หาห้องประชุมสำหรับ 10-15 คนที่มีอุปกรณ์ครบ (โปรเจคเตอร์, Video Conference) และสามารถส่งคำเชิญให้สมาชิกในทีมได้ทันที</p>
+                <p class="mb-0"><strong>😠 ความคับข้องใจ:</strong> "ฉันเบื่อที่ต้องเปิดปฏิทิน 5 อันพร้อมกันเพื่อหาเวลาว่าง การจองซ้ำทำให้ฉันดูไม่เป็นมืออาชีพต่อหน้าลูกค้า"</p>`
+        },
+        win: {
+            name: 'คุณวิน (Software Developer)',
+            content: `
+                <p class="mb-2"><strong>👤 บทบาท:</strong> เป็นสมาชิกในทีมพัฒนา ต้องการห้องประชุมขนาดเล็ก (2-4 คน) สำหรับคุยงานด่วน หรือ Brainstorm</p>
+                <p class="mb-2"><strong>🎯 เป้าหมาย:</strong> ต้องการเห็นภาพรวมว่าห้องไหนว่างในอีก 1-2 ชั่วโมงข้างหน้า และสามารถจองได้อย่างรวดเร็วผ่านมือถือ</p>
+                <p class="mb-0"><strong>😠 ความคับข้องใจ:</strong> "การหาห้องเล็กๆ ว่างๆ ยากมาก บางทีเดินไปถึงหน้าห้องแล้วพบว่ามีคนใช้อยู่ทั้งที่ในปฏิทินบอกว่าว่าง"</p>`
+        },
+        joy: {
+            name: 'คุณจอย (Office Administrator)',
+            content: `
+                <p class="mb-2"><strong>👤 บทบาท:</strong> ดูแลความเรียบร้อยของสำนักงานทั้งหมด รวมถึงการจัดการทรัพยากรห้องประชุม</p>
+                <p class="mb-2"><strong>🎯 เป้าหมาย:</strong> ต้องการระบบที่สามารถกำหนดสิทธิ์, เพิ่ม/ลบ/แก้ไขข้อมูลห้องประชุมได้ และดูรายงานสรุปการใช้งานเพื่อวางแผนในอนาคต</p>
+                <p class="mb-0"><strong>😠 ความคับข้องใจ:</strong> "ต้องคอยตอบคำถามและแก้ปัญหาการจองห้องซ้ำซ้อนให้พนักงานตลอดทั้งวัน ไม่มีข้อมูลกลางสำหรับจัดการอุปกรณ์เลย"</p>`
+        }
+    };
+
+    const personaTabs = document.querySelectorAll('.persona-tab');
+    const personaContent = document.getElementById('persona-content');
+
+    function updatePersonaContent(personaKey) {
+        personaContent.innerHTML = `
+            <h4 class="text-xl font-bold mb-4">${personas[personaKey].name}</h4>
+            ${personas[personaKey].content}
+        `;
+    }
+
+    personaTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            personaTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            updatePersonaContent(tab.dataset.persona);
+        });
+    });
+
+    // Initial load for persona
+    updatePersonaContent('mesa');
+
+    // User Story Filtering
+    const filterButtons = document.querySelectorAll('.story-filter-btn');
+    const storyCards = document.querySelectorAll('.story-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+            
+            storyCards.forEach(card => {
+                if (filter === 'all' || card.dataset.persona === filter || card.dataset.persona === 'all') {
+                    card.classList.remove('filtered-out');
+                } else {
+                    card.classList.add('filtered-out');
+                }
+            });
+        });
+    });
+    
+    // Story Map MVP Toggle
+    const mvpToggle = document.getElementById('mvp-toggle');
+    const storyMapContainer = document.querySelector('.story-map');
+    mvpToggle.addEventListener('change', () => {
+        storyMapContainer.classList.toggle('focus-mvp', mvpToggle.checked);
+    });
+
+    // Smooth scrolling for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 120) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>
