@@ -1,379 +1,309 @@
-# Software Requirements Specification (SRS)
-## MeetingRoom Lite - ระบบจองห้องประชุมพื้นฐาน
+# เอกสารข้อกำหนดความต้องการซอฟต์แวร์ (Software Requirements Specification) สำหรับระบบจองห้องประชุม MeetingRoom Lite
 
-**Version:** 1.0  
-**Date:** March 2024  
-**Duration:** 1 Month Project  
-**Target:** Software Engineering Students Year 2  
+**เวอร์ชัน:** 1.1
+**วันที่:** 1 สิงหาคม 2568
+**สถานะ:** ฉบับสมบูรณ์
 
 ---
 
-## Executive Summary
+## สารบัญ
 
-MeetingRoom Lite เป็นระบบจองห้องประชุมแบบ Web Application พื้นฐาน ออกแบบมาเพื่อให้นักศึกษาชั้นปีที่ 2 สามารถพัฒนาได้จริงภายใน 1 เดือน โดยใช้ **React.js + Node.js + Express + PostgreSQL** 
+1.  **บทนำ (Introduction)**
+    1.1  วัตถุประสงค์ (Purpose)
+    1.2  ขอบเขตของระบบ (Scope)
+    1.3  คำนิยามและคำย่อ (Definitions, Acronyms, and Abbreviations)
+    1.4  เอกสารอ้างอิง (References)
+    1.5  ภาพรวมของเอกสาร (Overview)
 
-**Key Features ที่ทำได้จริง:**
-- ✅ Login/Register แบบพื้นฐาน
-- ✅ ดูห้องว่าง และจองห้อง
-- ✅ ดูการจองของตนเอง
-- ✅ ยกเลิกการจอง
-- ✅ Admin จัดการห้อง (CRUD)
+2.  **คำอธิบายโดยรวม (Overall Description)**
+    2.1  มุมมองของผลิตภัณฑ์ (Product Perspective)
+    2.2  ฟังก์ชันการทำงานของผลิตภัณฑ์ (Product Functions)
+    2.3  ลักษณะของผู้ใช้งาน (User Characteristics)
+    2.4  ข้อจำกัดของระบบ (Constraints)
+    2.5  ข้อสมมติฐานและสิ่งที่ต้องพึ่งพิง (Assumptions and Dependencies)
 
----
+3.  **ข้อกำหนดเฉพาะ (Specific Requirements)**
+    3.1  ข้อกำหนดด้านฟังก์ชันการทำงาน (Functional Requirements)
+    3.2  ข้อกำหนดที่ไม่ใช่ฟังก์ชันการทำงาน (Non-Functional Requirements)
+    3.3  ข้อกำหนดด้านการเชื่อมต่อภายนอก (External Interface Requirements)
+    3.4  ข้อกำหนดด้านฐานข้อมูล (Database Requirements)
 
-## Table of Contents
-
-1. [Introduction](#1-introduction)
-2. [System Overview](#2-system-overview)
-3. [Functional Requirements (5 Core Features)](#3-functional-requirements)
-4. [Technical Requirements](#4-technical-requirements)
-5. [Database Design](#5-database-design)
-6. [API Endpoints](#6-api-endpoints)
-7. [UI/UX Design](#7-uiux-design)
-8. [Development Plan (4 Weeks)](#8-development-plan)
-9. [Testing Guide](#9-testing-guide)
-10. [Learning Resources](#10-learning-resources)
-
----
-
-## 1. Introduction
-
-### 1.1 Purpose
-เอกสารนี้เป็น SRS แบบย่อ (Simplified SRS) ที่ออกแบบมาเพื่อ:
-- ให้นักศึกษาเข้าใจ requirement gathering
-- ฝึกการวางแผนโปรเจค
-- เรียนรู้ full-stack development
-- ทำโปรเจคจบได้ใน 1 เดือน
-
-### 1.2 Scope (ขอบเขตที่ทำได้จริง)
-
-**✅ สิ่งที่จะทำ (In Scope):**
-1. **User System** - Register, Login, Logout
-2. **Room Booking** - ดูห้องว่าง, จองห้อง, ยกเลิก
-3. **Admin Panel** - เพิ่ม/แก้ไข/ลบห้อง
-4. **Simple Dashboard** - สรุปการจอง
-5. **Responsive Design** - ใช้ได้ทั้ง desktop/mobile
-
-**❌ สิ่งที่ไม่ทำ (Out of Scope):**
-- Email notifications (ซับซ้อนเกินไป)
-- Calendar integration
-- Recurring bookings
-- Advanced reporting
-- Multiple languages
-
-### 1.3 Definitions
-
-| Term | คำอธิบาย |
-|------|----------|
-| User | ผู้ใช้ทั่วไปที่จองห้อง |
-| Admin | ผู้ดูแลระบบที่จัดการห้อง |
-| Booking | การจองห้องในช่วงเวลาหนึ่ง |
-| Room | ห้องประชุมที่จองได้ |
-| Conflict | การจองที่ซ้อนเวลากัน |
+4.  **ภาคผนวก (Appendices)**
+    A.  แผนการพัฒนา (Development Plan)
+    B.  แนวทางการทดสอบ (Testing Guide)
 
 ---
 
-## 2. System Overview
+## 1. บทนำ (Introduction)
 
-### 2.1 System Architecture (แบบง่าย)
+### 1.1 วัตถุประสงค์ (Purpose)
+เอกสารฉบับนี้จัดทำขึ้นเพื่อกำหนดและอธิบายข้อกำหนดความต้องการทั้งหมดสำหรับซอฟต์แวร์ระบบจองห้องประชุมพื้นฐาน "MeetingRoom Lite" โดยมีเป้าหมายเพื่อให้ทีมพัฒนา, ผู้มีส่วนได้ส่วนเสีย (Stakeholders), และผู้ใช้งาน มีความเข้าใจที่ตรงกันเกี่ยวกับฟังก์ชันการทำงาน, ขีดความสามารถ, และข้อจำกัดของระบบที่จะถูกพัฒนาขึ้น
 
+### 1.2 ขอบเขตของระบบ (Scope)
+MeetingRoom Lite เป็นเว็บแอปพลิเคชันสำหรับบริหารจัดการการจองห้องประชุมภายในองค์กรขนาดเล็กหรือสำหรับโครงการของนักศึกษา โดยมุ่งเน้นที่ฟังก์ชันหลักที่จำเป็นต่อการใช้งานจริง
+
+**สิ่งที่อยู่ในขอบเขต (In Scope):**
+* **ระบบผู้ใช้งาน:** การลงทะเบียน, การเข้าสู่ระบบ, การออกจากระบบ และการจัดการข้อมูลส่วนตัวเบื้องต้น
+* **ระบบการจอง:** การดูรายการห้องประชุมและสถานะความว่าง, การสร้างการจอง, การดูรายการจองของตนเอง, และการยกเลิกการจอง
+* **ระบบจัดการสำหรับผู้ดูแล:** การเพิ่ม, แก้ไข, และลบข้อมูลห้องประชุม (CRUD Operations)
+* **การออกแบบที่รองรับทุกหน้าจอ (Responsive Design):** สามารถใช้งานได้ดีทั้งบนคอมพิวเตอร์เดสก์ท็อปและอุปกรณ์พกพา
+
+**สิ่งที่ไม่อยู่ในขอบเขต (Out of Scope):**
+* การแจ้งเตือนผ่านอีเมล (Email notifications)
+* การเชื่อมต่อกับปฏิทินภายนอก (Calendar integration)
+* การจองแบบเกิดซ้ำ (Recurring bookings)
+* ระบบรายงานขั้นสูง (Advanced reporting)
+* การรองรับหลายภาษา (Multiple languages)
+
+### 1.3 คำนิยามและคำย่อ (Definitions, Acronyms, and Abbreviations)
+
+| คำศัพท์/คำย่อ | คำอธิบาย |
+| :--- | :--- |
+| **SRS** | Software Requirements Specification (เอกสารข้อกำหนดความต้องการซอฟต์แวร์) |
+| **ผู้ใช้ (User)** | ผู้ใช้งานทั่วไปที่สามารถจองห้องประชุมได้ |
+| **ผู้ดูแลระบบ (Admin)** | ผู้ใช้ที่มีสิทธิ์ในการจัดการข้อมูลห้องประชุม |
+| **การจอง (Booking)** | การจองห้องประชุมสำหรับช่วงเวลาที่กำหนด |
+| **ห้อง (Room)** | ห้องประชุมที่สามารถถูกจองได้ |
+| **CRUD** | Create, Read, Update, Delete (การสร้าง, อ่าน, แก้ไข, ลบข้อมูล) |
+| **JWT** | JSON Web Token (โทเค็นสำหรับยืนยันตัวตน) |
+| **API** | Application Programming Interface (ช่องทางการสื่อสารระหว่าง Frontend และ Backend) |
+
+### 1.4 เอกสารอ้างอิง (References)
+* IEEE Std 830-1998, *IEEE Recommended Practice for Software Requirements Specifications*
+
+### 1.5 ภาพรวมของเอกสาร (Overview)
+เอกสารนี้แบ่งออกเป็น 3 ส่วนหลัก:
+* **บทที่ 1 (Introduction):** อธิบายภาพรวม, วัตถุประสงค์, และขอบเขตของโครงการ
+* **บทที่ 2 (Overall Description):** อธิบายภาพรวมของผลิตภัณฑ์, ผู้ใช้งาน, และข้อจำกัดต่างๆ
+* **บทที่ 3 (Specific Requirements):** ลงรายละเอียดข้อกำหนดทั้งหมด ทั้งในด้านฟังก์ชัน, ประสิทธิภาพ, การออกแบบ, และฐานข้อมูล ซึ่งเป็นหัวใจหลักของเอกสารนี้
+
+---
+
+## 2. คำอธิบายโดยรวม (Overall Description)
+
+### 2.1 มุมมองของผลิตภัณฑ์ (Product Perspective)
+MeetingRoom Lite เป็นระบบเดี่ยว (Standalone) ที่ทำงานบนเว็บเบราว์เซอร์ ประกอบด้วย 3 ส่วนหลัก:
+1.  **Frontend:** ส่วนติดต่อผู้ใช้ที่พัฒนาด้วย React.js รับผิดชอบการแสดงผลและรับข้อมูลจากผู้ใช้
+2.  **Backend:** ส่วนประมวลผลและตรรกะทางธุรกิจ พัฒนาด้วย Node.js และ Express.js ทำหน้าที่เป็น API Server
+3.  **Database:** ส่วนจัดเก็บข้อมูล ใช้ PostgreSQL ในการจัดเก็บข้อมูลผู้ใช้, ห้องประชุม, และการจอง
+
+**แผนภาพสถาปัตยกรรมระบบ (System Architecture):**
 ```
 ┌─────────────────────────────────────┐
 │      Frontend (React.js)            │
-│  - Components: Login, Booking, etc. │
-│  - State: useState, useEffect       │
-│  - Routing: React Router           │
-│  - UI: Bootstrap or Material-UI    │
+│  - UI Components, State Management  │
+│  - User Interaction, API Calls      │
 └──────────────┬──────────────────────┘
-               │ HTTP/JSON
+               │ (HTTP Request/Response via JSON)
                ▼
 ┌─────────────────────────────────────┐
 │      Backend (Node.js + Express)    │
-│  - Routes: /api/auth, /api/rooms    │
-│  - Middleware: Auth, Validation     │
-│  - Controllers: Business Logic      │
+│  - API Endpoints (/api/...)         │
+│  - Business Logic, Authentication   │
 └──────────────┬──────────────────────┘
-               │ SQL
+               │ (SQL Queries)
                ▼
 ┌─────────────────────────────────────┐
 │      Database (PostgreSQL)          │
-│  - Tables: users, rooms, bookings   │
-│  - Simple schema, no complex joins  │
+│  - Data Storage (users, rooms, ...) │
+│  - Data Integrity and Relations    │
 └─────────────────────────────────────┘
 ```
 
-### 2.2 Technology Stack
+### 2.2 ฟังก์ชันการทำงานของผลิตภัณฑ์ (Product Functions)
+สรุปฟังก์ชันหลักของระบบมีดังนี้:
+* **การยืนยันตัวตน (Authentication):** ผู้ใช้สามารถสร้างบัญชีและเข้าสู่ระบบเพื่อใช้งาน
+* **การค้นหาและดูข้อมูลห้อง:** ผู้ใช้สามารถดูรายการห้องทั้งหมดและกรองตามวัน/เวลาเพื่อตรวจสอบสถานะความว่าง
+* **การจัดการการจอง:** ผู้ใช้สามารถจองห้อง, ดูประวัติการจองของตนเอง, และยกเลิกการจองในอนาคตได้
+* **การจัดการห้อง (สำหรับ Admin):** ผู้ดูแลระบบสามารถเพิ่ม, แก้ไข, หรือลบห้องประชุมออกจากระบบได้
 
-**Frontend:**
-- React.js 18.x (with hooks)
-- React Router 6.x
-- Axios for API calls
-- Bootstrap 5 หรือ Material-UI
-- Day.js for date handling
+### 2.3 ลักษณะของผู้ใช้งาน (User Characteristics)
 
-**Backend:**
-- Node.js 18.x
-- Express.js 4.x
-- JWT for authentication
-- bcrypt for passwords
-- express-validator
+| ประเภทผู้ใช้ | คำอธิบาย | ทักษะที่ต้องการ |
+| :--- | :--- | :--- |
+| **ผู้ใช้ทั่วไป (User)** | พนักงานหรือบุคคลทั่วไปที่ต้องการจองห้องประชุม มีเป้าหมายเพื่อค้นหาห้องว่างและทำการจองให้สำเร็จ | มีความคุ้นเคยกับการใช้งานเว็บแอปพลิเคชันพื้นฐาน |
+| **ผู้ดูแลระบบ (Admin)** | เจ้าหน้าที่ IT หรือผู้รับผิดชอบการจัดการห้องประชุม มีหน้าที่ดูแลข้อมูลห้องประชุมให้เป็นปัจจุบัน | มีความเข้าใจในระบบจัดการข้อมูล สามารถเพิ่ม/ลบ/แก้ไขข้อมูลได้ |
 
-**Database:**
-- PostgreSQL 14.x
-- pg (node-postgres) driver
+### 2.4 ข้อจำกัดของระบบ (Constraints)
+* **ข้อจำกัดด้านเทคโนโลยี:** ระบบจะต้องถูกพัฒนาโดยใช้ Technology Stack ที่กำหนดไว้เท่านั้น:
+    * **Frontend:** React.js, React Router, Axios, Bootstrap 5 (หรือ Material-UI)
+    * **Backend:** Node.js, Express.js, JWT, bcrypt
+    * **Database:** PostgreSQL
+* **ข้อจำกัดด้านเวลา:** โครงการมีระยะเวลาในการพัฒนา 1 เดือน
+* **ข้อจำกัดด้านความปลอดภัย:** รหัสผ่านต้องถูกเข้ารหัสด้วย bcrypt ก่อนจัดเก็บลงฐานข้อมูล
+* **ข้อจำกัดด้านฮาร์ดแวร์:** ระบบถูกออกแบบมาเพื่อทำงานบนเว็บเซิร์ฟเวอร์มาตรฐาน ไม่ต้องการฮาร์ดแวร์พิเศษ
 
-**Development Tools:**
-- VS Code
-- Postman (API testing)
-- Git & GitHub
-- npm or yarn
-
----
-
-## 3. Functional Requirements
-
-### FR-01: User Registration ✅
-
-**Description:** ผู้ใช้สามารถสมัครสมาชิกด้วย email
-
-**User Story:**
-```
-As a new user
-I want to register an account
-So that I can book meeting rooms
-```
-
-**Acceptance Criteria:**
-1. หน้า register มี form: email, password, name
-2. Validate email format
-3. Password ต้องมีอย่างน้อย 6 ตัวอักษร
-4. ไม่อนุญาต email ซ้ำ
-5. หลัง register สำเร็จ ไปหน้า login
-
-**Technical Details:**
-```javascript
-// API Endpoint
-POST /api/auth/register
-Body: {
-  email: "student@email.com",
-  password: "123456",
-  name: "Student Name"
-}
-
-// Response
-{
-  success: true,
-  message: "Registration successful"
-}
-```
+### 2.5 ข้อสมมติฐานและสิ่งที่ต้องพึ่งพิง (Assumptions and Dependencies)
+* ผู้ใช้งานมีเว็บเบราว์เซอร์เวอร์ชันล่าสุด (เช่น Chrome, Firefox, Safari) และสามารถเชื่อมต่ออินเทอร์เน็ตได้
+* ระบบจะถูกติดตั้งบนสภาพแวดล้อม (Environment) ที่รองรับ Node.js และ PostgreSQL
+* API ของระบบจะสามารถเข้าถึงได้จากฝั่ง Frontend โดยไม่มีข้อจำกัดด้าน CORS (Cross-Origin Resource Sharing)
 
 ---
 
-### FR-02: User Login/Logout ✅
+## 3. ข้อกำหนดเฉพาะ (Specific Requirements)
 
-**Description:** ผู้ใช้ login ด้วย email/password
+### 3.1 ข้อกำหนดด้านฟังก์ชันการทำงาน (Functional Requirements)
 
-**User Story:**
-```
-As a registered user
-I want to login to the system
-So that I can access booking features
-```
+#### FR-01: การลงทะเบียนผู้ใช้ (User Registration)
+* **คำอธิบาย:** ผู้ใช้ใหม่สามารถสร้างบัญชีเพื่อเข้าใช้งานระบบได้
+* **User Story:** ในฐานะผู้ใช้ใหม่ ฉันต้องการสมัครสมาชิก เพื่อที่จะสามารถจองห้องประชุมได้
+* **เงื่อนไขเบื้องต้น (Pre-conditions):** ผู้ใช้ยังไม่ได้เข้าสู่ระบบ
+* **ลำดับการทำงาน (Flow of Events):**
+    1.  ผู้ใช้เข้าสู่หน้าลงทะเบียน
+    2.  ผู้ใช้กรอกข้อมูล: ชื่อ-สกุล, อีเมล, และรหัสผ่าน
+    3.  ระบบตรวจสอบความถูกต้องของข้อมูล (อีเมลไม่ซ้ำ, รหัสผ่านตรงตามเงื่อนไข)
+    4.  ผู้ใช้กดปุ่ม "ลงทะเบียน"
+    5.  ระบบทำการบันทึกข้อมูลผู้ใช้ใหม่ลงในฐานข้อมูล
+* **เงื่อนไขสิ้นสุด (Post-conditions):**
+    1.  บัญชีผู้ใช้ใหม่ถูกสร้างขึ้นในระบบ
+    2.  ระบบนำผู้ใช้ไปยังหน้าเข้าสู่ระบบ
+* **เกณฑ์การยอมรับ (Acceptance Criteria):**
+    * ต้องมีฟอร์มสำหรับกรอก ชื่อ-สกุล, อีเมล, และรหัสผ่าน
+    * ต้องมีการตรวจสอบรูปแบบอีเมล (Email Format Validation)
+    * รหัสผ่านต้องมีความยาวอย่างน้อย 6 ตัวอักษร
+    * ระบบต้องไม่อนุญาตให้ใช้อีเมลที่ซ้ำกับที่มีอยู่แล้วในระบบ
+    * เมื่อลงทะเบียนสำเร็จ ต้องแสดงข้อความแจ้งเตือนและนำทางไปยังหน้า Login
 
-**Acceptance Criteria:**
-1. หน้า login มี email, password fields
-2. เก็บ JWT token ใน localStorage
-3. Redirect ไป dashboard หลัง login
-4. มีปุ่ม logout ที่ navbar
-5. Token expire ใน 24 ชั่วโมง
+#### FR-02: การเข้าสู่ระบบ (User Login)
+* **คำอธิบาย:** ผู้ใช้ที่ลงทะเบียนแล้วสามารถเข้าสู่ระบบด้วยอีเมลและรหัสผ่าน
+* **User Story:** ในฐานะผู้ใช้ที่ลงทะเบียนแล้ว ฉันต้องการเข้าสู่ระบบ เพื่อที่จะเข้าถึงฟังก์ชันการจองได้
+* **เงื่อนไขเบื้องต้น:** ผู้ใช้มีบัญชีอยู่ในระบบแล้ว และยังไม่ได้เข้าสู่ระบบ
+* **ลำดับการทำงาน:**
+    1.  ผู้ใช้เข้าสู่หน้าเข้าสู่ระบบ
+    2.  ผู้ใช้กรอกอีเมลและรหัสผ่าน
+    3.  ผู้ใช้กดปุ่ม "เข้าสู่ระบบ"
+    4.  ระบบตรวจสอบข้อมูลกับฐานข้อมูล
+    5.  หากถูกต้อง ระบบจะสร้าง JWT Token และส่งกลับมาให้ Frontend
+* **เงื่อนไขสิ้นสุด:**
+    1.  ผู้ใช้เข้าสู่ระบบสำเร็จ
+    2.  Frontend จัดเก็บ JWT Token ไว้ใน Local Storage
+    3.  ระบบนำผู้ใช้ไปยังหน้าหลัก (Dashboard)
+* **เกณฑ์การยอมรับ:**
+    * ต้องมีฟอร์มสำหรับกรอกอีเมลและรหัสผ่าน
+    * หากข้อมูลไม่ถูกต้อง ต้องแสดงข้อความผิดพลาด
+    * เมื่อเข้าสู่ระบบสำเร็จ ต้องได้รับ JWT Token กลับมา
+    * Token ที่ได้รับต้องมีอายุการใช้งาน 24 ชั่วโมง
+    * ต้องมีปุ่ม "ออกจากระบบ" (Logout) ที่ล้าง Token ออกจาก Local Storage
 
-**Technical Details:**
-```javascript
-// Login API
-POST /api/auth/login
-Body: {
-  email: "student@email.com",
-  password: "123456"
-}
+#### FR-03: การดูห้องประชุมที่ว่าง (View Available Rooms)
+* **คำอธิบาย:** ผู้ใช้สามารถดูรายการห้องประชุมทั้งหมดและตรวจสอบสถานะความว่างตามวันและเวลาที่เลือก
+* **User Story:** ในฐานะผู้ใช้ ฉันต้องการเห็นห้องที่ว่าง เพื่อที่จะเลือกห้องที่ต้องการจองได้
+* **เงื่อนไขเบื้องต้น:** ผู้ใช้เข้าสู่ระบบแล้ว
+* **ลำดับการทำงาน:**
+    1.  ผู้ใช้เข้าสู่หน้าแสดงรายการห้องประชุม
+    2.  ผู้ใช้เลือกวันที่และช่วงเวลาที่ต้องการตรวจสอบ
+    3.  ระบบส่งคำร้องขอไปยัง API พร้อมกับวันที่และเวลา
+    4.  API ค้นหาการจองในช่วงเวลาดังกล่าวและคำนวณสถานะของแต่ละห้อง
+    5.  ระบบแสดงผลรายการห้องพร้อมสถานะ "ว่าง" หรือ "ไม่ว่าง"
+* **เงื่อนไขสิ้นสุด:** ผู้ใช้เห็นรายการห้องประชุมและสถานะล่าสุดตามตัวกรองที่เลือก
+* **เกณฑ์การยอมรับ:**
+    * ต้องแสดงรายการห้องทั้งหมดพร้อมข้อมูลสำคัญ: ชื่อห้อง, ความจุ, และชั้น
+    * ต้องมีตัวกรอง (Filter) สำหรับเลือกวันที่, เวลาเริ่มต้น, และเวลาสิ้นสุด
+    * สถานะของห้องต้องแสดงอย่างชัดเจนด้วยสี (เช่น สีเขียวสำหรับ "ว่าง", สีแดงสำหรับ "ไม่ว่าง")
 
-// Response
-{
-  success: true,
-  token: "jwt-token-here",
-  user: {
-    id: 1,
-    email: "student@email.com",
-    name: "Student Name",
-    role: "user"
-  }
-}
-```
+#### FR-04: การจองห้องประชุม (Book a Room)
+* **คำอธิบาย:** ผู้ใช้สามารถทำการจองห้องประชุมที่ว่างได้
+* **User Story:** ในฐานะผู้ใช้ ฉันต้องการจองห้องประชุม เพื่อที่จะสำรองห้องไว้สำหรับการประชุมของฉัน
+* **เงื่อนไขเบื้องต้น:** ผู้ใช้เข้าสู่ระบบแล้ว และได้เลือกห้องที่ต้องการจองซึ่งมีสถานะ "ว่าง" ในช่วงเวลาที่ต้องการ
+* **ลำดับการทำงาน:**
+    1.  ผู้ใช้กดปุ่ม "จอง" ที่ห้องที่ต้องการ
+    2.  ระบบแสดงฟอร์มการจองพร้อมข้อมูลห้อง, วันที่, และเวลาที่เลือกไว้
+    3.  ผู้ใช้กรอก "หัวข้อการประชุม"
+    4.  ผู้ใช้กดปุ่ม "ยืนยันการจอง"
+    5.  ระบบส่งข้อมูลการจองไปยัง API เพื่อตรวจสอบการจองซ้อน (Conflict) อีกครั้งและทำการบันทึก
+* **เงื่อนไขสิ้นสุด:**
+    1.  การจองใหม่ถูกบันทึกลงในฐานข้อมูล
+    2.  ระบบแสดงข้อความยืนยันการจองสำเร็จ
+* **เกณฑ์การยอมรับ:**
+    * ระบบต้องป้องกันการจองห้องในช่วงเวลาที่ถูกจองไปแล้ว (Double Booking)
+    * สามารถจองล่วงหน้าได้สูงสุด 30 วัน
+    * ระยะเวลาการจองขั้นต่ำคือ 30 นาที และสูงสุดคือ 4 ชั่วโมง
+    * ต้องระบุหัวข้อการประชุมทุกครั้งที่ทำการจอง
 
----
+#### FR-05: การจัดการการจองของตนเอง (Manage My Bookings)
+* **คำอธิบาย:** ผู้ใช้สามารถดูและยกเลิกรายการจองของตนเองได้
+* **User Story:** ในฐานะผู้ใช้ ฉันต้องการดูรายการจองของฉัน เพื่อที่จะจัดการหรือยกเลิกมันได้
+* **เงื่อนไขเบื้องต้น:** ผู้ใช้เข้าสู่ระบบแล้ว
+* **ลำดับการทำงาน:**
+    1.  ผู้ใช้ไปที่หน้า "การจองของฉัน"
+    2.  ระบบดึงข้อมูลการจองทั้งหมดของผู้ใช้คนนั้นมาแสดง
+    3.  หากผู้ใช้ต้องการยกเลิกการจองในอนาคต ให้กดปุ่ม "ยกเลิก"
+    4.  ระบบแสดงหน้าต่างยืนยันการยกเลิก
+    5.  เมื่อยืนยัน ระบบจะอัปเดตสถานะการจองในฐานข้อมูล
+* **เงื่อนไขสิ้นสุด:** ผู้ใช้เห็นรายการจองของตนเอง หรือสถานะการจองถูกเปลี่ยนเป็น "ยกเลิกแล้ว"
+* **เกณฑ์การยอมรับ:**
+    * ต้องแสดงรายการจองทั้งหมดของผู้ใช้ โดยแบ่งเป็น "การจองที่จะถึง (Upcoming)" และ "การจองที่ผ่านมา (Past)"
+    * สามารถยกเลิกได้เฉพาะการจองที่เป็น "Upcoming" เท่านั้น
+    * ไม่สามารถยกเลิกการจองได้หากเหลือเวลาน้อยกว่า 1 ชั่วโมงก่อนเวลาเริ่มประชุม
+    * ต้องมีกล่องข้อความยืนยัน (Confirmation Dialog) ก่อนทำการยกเลิกเสมอ
 
-### FR-03: View Available Rooms ✅
+#### FR-06: การจัดการห้องประชุม (Admin Room Management)
+* **คำอธิบาย:** ผู้ดูแลระบบ (Admin) สามารถจัดการข้อมูลห้องประชุมได้
+* **User Story:** ในฐานะผู้ดูแลระบบ ฉันต้องการจัดการข้อมูลห้อง เพื่อที่จะเพิ่ม, แก้ไข, หรือลบห้องประชุมได้
+* **เงื่อนไขเบื้องต้น:** ผู้ใช้ที่เข้าสู่ระบบมีบทบาท (Role) เป็น "Admin"
+* **ลำดับการทำงาน (CRUD):**
+    * **Create:** Admin กรอกข้อมูลห้องใหม่ (ชื่อ, ความจุ, ชั้น) และบันทึก
+    * **Read:** Admin เห็นรายการห้องประชุมทั้งหมดในรูปแบบตาราง
+    * **Update:** Admin เลือกแก้ไขข้อมูลของห้องที่มีอยู่
+    * **Delete:** Admin เลือกลบห้องประชุมที่ไม่มีการจองในอนาคต
+* **เงื่อนไขสิ้นสุด:** ข้อมูลห้องประชุมในฐานข้อมูลถูกปรับปรุงตามที่ Admin ดำเนินการ
+* **เกณฑ์การยอมรับ:**
+    * ต้องมีเมนู "จัดการห้อง" ที่มองเห็นได้เฉพาะ Admin
+    * ต้องมีฟังก์ชัน CRUD สำหรับข้อมูลห้องประชุมครบถ้วน
+    * ระบบต้องไม่อนุญาตให้ลบห้องที่มีการจอง (สถานะ confirmed) ในอนาคตค้างอยู่
 
-**Description:** ดูรายการห้องและสถานะ
+### 3.2 ข้อกำหนดที่ไม่ใช่ฟังก์ชันการทำงาน (Non-Functional Requirements)
 
-**User Story:**
-```
-As a user
-I want to see available rooms
-So that I can choose which room to book
-```
+| ID | ประเภท | ข้อกำหนด |
+| :--- | :--- | :--- |
+| **NFR-01** | **Performance** | หน้าเว็บต้องโหลดเสร็จสมบูรณ์ภายใน 3 วินาที |
+| **NFR-02** | **Performance** | API ต้องตอบสนอง (Response Time) ภายใน 1 วินาที ภายใต้การใช้งานปกติ |
+| **NFR-03** | **Performance** | ระบบสามารถรองรับผู้ใช้งานพร้อมกัน (Concurrent Users) ได้อย่างน้อย 50 คน |
+| **NFR-04** | **Security** | รหัสผ่านผู้ใช้ต้องถูกเข้ารหัสด้วย `bcrypt` ก่อนบันทึกลงฐานข้อมูล |
+| **NFR-05** | **Security** | การเข้าถึง API ที่ต้องมีการยืนยันตัวตน จะต้องใช้ JWT (JSON Web Token) |
+| **NFR-06** | **Security** | ต้องมีการตรวจสอบและกรองข้อมูลนำเข้า (Input Validation) ในทุก Endpoint เพื่อป้องกัน SQL Injection และ XSS |
+| **NFR-07** | **Usability** | ระบบต้องมีดีไซน์ที่รองรับทุกขนาดหน้าจอ (Responsive Design) สามารถใช้งานได้ทั้งบนเดสก์ท็อปและมือถือ |
+| **NFR-08** | **Usability** | ผู้ใช้ต้องสามารถเรียนรู้และใช้งานฟังก์ชันหลัก (จอง, ยกเลิก) ได้โดยไม่ต้องอ่านคู่มือ |
+| **NFR-09** | **Reliability** | ระบบต้องมี Uptime อย่างน้อย 99% |
+| **NFR-10** | **Compatibility** | สามารถทำงานได้บนเว็บเบราว์เซอร์สมัยใหม่ เช่น Chrome, Firefox, และ Safari เวอร์ชันล่าสุด |
 
-**Acceptance Criteria:**
-1. แสดงรายการห้องทั้งหมด
-2. แสดงข้อมูล: ชื่อห้อง, ขนาด, ชั้น
-3. กรองตามวันที่และเวลาได้
-4. แสดงสถานะ: ว่าง/ไม่ว่าง
-5. ใช้สีแยกสถานะ (เขียว/แดง)
+### 3.3 ข้อกำหนดด้านการเชื่อมต่อภายนอก (External Interface Requirements)
 
-**Technical Details:**
-```javascript
-// API Endpoint
-GET /api/rooms?date=2024-03-15&start_time=10:00&end_time=12:00
+#### 3.3.1 ส่วนติดต่อผู้ใช้ (User Interfaces)
+* **โครงสร้างหน้าหลัก:** ประกอบด้วย Navigation Bar ด้านบนสำหรับนำทาง และส่วนแสดงเนื้อหาหลักตรงกลาง
+* **การออกแบบ:** ใช้ Design System จาก Bootstrap 5 หรือ Material-UI เพื่อความสวยงามและสอดคล้องกัน
+* **โทนสี:** ใช้สีหลักเป็นสีน้ำเงิน (#0066CC) และสีรองเป็นสีเทา (#6C757D)
+* **Font:** ใช้ฟอนต์ Prompt สำหรับภาษาไทย และ Roboto สำหรับภาษาอังกฤษ
 
-// Response
-{
-  success: true,
-  rooms: [
-    {
-      id: 1,
-      name: "Meeting Room A",
-      capacity: 10,
-      floor: 3,
-      is_available: true
-    }
-  ]
-}
-```
+#### 3.3.2 ส่วนเชื่อมต่อซอฟต์แวร์ (Software Interfaces - API)
+ระบบจะสื่อสารระหว่าง Frontend และ Backend ผ่าน RESTful API โดยมี Endpoints หลักดังนี้:
 
----
+**Authentication APIs:**
+| Method | Endpoint | คำอธิบาย |
+| :--- | :--- | :--- |
+| `POST` | `/api/auth/register` | สมัครสมาชิก |
+| `POST` | `/api/auth/login` | เข้าสู่ระบบ |
+| `GET` | `/api/auth/me` | ดูข้อมูลผู้ใช้ที่ล็อกอินอยู่ |
 
-### FR-04: Book a Room ✅
+**Room APIs:**
+| Method | Endpoint | คำอธิบาย |
+| :--- | :--- | :--- |
+| `GET` | `/api/rooms` | ดูรายการห้องทั้งหมด (พร้อม filter) |
+| `POST` | `/api/rooms` | เพิ่มห้องใหม่ (Admin) |
+| `PUT` | `/api/rooms/:id` | แก้ไขข้อมูลห้อง (Admin) |
+| `DELETE` | `/api/rooms/:id` | ลบห้อง (Admin) |
 
-**Description:** จองห้องประชุม
+**Booking APIs:**
+| Method | Endpoint | คำอธิบาย |
+| :--- | :--- | :--- |
+| `POST` | `/api/bookings` | สร้างการจองใหม่ |
+| `GET` | `/api/bookings/my` | ดูการจองของตนเอง |
+| `DELETE`| `/api/bookings/:id`| ยกเลิกการจอง |
 
-**User Story:**
-```
-As a user
-I want to book a meeting room
-So that I can reserve it for my meeting
-```
+### 3.4 ข้อกำหนดด้านฐานข้อมูล (Database Requirements)
+ฐานข้อมูลจะใช้ PostgreSQL และมีตารางหลัก 3 ตารางที่มีความสัมพันธ์กันดังนี้:
 
-**Acceptance Criteria:**
-1. เลือกห้อง วันที่ เวลาเริ่ม-สิ้นสุด
-2. ใส่หัวข้อการประชุม
-3. ตรวจสอบไม่ให้จองซ้ำ
-4. จองได้ล่วงหน้าสูงสุด 30 วัน
-5. จองขั้นต่ำ 30 นาที สูงสุด 4 ชั่วโมง
-
-**Technical Details:**
-```javascript
-// API Endpoint
-POST /api/bookings
-Headers: { Authorization: "Bearer jwt-token" }
-Body: {
-  room_id: 1,
-  date: "2024-03-15",
-  start_time: "10:00",
-  end_time: "12:00",
-  title: "Team Meeting"
-}
-
-// Response
-{
-  success: true,
-  booking: {
-    id: 123,
-    room_name: "Meeting Room A",
-    date: "2024-03-15",
-    start_time: "10:00",
-    end_time: "12:00",
-    status: "confirmed"
-  }
-}
-```
-
----
-
-### FR-05: Manage My Bookings ✅
-
-**Description:** ดูและยกเลิกการจองของตนเอง
-
-**User Story:**
-```
-As a user
-I want to see my bookings
-So that I can manage or cancel them
-```
-
-**Acceptance Criteria:**
-1. แสดงรายการจองของตนเอง
-2. แยกเป็น upcoming และ past
-3. สามารถยกเลิกการจองในอนาคต
-4. ยกเลิกได้ก่อนเวลาเริ่ม 1 ชั่วโมง
-5. ยืนยันก่อนยกเลิก
-
-**Technical Details:**
-```javascript
-// Get My Bookings
-GET /api/bookings/my
-Headers: { Authorization: "Bearer jwt-token" }
-
-// Cancel Booking
-DELETE /api/bookings/:id
-Headers: { Authorization: "Bearer jwt-token" }
-```
-
----
-
-### FR-06: Admin Room Management ✅
-
-**Description:** Admin จัดการข้อมูลห้อง
-
-**User Story:**
-```
-As an admin
-I want to manage room information
-So that I can add, edit, or remove rooms
-```
-
-**Acceptance Criteria:**
-1. เฉพาะ admin เข้าถึงได้
-2. CRUD operations: Create, Read, Update, Delete
-3. ข้อมูลห้อง: ชื่อ, ขนาด, ชั้น, status
-4. ไม่ให้ลบห้องที่มีการจอง
-5. แสดงรายการห้องแบบ table
-
----
-
-## 4. Technical Requirements
-
-### 4.1 Performance Requirements
-- หน้าเว็บโหลดภายใน 3 วินาที
-- API response ภายใน 1 วินาที
-- รองรับผู้ใช้พร้อมกัน 50 คน
-
-### 4.2 Security Requirements
-- เข้ารหัส password ด้วย bcrypt
-- ใช้ JWT สำหรับ authentication
-- Validate input ทุกจุด
-- ป้องกัน SQL injection
-
-### 4.3 Compatibility
-- Chrome, Firefox, Safari ล่าสุด
-- Responsive design (mobile-friendly)
-- Node.js 16+ 
-- PostgreSQL 12+
-
----
-
-## 5. Database Design
-
-### 5.1 ER Diagram (Simplified)
-
+**ER Diagram (Simplified):**
 ```
 ┌─────────────┐      ┌─────────────┐      ┌─────────────┐
 │   users     │      │  bookings   │      │   rooms     │
@@ -381,489 +311,78 @@ So that I can add, edit, or remove rooms
 │ id (PK)     │ 1──* │ id (PK)     │ *──1 │ id (PK)     │
 │ email       │      │ user_id(FK) │      │ name        │
 │ password    │      │ room_id(FK) │      │ capacity    │
-│ name        │      │ date        │      │ floor       │
+│ name        │      │ booking_date│      │ floor       │
 │ role        │      │ start_time  │      │ is_active   │
-│ created_at  │      │ end_time    │      │ created_at  │
-└─────────────┘      │ title       │      └─────────────┘
+└─────────────┘      │ end_time    │      └─────────────┘
+                     │ title       │
                      │ status      │
-                     │ created_at  │
                      └─────────────┘
 ```
 
-### 5.2 Table Schemas
+**Table Schemas:**
 
-**users table:**
-```sql
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    name VARCHAR(100) NOT NULL,
-    role VARCHAR(20) DEFAULT 'user',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-
-**rooms table:**
-```sql
-CREATE TABLE rooms (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    capacity INTEGER NOT NULL,
-    floor INTEGER,
-    is_active BOOLEAN DEFAULT true,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-
-**bookings table:**
-```sql
-CREATE TABLE bookings (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES users(id),
-    room_id INTEGER REFERENCES rooms(id),
-    booking_date DATE NOT NULL,
-    start_time TIME NOT NULL,
-    end_time TIME NOT NULL,
-    title VARCHAR(255) NOT NULL,
-    status VARCHAR(20) DEFAULT 'confirmed',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Index for faster queries
-CREATE INDEX idx_bookings_date ON bookings(booking_date);
-CREATE INDEX idx_bookings_room ON bookings(room_id);
-```
-
----
-
-## 6. API Endpoints
-
-### 6.1 Authentication APIs
-
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---------------|
-| POST | /api/auth/register | สมัครสมาชิก | No |
-| POST | /api/auth/login | เข้าสู่ระบบ | No |
-| GET | /api/auth/me | ดูข้อมูลตนเอง | Yes |
-
-### 6.2 Room APIs
-
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---------------|
-| GET | /api/rooms | ดูรายการห้อง | Yes |
-| GET | /api/rooms/:id | ดูรายละเอียดห้อง | Yes |
-| POST | /api/rooms | เพิ่มห้อง (Admin) | Admin |
-| PUT | /api/rooms/:id | แก้ไขห้อง (Admin) | Admin |
-| DELETE | /api/rooms/:id | ลบห้อง (Admin) | Admin |
-
-### 6.3 Booking APIs
-
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---------------|
-| GET | /api/bookings | ดูการจองทั้งหมด | Admin |
-| GET | /api/bookings/my | ดูการจองของตนเอง | Yes |
-| POST | /api/bookings | จองห้อง | Yes |
-| DELETE | /api/bookings/:id | ยกเลิกการจอง | Yes |
-
-### 6.4 Example API Implementation
-
-**Backend (Express.js):**
-```javascript
-// routes/auth.js
-const express = require('express');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const router = express.Router();
-
-// Register endpoint
-router.post('/register', async (req, res) => {
-    try {
-        const { email, password, name } = req.body;
-        
-        // Check if user exists
-        const existingUser = await db.query(
-            'SELECT id FROM users WHERE email = $1',
-            [email]
-        );
-        
-        if (existingUser.rows.length > 0) {
-            return res.status(400).json({
-                success: false,
-                message: 'Email already registered'
-            });
-        }
-        
-        // Hash password
-        const hashedPassword = await bcrypt.hash(password, 10);
-        
-        // Insert user
-        const result = await db.query(
-            'INSERT INTO users (email, password, name) VALUES ($1, $2, $3) RETURNING id',
-            [email, hashedPassword, name]
-        );
-        
-        res.json({
-            success: true,
-            message: 'Registration successful'
-        });
-        
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: 'Server error'
-        });
-    }
-});
-```
-
-**Frontend (React.js):**
-```javascript
-// components/Register.jsx
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-
-function Register() {
-    const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-        name: ''
-    });
-    const navigate = useNavigate();
-    
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post(
-                'http://localhost:5000/api/auth/register',
-                formData
-            );
-            
-            if (response.data.success) {
-                alert('Registration successful!');
-                navigate('/login');
-            }
-        } catch (error) {
-            alert(error.response?.data?.message || 'Registration failed');
-        }
-    };
-    
-    return (
-        <div className="container mt-5">
-            <h2>Register</h2>
-            <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        className="form-control"
-                        value={formData.email}
-                        onChange={(e) => setFormData({
-                            ...formData,
-                            email: e.target.value
-                        })}
-                        required
-                    />
-                </div>
-                {/* More fields... */}
-                <button type="submit" className="btn btn-primary">
-                    Register
-                </button>
-            </form>
-        </div>
+* **users table:**
+    ```sql
+    CREATE TABLE users (
+        id SERIAL PRIMARY KEY,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        password VARCHAR(255) NOT NULL,
+        name VARCHAR(100) NOT NULL,
+        role VARCHAR(20) DEFAULT 'user' NOT NULL, -- 'user' or 'admin'
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     );
-}
-```
+    ```
+* **rooms table:**
+    ```sql
+    CREATE TABLE rooms (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(100) NOT NULL,
+        capacity INTEGER NOT NULL,
+        floor INTEGER,
+        is_active BOOLEAN DEFAULT true,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    ```
+* **bookings table:**
+    ```sql
+    CREATE TABLE bookings (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER NOT NULL REFERENCES users(id),
+        room_id INTEGER NOT NULL REFERENCES rooms(id),
+        booking_date DATE NOT NULL,
+        start_time TIME NOT NULL,
+        end_time TIME NOT NULL,
+        title VARCHAR(255) NOT NULL,
+        status VARCHAR(20) DEFAULT 'confirmed' NOT NULL, -- e.g., 'confirmed', 'cancelled'
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        CONSTRAINT check_end_time_after_start_time CHECK (end_time > start_time)
+    );
+    ```
 
 ---
 
-## 7. UI/UX Design
+## 4. ภาคผนวก (Appendices)
 
-### 7.1 Page Structure
+### A. แผนการพัฒนา (Development Plan - 4 Weeks)
+* **Week 1: Setup & Backend Basics**
+    * ตั้งค่าโปรเจกต์, Git, และฐานข้อมูล
+    * สร้าง Schema ของฐานข้อมูล
+    * พัฒนา API สำหรับ Authentication (Register/Login) และทดสอบด้วย Postman
+* **Week 2: Backend Core & Frontend Setup**
+    * พัฒนา API สำหรับ Rooms และ Bookings (CRUD & Logic)
+    * ตั้งค่าโปรเจกต์ React, Routing, และโครงสร้าง Component
+    * สร้างหน้า Login/Register และเชื่อมต่อกับ API
+* **Week 3: Frontend Features & Integration**
+    * สร้างหน้าแสดงรายการห้อง, ฟอร์มการจอง, และหน้ารายการจองของฉัน
+    * เชื่อมต่อทุกหน้าเข้ากับ Backend API
+    * พัฒนาระบบสำหรับ Admin
+* **Week 4: Testing, Polish & Deployment**
+    * ทดสอบระบบทั้งหมดตาม Test Cases
+    * แก้ไขข้อผิดพลาด (Bug Fixing) และปรับปรุง UI/UX
+    * จัดทำเอกสารคู่มือและนำระบบขึ้น Production Server
 
-```
-┌─────────────────────────────────────────┐
-│            Navigation Bar               │
-│  Logo  |  Rooms  |  My Bookings | User │
-├─────────────────────────────────────────┤
-│                                         │
-│            Main Content Area            │
-│                                         │
-│  ┌─────────────┐  ┌─────────────┐      │
-│  │  Room Card  │  │  Room Card  │      │
-│  │             │  │             │      │
-│  │  [Book Now] │  │  [Book Now] │      │
-│  └─────────────┘  └─────────────┘      │
-│                                         │
-└─────────────────────────────────────────┘
-```
-
-### 7.2 Key Pages
-
-1. **Login/Register Page**
-   - Simple form with validation
-   - Link to switch between login/register
-
-2. **Room List Page**
-   - Grid or list view of rooms
-   - Filter by date/time
-   - Status indicator (green/red)
-
-3. **Booking Form Modal**
-   - Date picker
-   - Time selection (dropdown)
-   - Title input
-   - Confirm/Cancel buttons
-
-4. **My Bookings Page**
-   - Table view of bookings
-   - Upcoming and past tabs
-   - Cancel button for future bookings
-
-5. **Admin Dashboard**
-   - Room management table
-   - Add/Edit/Delete buttons
-   - Simple statistics
-
-### 7.3 Design Guidelines
-
-- ใช้ Bootstrap 5 หรือ Material-UI
-- สีหลัก: Blue (#0066CC)
-- สีรอง: Gray (#6C757D)
-- Font: Prompt (Thai), Roboto (English)
-- Mobile-first approach
-
----
-
-## 8. Development Plan (4 Weeks)
-
-### Week 1: Setup & Backend Basics
-**Day 1-2: Project Setup**
-- Setup Git repository
-- Initialize Node.js project
-- Setup PostgreSQL database
-- Create folder structure
-
-**Day 3-5: Backend Foundation**
-- Setup Express server
-- Create database schema
-- Implement authentication (register/login)
-- Test with Postman
-
-**Day 6-7: Room & Booking APIs**
-- CRUD APIs for rooms
-- Booking creation API
-- Conflict checking logic
-
-### Week 2: Frontend Basics
-**Day 8-10: React Setup & Auth**
-- Create React app
-- Setup routing
-- Build login/register pages
-- Implement JWT storage
-
-**Day 11-14: Core Pages**
-- Room listing page
-- Booking form component
-- My bookings page
-- Basic styling with Bootstrap
-
-### Week 3: Integration & Features
-**Day 15-17: Connect Frontend & Backend**
-- Integrate all APIs
-- Handle errors properly
-- Add loading states
-
-**Day 18-21: Admin Features**
-- Admin authentication
-- Room management page
-- Protected routes
-
-### Week 4: Polish & Deploy
-**Day 22-24: Testing & Bug Fixes**
-- Test all features
-- Fix bugs
-- Improve UI/UX
-
-**Day 25-27: Documentation & Deployment**
-- Write user manual
-- Deploy to Heroku/Render
-- Prepare presentation
-
-**Day 28-30: Buffer & Presentation**
-- Final testing
-- Prepare demo
-- Project submission
-
----
-
-## 9. Testing Guide
-
-### 9.1 Manual Testing Checklist
-
-**Authentication:**
-- [ ] Register with new email
-- [ ] Register with existing email (should fail)
-- [ ] Login with correct credentials
-- [ ] Login with wrong password
-- [ ] Access protected route without login
-
-**Room Booking:**
-- [ ] View all rooms
-- [ ] Filter rooms by date/time
-- [ ] Book available room
-- [ ] Try double booking (should fail)
-- [ ] Book for invalid time (past, too long)
-
-**Booking Management:**
-- [ ] View my bookings
-- [ ] Cancel future booking
-- [ ] Cannot cancel past booking
-- [ ] Cannot cancel within 1 hour
-
-**Admin Features:**
-- [ ] Login as admin
-- [ ] Add new room
-- [ ] Edit room details
-- [ ] Delete room without bookings
-- [ ] Cannot delete room with bookings
-
-### 9.2 Sample Test Data
-
-```sql
--- Insert test users
-INSERT INTO users (email, password, name, role) VALUES
-('user@test.com', '$2b$10$...', 'Test User', 'user'),
-('admin@test.com', '$2b$10$...', 'Test Admin', 'admin');
-
--- Insert test rooms
-INSERT INTO rooms (name, capacity, floor) VALUES
-('Meeting Room A', 10, 3),
-('Meeting Room B', 20, 3),
-('Conference Room', 50, 5);
-
--- Insert test bookings
-INSERT INTO bookings (user_id, room_id, booking_date, start_time, end_time, title) VALUES
-(1, 1, '2024-03-15', '10:00', '12:00', 'Team Meeting'),
-(1, 2, '2024-03-16', '14:00', '16:00', 'Client Presentation');
-```
-
----
-
-## 10. Learning Resources
-
-### 10.1 Recommended Tutorials
-
-**React.js:**
-- [React Official Tutorial](https://react.dev/learn)
-- [React Hooks Explained](https://www.youtube.com/watch?v=dpw9EHDh2bM)
-- [React Router v6](https://reactrouter.com/en/main/start/tutorial)
-
-**Node.js & Express:**
-- [Express.js Guide](https://expressjs.com/en/guide/routing.html)
-- [JWT Authentication Tutorial](https://www.youtube.com/watch?v=mbsmsi7l3r4)
-- [REST API Best Practices](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/)
-
-**PostgreSQL:**
-- [PostgreSQL Tutorial](https://www.postgresqltutorial.com/)
-- [Node-Postgres Documentation](https://node-postgres.com/)
-
-### 10.2 Common Issues & Solutions
-
-**Issue 1: CORS Error**
-```javascript
-// Add to Express server
-const cors = require('cors');
-app.use(cors());
-```
-
-**Issue 2: JWT Token Expiry**
-```javascript
-// Check token before API calls
-const token = localStorage.getItem('token');
-if (!token) {
-    // Redirect to login
-}
-```
-
-**Issue 3: Date/Time Handling**
-```javascript
-// Use consistent format
-const bookingDateTime = `${date}T${startTime}:00`;
-const booking = new Date(bookingDateTime);
-```
-
-### 10.3 Code Structure
-
-**Backend Structure:**
-```
-backend/
-├── config/
-│   └── db.js
-├── middleware/
-│   └── auth.js
-├── routes/
-│   ├── auth.js
-│   ├── rooms.js
-│   └── bookings.js
-├── .env
-├── server.js
-└── package.json
-```
-
-**Frontend Structure:**
-```
-frontend/
-├── public/
-├── src/
-│   ├── components/
-│   │   ├── Login.jsx
-│   │   ├── RoomList.jsx
-│   │   └── BookingForm.jsx
-│   ├── services/
-│   │   └── api.js
-│   ├── App.js
-│   └── index.js
-└── package.json
-```
-
----
-
-## Project Evaluation Criteria
-
-### สำหรับอาจารย์ผู้สอน - เกณฑ์การให้คะแนน (100 คะแนน)
-
-**1. Functionality (40%)**
-- Authentication works correctly (10%)
-- Room booking without conflicts (15%)
-- Booking management features (10%)
-- Admin features (5%)
-
-**2. Code Quality (30%)**
-- Clean, readable code (10%)
-- Proper error handling (10%)
-- Security implementation (10%)
-
-**3. User Interface (20%)**
-- Responsive design (10%)
-- User-friendly interface (10%)
-
-**4. Documentation (10%)**
-- Code comments (5%)
-- User manual (5%)
-
----
-
-## Conclusion
-
-MeetingRoom Lite เป็นโปรเจคที่เหมาะสมสำหรับนักศึกษาปี 2 ด้วยขอบเขตที่ชัดเจน สามารถทำเสร็จได้ใน 1 เดือน และครอบคลุมทักษะ Full-Stack Development ที่สำคัญ
-
-**Key Success Factors:**
-1. เริ่มจาก features พื้นฐานก่อน
-2. ทดสอบ API ด้วย Postman ก่อน integrate
-3. ใช้ Bootstrap/Material-UI ช่วยด้าน UI
-4. Focus on functionality มากกว่า design
-5. ขอความช่วยเหลือเมื่อติดปัญหา
-
-**Good luck with your project! 🚀**ทำำ
+### B. แนวทางการทดสอบ (Testing Guide)
+* **Authentication:** ทดสอบการสมัครด้วยอีเมลซ้ำ, เข้าระบบด้วยรหัสผ่านผิด, เข้าถึงหน้าป้องกันโดยไม่ล็อกอิน
+* **Booking:** ทดสอบการจองซ้ำ (Double Booking), การจองเวลาในอดีต, การจองที่ระยะเวลานานเกินกำหนด
+* **Cancellation:** ทดสอบการยกเลิกการจองในอนาคต, ทดสอบว่าไม่สามารถยกเลิกการจองที่ผ่านมาแล้ว หรือการจองที่ใกล้ถึงเวลาแล้วได้
+* **Admin:** ทดสอบว่าผู้ใช้ทั่วไปไม่สามารถเข้าหน้า Admin ได้, ทดสอบการลบห้องที่มีการจองค้างอยู่ (ควรจะลบไม่ได้)
