@@ -8,29 +8,29 @@
 
 ## สารบัญ
 
-1. **บทนำ (Introduction)**
-    1.1  วัตถุประสงค์ (Purpose)
-    1.2  ขอบเขตของระบบ (Scope)
-    1.3  คำนิยามและคำย่อ (Definitions, Acronyms, and Abbreviations)
-    1.4  เอกสารอ้างอิง (References)
-    1.5  ภาพรวมของเอกสาร (Overview)
+1. **บทนำ (Introduction)**  
+    1.1  วัตถุประสงค์ (Purpose)  
+    1.2  ขอบเขตของระบบ (Scope)  
+    1.3  คำนิยามและคำย่อ (Definitions, Acronyms, and Abbreviations)  
+    1.4  เอกสารอ้างอิง (References)  
+    1.5  ภาพรวมของเอกสาร (Overview)  
 
-2. **คำอธิบายโดยรวม (Overall Description)**
-    2.1  มุมมองของผลิตภัณฑ์ (Product Perspective)
-    2.2  ฟังก์ชันการทำงานของผลิตภัณฑ์ (Product Functions)
-    2.3  ลักษณะของผู้ใช้งาน (User Characteristics)
-    2.4  ข้อจำกัดของระบบ (Constraints)
-    2.5  ข้อสมมติฐานและสิ่งที่ต้องพึ่งพิง (Assumptions and Dependencies)
+2. **คำอธิบายโดยรวม (Overall Description)**  
+    2.1  มุมมองของผลิตภัณฑ์ (Product Perspective)  
+    2.2  ฟังก์ชันการทำงานของผลิตภัณฑ์ (Product Functions)  
+    2.3  ลักษณะของผู้ใช้งาน (User Characteristics)  
+    2.4  ข้อจำกัดของระบบ (Constraints)  
+    2.5  ข้อสมมติฐานและสิ่งที่ต้องพึ่งพิง (Assumptions and Dependencies)  
 
-3. **ข้อกำหนดเฉพาะ (Specific Requirements)**
-    3.1  ข้อกำหนดด้านฟังก์ชันการทำงาน (Functional Requirements)
-    3.2  ข้อกำหนดที่ไม่ใช่ฟังก์ชันการทำงาน (Non-Functional Requirements)
-    3.3  ข้อกำหนดด้านการเชื่อมต่อภายนอก (External Interface Requirements)
-    3.4  ข้อกำหนดด้านฐานข้อมูล (Database Requirements)
+3. **ข้อกำหนดเฉพาะ (Specific Requirements)**  
+    3.1  ข้อกำหนดด้านฟังก์ชันการทำงาน (Functional Requirements)  
+    3.2  ข้อกำหนดที่ไม่ใช่ฟังก์ชันการทำงาน (Non-Functional Requirements)  
+    3.3  ข้อกำหนดด้านการเชื่อมต่อภายนอก (External Interface Requirements)  
+    3.4  ข้อกำหนดด้านฐานข้อมูล (Database Requirements)  
 
-4. **ภาคผนวก (Appendices)**
-    A.  แผนการพัฒนา (Development Plan)
-    B.  แนวทางการทดสอบ (Testing Guide)
+4. **ภาคผนวก (Appendices)**  
+    A.  แผนการพัฒนา (Development Plan)  
+    B.  แนวทางการทดสอบ (Testing Guide)  
 
 ---
 
