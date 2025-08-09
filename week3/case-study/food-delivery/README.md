@@ -1,4 +1,4 @@
-# MeetingRoom Lite - ระบบจองห้องประชุมพื้นฐาน
+# FoodieConnect - แอปสั่งอาหารออนไลน์
 ## IEEE 830 Standard Document
 **Version:** 1.0  
 **Date:** มีนาคม 2024  
