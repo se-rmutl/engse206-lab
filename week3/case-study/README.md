@@ -1,93 +1,10 @@
-# 1. MeetingRoom Project Guide Document
+# ระบบติดตาม Carbon Footprint - EcoTrack
+## IEEE 830 Standard Document
+**Version:** 1.0  
+**Date:** มีนาคม 2024  
+**Team:** Software Engineering Students  
 
-### Simplified (สำหรับนักศึกษา)
-
-    ใช้ "All-in-one document" 
-    เรียกว่า "Project Guide" แทน SRS
-    อธิบายว่าเป็นการผสม SRS + Design + Implementation
-
-### เหตุผลที่ใส่ Technical Details ในเอกสาร:
-**🎓 Context การศึกษา**
-
-    นักศึกษาปี 2 ยังไม่คุ้นเคยกับการแยก documents
-    ต้องการ "One-stop document" ที่มีทุกอย่าง
-    ลดความสับสนจากการมีหลายเอกสาร
-
-**⏰ ข้อจำกัดเวลา 1 เดือน**
-
-    ไม่มีเวลาทำหลายเอกสาร
-    ต้องการให้เริ่ม coding ได้เร็ว
-    ลด overhead ของ documentation
-
-**🔧 Practical Approach**
-
-    นักศึกษาต้องการตัวอย่างที่ชัดเจน
-    ช่วยให้เห็นภาพรวมตั้งแต่ requirement ถึง implementation
-    เรียนรู้ได้เร็วขึ้นเมื่อเห็น end-to-end
-
----
-
-# 2. MeetingRoom Lite IEEE 830 Standard Document
-
-### Standard (ฝึกทำตามมาตรฐาน)
-
-    แยกเป็น 2-3 เอกสาร
-    Phase 1: ทำ SRS (requirements only)
-    Phase 2: ทำ Design Document
-    Phase 3: Implementation
-
-### SRS - MeetingRoom System (Standard Version) ตามมาตรฐาน IEEE 830
-
-```
-SRS (ควรมี)
-├── Requirements (WHAT)
-│   ├── Functional Requirements
-│   ├── Non-functional Requirements
-│   ├── Use Cases
-│   └── User Stories
-│
-└── ไม่ควรมี (HOW)
-    ├── ❌ Database Design
-    ├── ❌ API Design
-    ├── ❌ Code Examples
-    └── ❌ Technical Architecture
-```
-
-### 📚 เอกสารที่ควรแยกตามมาตรฐาน:
-**1. SRS (Software Requirements Specification)**
-```
-✅ ควรมี:
-- Business requirements
-- Functional requirements  
-- Non-functional requirements
-- Use cases & scenarios
-- Constraints & assumptions
-
-❌ ไม่ควรมี:
-- Database schema
-- API endpoints
-- Code samples
-- UI mockups (อ้างอิงเท่านั้น)
-```
-**2. SDD (Software Design Document)**
-```
-✅ ควรมี:
-- System architecture
-- Database design
-- API specification
-- Component design
-- Security design
-```
-**3. Technical Specification**
-```
-✅ ควรมี:
-- Technology stack
-- Development environment
-- Coding standards
-- Deployment architecture
-```
-
-**🔄 แยกเอกสารให้ถูกต้องตามมาตรฐาน:**
+### โครงสร้างเอกสารทั้ง 4 ฉบับตามมาตรฐาน:
 ```
 Project Documents/
 ├── 1. SRS Document
@@ -110,24 +27,46 @@ Project Documents/
     ├── Test cases
     └── Test results
 ```
+## สรุปเอกสารทั้ง 4 ฉบับ
+### 📄 **1. Software Requirements Specification (SRS)**
+- **เนื้อหา:** Requirements only ตามมาตรฐาน IEEE 830
+- **ประกอบด้วย:** Functional requirements, Non-functional requirements, Use cases
+- **ไม่มี:** Technical details, Database design, Code
 
-**🔄 ตัวอย่าง Functional Requirements ตามมาตรฐาน:**
-```
-## 3. Functional Requirements
+### 📄 **2. Software Design Document (SDD)**
+- **เนื้อหา:** Architecture, Database design, API design, UI design
+- **ประกอบด้วย:** System architecture, ER diagram, API endpoints, Security design
+- **ไม่มี:** Code implementation
 
-### FR-01: User Registration
-The system shall allow users to register with email and password.
+### 📄 **3. Implementation Guide**
+- **เนื้อหา:** Setup instructions, Code examples, Best practices
+- **ประกอบด้วย:** Environment setup, Project structure, Code samples ทุกส่วน
+- **เหมาะสำหรับ:** นักศึกษาใช้เป็นคู่มือในการพัฒนา
 
-**Rationale:** To control access to the system
-**Priority:** High
-**Dependencies:** None
+### 📄 **4. Test Document**
+- **เนื้อหา:** Test strategy, Test cases, Bug report template
+- **ประกอบด้วย:** 15 test cases, Test data, Test execution guide
+- **ผลลัพธ์:** Test summary report
 
-**Acceptance Criteria:**
-- Given a new user visits registration page
-- When they enter valid email and password
-- Then account is created and user can login
+## 🎯 ข้อดีของการแยกเอกสาร:
 
-[ไม่มี code, ไม่มี API design, ไม่มี database schema]
-```
+1. **ชัดเจนตามมาตรฐาน** - แต่ละเอกสารมีจุดประสงค์ที่แตกต่าง
+2. **ง่ายต่อการอ้างอิง** - หาข้อมูลได้ง่ายเมื่อต้องการ
+3. **เหมาะกับการทำงานเป็นทีม** - แต่ละคนรับผิดชอบเอกสารต่างกัน
+4. **Professional** - เป็นแนวทางที่ใช้ในอุตสาหกรรมจริง
 
+## 💡 คำแนะนำสำหรับนักศึกษา:
 
+### การใช้เอกสาร:
+1. **Phase 1 (สัปดาห์ 1):** อ่าน SRS ให้เข้าใจ requirements
+2. **Phase 2 (สัปดาห์ 1-2):** ศึกษา SDD เพื่อเข้าใจการออกแบบ
+3. **Phase 3 (สัปดาห์ 2-3):** ใช้ Implementation Guide ในการ coding
+4. **Phase 4 (สัปดาห์ 4):** ใช้ Test Document ในการทดสอบ
+
+### Tips:
+- ✅ ทำตามลำดับ อย่ารีบ coding ก่อนเข้าใจ design
+- ✅ Reference กลับไปที่ SRS เสมอเมื่อสงสัย
+- ✅ ใช้ code examples เป็นแนวทาง ไม่ใช่ copy ทั้งหมด
+- ✅ ทดสอบตาม test cases ที่กำหนด
+
+เอกสารทั้ง 4 ฉบับนี้จะช่วยให้นักศึกษาเข้าใจกระบวนการพัฒนา software แบบมืออาชีพ 🚀
