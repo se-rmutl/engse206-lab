@@ -1,13 +1,11 @@
 # Workshop Guide: User Stories และ Story Mapping
-### ENGSE206 - TASK1: ศึกษาและทำ User Stories
+### ENGSE206 - TASK1: ศึกษาและเขียน User Stories และ Story Mapping
 
 ---
 
-## Workshop 1: เขียน User Story
-### ระบบจองห้องประชุมออนไลน์สำหรับบริษัท
+## Workshop 1: ระบบจองห้องประชุมออนไลน์สำหรับบริษัท
 
-## Workshop 2: Story Mapping
-### แอปพลิเคชันสั่งอาหารออนไลน์
+## Workshop 2: แอปพลิเคชันสั่งอาหารออนไลน์
 
 ---
 
