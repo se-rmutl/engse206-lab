@@ -28,7 +28,7 @@
 
 ---
 
-#### Workshop 1: User Stories (40 คะแนน)
+#### STEP 1: User Stories (40 คะแนน)
 **Story Quality (20 คะแนน):**
 - ปฏิบัติตาม INVEST criteria (8 คะแนน)
 - เน้นคุณค่าของผู้ใช้ชัดเจน (6 คะแนน)
@@ -42,7 +42,7 @@
 - ความสมเหตุสมผลของการประมาณ (5 คะแนน)
 - การใช้ relative estimation อย่างถูกต้อง (5 คะแนน)
 
-#### Workshop 2: Story Mapping (40 คะแนน)
+#### STEP 2: Story Mapping (40 คะแนน)
 **Story Map Structure (15 คะแนน):**
 - User journey ที่สมบูรณ์และเป็นตรรกะ (8 คะแนน)
 - การแบ่งระดับ activities, tasks, stories ชัดเจน (7 คะแนน)
