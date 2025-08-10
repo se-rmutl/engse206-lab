@@ -1,7 +1,5 @@
-# รายงานการวิเคราะห์ความต้องการ (Requirements Analysis Report)
-
-## ระบบติดตาม Carbon Footprint - EcoTrack (Case Study Edition)
-### Personas, User Stories, Epics & Story Mapping
+# เอกสารวิเคราะห์ความต้องการ (Requirements Analysis Document)
+## โครงการ: ระบบติดตาม Carbon Footprint - EcoTrack
 
 **Document ID:** RDD-ECO-CASESTUDY-001  
 **Version:** 1.0  
@@ -9,14 +7,6 @@
 **สถานะ:** Final  
 **จัดทำโดย:** นักศึกษาวิศวกรรมซอฟต์แวร์ ปี 2  
 **วัตถุประสงค์:** เพื่อการเรียนรู้และฝึกปฏิบัติ Software Requirements Engineering
-
----
-# เอกสารวิเคราะห์ความต้องการ (Requirements Analysis Document)
-## โครงการ: ระบบติดตาม Carbon Footprint - EcoTrack
-
-**เวอร์ชัน:** 2.0  
-**วันที่:** 10 สิงหาคม 2568  
-**จัดทำโดย:** ทีมวิศวกรรมซอฟต์แวร์ (วิเคราะห์เพื่อการศึกษา)
 
 ---
 
