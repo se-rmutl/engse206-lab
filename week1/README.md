@@ -1,11 +1,18 @@
-# Workshop Guide: User Stories และ Story Mapping
-### ENGSE206 - TASK1: ศึกษาและเขียน User Stories และ Story Mapping
+# ENGSE206: การกำหนดความต้องการและการออกแบบทางซอฟต์แวร์ <br> Software Requirements Specification and Design
+
+## สัปดาห์ที่ 1: บทนำและการเก็บรวบรวมความต้องการ
+
+### TASK1: ศึกษาและเขียน User Stories และ Story Mapping
 
 ---
 
-## Workshop 1: ระบบจองห้องประชุมออนไลน์สำหรับบริษัท
+## Workshop Guide: User Stories และ Story Mapping
 
-## Workshop 2: แอปพลิเคชันสั่งอาหารออนไลน์
+---
+
+### Workshop 1: ระบบจองห้องประชุมออนไลน์สำหรับบริษัท
+
+### Workshop 2: แอปพลิเคชันสั่งอาหารออนไลน์
 
 ---
 
