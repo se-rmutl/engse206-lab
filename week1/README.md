@@ -1,24 +1,27 @@
 # Workshop Guide: User Stories และ Story Mapping
-**ENGSE206 - สัปดาห์ที่ 1**
-
----
-### TASK1: ศึกษาและทำ User Stories บน Miro
+### ENGSE206 - TASK1: ศึกษาและทำ User Stories
 
 ---
 
 ## Workshop 1: เขียน User Story
 ### ระบบจองห้องประชุมออนไลน์สำหรับบริษัท
 
----
-
 ## Workshop 2: Story Mapping
 ### แอปพลิเคชันสั่งอาหารออนไลน์
 
 ---
 
-## Workshop Assessment Criteria
+## Task1: Workshop Assessment Criteria
 
 ### รูปแบบการประเมิน Workshop
+
+#### การส่งงาน
+
+- สร้าง Card ของสัปดาห์ที่ 1
+- กำหนดงวันส่งงาน
+- แนบลิ้งของ Miro ที่ Trello
+
+---
 
 #### Workshop 1: User Stories (40 คะแนน)
 **Story Quality (20 คะแนน):**
