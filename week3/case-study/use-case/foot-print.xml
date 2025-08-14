@@ -1,0 +1,94 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.6 Chrome/138.0.7204.100 Electron/37.2.3 Safari/537.36" version="28.0.6">
+  <diagram id="eAe1f5_xOsYcOeKHA6tD" name="Page-1">
+    <mxGraphModel dx="1800" dy="1263" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="system" value="EcoTrack Carbon Footprint System" style="swimlane;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#e1f5fe;fontStyle=1;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="295" y="140" width="610" height="830" as="geometry" />
+        </mxCell>
+        <mxCell id="uc01" value="UC-01&#xa;Authenticate User" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcdd2;fontStyle=1;" parent="system" vertex="1">
+          <mxGeometry x="60" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc02" value="UC-02&#xa;Log Transportation" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcdd2;fontStyle=1;" parent="system" vertex="1">
+          <mxGeometry x="200" y="190" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc03" value="UC-03&#xa;Log Energy Usage" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcdd2;fontStyle=1;" parent="system" vertex="1">
+          <mxGeometry x="205.5" y="294" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc04" value="UC-04&#xa;Log Waste Management" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff3e0;" parent="system" vertex="1">
+          <mxGeometry x="355.5" y="130" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc05" value="UC-05&#xa;View Personal Dashboard" style="ellipse;whiteSpace=wrap;html=1;fillColor=#c8e6c9;fontStyle=1;" parent="system" vertex="1">
+          <mxGeometry x="60" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc06" value="UC-06&#xa;View Carbon Reports" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff3e0;" parent="system" vertex="1">
+          <mxGeometry x="205.5" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc07" value="UC-07&#xa;View Trend Analysis" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff3e0;" parent="system" vertex="1">
+          <mxGeometry x="355.5" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc08" value="UC-08&#xa;View Leaderboard" style="ellipse;whiteSpace=wrap;html=1;fillColor=#c8e6c9;fontStyle=1;" parent="system" vertex="1">
+          <mxGeometry x="60" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc09" value="UC-09&#xa;Manage Badges" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff3e0;" parent="system" vertex="1">
+          <mxGeometry x="200" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc10" value="UC-10&#xa;Set Personal Goals" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff3e0;" parent="system" vertex="1">
+          <mxGeometry x="355.5" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc11" value="UC-11&#xa;Admin Dashboard" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e8eaf6;" parent="system" vertex="1">
+          <mxGeometry x="205.5" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc12" value="UC-12&#xa;System Reports" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e8eaf6;" parent="system" vertex="1">
+          <mxGeometry x="205.5" y="690" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="student" value="👨‍🎓&#xa;Student" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#c8e6c9;" parent="1" vertex="1">
+          <mxGeometry x="165" y="450" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="staff" value="👩‍💼&#xa;Staff" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#c8e6c9;" parent="1" vertex="1">
+          <mxGeometry x="165" y="570" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="admin" value="🔧&#xa;Admin" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#ffcdd2;" parent="1" vertex="1">
+          <mxGeometry x="165" y="740" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sso" value="📡&#xa;University SSO" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#f3e5f5;" parent="1" vertex="1">
+          <mxGeometry x="965" y="240" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="calc" value="🧮&#xa;Calculation Engine" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#f3e5f5;" parent="1" vertex="1">
+          <mxGeometry x="975" y="390" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" parent="1" source="student" target="uc01" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" parent="1" source="student" target="uc02" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" parent="1" source="student" target="uc03" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" parent="1" source="student" target="uc05" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" parent="1" source="student" target="uc08" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge6" parent="1" source="admin" target="uc11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge7" parent="1" source="admin" target="uc12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include1" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endFill=0;dashed=1;html=1;" parent="1" source="uc02" target="calc" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include2" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endFill=0;dashed=1;html=1;" parent="1" source="uc03" target="calc" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" value="Legend:&#xa;🔴 Critical (Sprint 1)&#xa;🟢 High Priority (Sprint 2-3)&#xa;🟡 Medium Priority (Sprint 4)&#xa;🔵 Future Release" style="text;html=1;strokeColor=none;fillColor=#f5f5f5;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="165" y="1000" width="200" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrack Use Case Diagram</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .diagram {
+            width: 100%;
+            height: 800px;
+            border: 2px solid #333;
+            position: relative;
+            background: #fafafa;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .system-boundary {
+            position: absolute;
+            top: 40px;
+            left: 150px;
+            right: 150px;
+            bottom: 40px;
+            border: 3px solid #2c3e50;
+            border-radius: 10px;
+            background: rgba(52, 152, 219, 0.05);
+        }
+        .system-title {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: white;
+            padding: 5px 15px;
+            font-weight: bold;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+        .actor {
+            position: absolute;
+            text-align: center;
+            width: 80px;
+        }
+        .actor-icon {
+            width: 40px;
+            height: 60px;
+            margin: 0 auto 5px;
+            background: #34495e;
+            position: relative;
+            border-radius: 20px 20px 0 0;
+        }
+        .actor-icon::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 25px;
+            height: 25px;
+            background: #34495e;
+            border-radius: 50%;
+        }
+        .actor-icon::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: #34495e;
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+        }
+        .actor-name {
+            font-size: 12px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 5px;
+        }
+        .usecase {
+            position: absolute;
+            background: #fff;
+            border: 2px solid #3498db;
+            border-radius: 50px;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+            color: #2c3e50;
+            min-width: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .usecase.must-have {
+            background: #e8f5e8;
+            border-color: #27ae60;
+        }
+        .usecase.should-have {
+            background: #fff3cd;
+            border-color: #f39c12;
+        }
+        .connection {
+            position: absolute;
+            height: 2px;
+            background: #7f8c8d;
+            transform-origin: left center;
+        }
+        .legend {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: white;
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            font-size: 10px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 3px 0;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+            border-radius: 3px;
+            border: 1px solid #bdc3c7;
+        }
+        .step-by-step {
+            margin: 20px 0;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 8px;
+        }
+        .step {
+            margin: 10px 0;
+            padding: 8px;
+            background: white;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        .step-number {
+            font-weight: bold;
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌱 EcoTrack Use Case Diagram - Step by Step Construction</h1>
+        
+        <div class="step-by-step">
+            <h3>📋 ขั้นตอนการสร้าง Use Case Diagram</h3>
+            
+            <div class="step">
+                <span class="step-number">Step 1:</span> <strong>วาดกรอบระบบ (System Boundary)</strong>
+                <br>• กำหนดขอบเขตว่าอะไรอยู่ในระบบ อะไรอยู่นอกระบบ
+                <br>• ใส่ชื่อระบบที่มุมบน
+            </div>
+            
+            <div class="step">
+                <span class="step-number">Step 2:</span> <strong>วาง Actors รอบๆ ระบบ</strong>
+                <br>• Primary actors (ซ้าย): Student, Staff
+                <br>• Administrative actors (ขวา): System Admin, Sustainability Officer  
+                <br>• External systems (ล่าง): University SSO, Carbon API
+            </div>
+            
+            <div class="step">
+                <span class="step-number">Step 3:</span> <strong>เพิ่ม Use Cases ในระบบ</strong>
+                <br>• Must-have (สีเขียว): Register, Log Transportation, View Dashboard
+                <br>• Should-have (สีเหลือง): Manage Profile, Leaderboard, Generate Reports
+            </div>
+            
+            <div class="step">
+                <span class="step-number">Step 4:</span> <strong>เชื่อมต่อ Actors กับ Use Cases</strong>
+                <br>• เส้นตรง = Actor สามารถทำ Use Case นั้นได้
+                <br>• อย่าลืมตรวจสอบว่าทุก Actor มี Use Cases เชื่อมต่อ
+            </div>
+        </div>
+
+        <div class="diagram">
+            <div class="system-boundary">
+                <div class="system-title">EcoTrack - Carbon Footprint Tracking System</div>
+            </div>
+            
+            <!-- Actors -->
+            <!-- Primary Actors (Left) -->
+            <div class="actor" style="top: 150px; left: 20px;">
+                <div class="actor-icon"></div>
+                <div class="actor-name">Student</div>
+            </div>
+            
+            <div class="actor" style="top: 350px; left: 20px;">
+                <div class="actor-icon"></div>
+                <div class="actor-name">Staff</div>
+            </div>
+            
+            <!-- Administrative Actors (Right) -->
+            <div class="actor" style="top: 150px; right: 20px;">
+                <div class="actor-icon"></div>
+                <div class="actor-name">System<br>Admin</div>
+            </div>
+            
+            <div class="actor" style="top: 350px; right: 20px;">
+                <div class="actor-icon"></div>
+                <div class="actor-name">Sustainability<br>Officer</div>
+            </div>
+            
+            <!-- External Systems (Bottom) -->
+            <div class="actor" style="bottom: 50px; left: 150px;">
+                <div class="actor-icon" style="background: #e74c3c; border-radius: 5px;"></div>
+                <div class="actor-name">University<br>SSO</div>
+            </div>
+            
+            <div class="actor" style="bottom: 50px; right: 150px;">
+                <div class="actor-icon" style="background: #e74c3c; border-radius: 5px;"></div>
+                <div class="actor-name">Carbon<br>Database API</div>
+            </div>
+            
+            <!-- Use Cases -->
+            <!-- Must-Have Use Cases -->
+            <div class="usecase must-have" style="top: 80px; left: 400px;">
+                Register with<br>University SSO
+            </div>
+            
+            <div class="usecase must-have" style="top: 180px; left: 250px;">
+                Log Transportation<br>Activity
+            </div>
+            
+            <div class="usecase must-have" style="top: 280px; left: 400px;">
+                Calculate Carbon<br>Footprint
+            </div>
+            
+            <div class="usecase must-have" style="top: 380px; left: 250px;">
+                View Personal<br>Dashboard
+            </div>
+            
+            <!-- Should-Have Use Cases -->
+            <div class="usecase should-have" style="top: 130px; left: 600px;">
+                Manage User<br>Profile
+            </div>
+            
+            <div class="usecase should-have" style="top: 230px; left: 600px;">
+                View<br>Leaderboard
+            </div>
+            
+            <div class="usecase should-have" style="top: 480px; left: 400px;">
+                Generate<br>Reports
+            </div>
+            
+            <div class="usecase should-have" style="top: 330px; left: 600px;">
+                Earn Points<br>and Badges
+            </div>
+            
+            <!-- Administrative Use Cases -->
+            <div class="usecase should-have" style="top: 580px; left: 500px;">
+                Manage System<br>Configuration
+            </div>
+            
+            <div class="usecase should-have" style="top: 530px; left: 650px;">
+                Monitor System<br>Performance
+            </div>
+            
+            <!-- Connection Lines -->
+            <!-- Student connections -->
+            <div class="connection" style="top: 179px; left: 100px; width: 160px; transform: rotate(-10deg);"></div>
+            <div class="connection" style="top: 199px; left: 100px; width: 150px; transform: rotate(10deg);"></div>
+            <div class="connection" style="top: 219px; left: 100px; width: 160px; transform: rotate(45deg);"></div>
+            <div class="connection" style="top: 179px; left: 100px; width: 190px; transform: rotate(-20deg);"></div>
+            
+            <!-- Staff connections -->
+            <div class="connection" style="top: 379px; left: 100px; width: 150px; transform: rotate(-30deg);"></div>
+            <div class="connection" style="top: 399px; left: 100px; width: 160px; transform: rotate(-10deg);"></div>
+            <div class="connection" style="top: 419px; left: 100px; width: 300px; transform: rotate(20deg);"></div>
+            
+            <!-- Admin connections -->
+            <div class="connection" style="top: 179px; right: 100px; width: 160px; transform: rotate(160deg);"></div>
+            <div class="connection" style="top: 199px; right: 100px; width: 170px; transform: rotate(140deg);"></div>
+            
+            <!-- Sustainability Officer connections -->
+            <div class="connection" style="top: 379px; right: 100px; width: 150px; transform: rotate(210deg);"></div>
+            <div class="connection" style="top: 399px; right: 100px; width: 180px; transform: rotate(160deg);"></div>
+            
+            <!-- External system connections -->
+            <div class="connection" style="bottom: 150px; left: 200px; width: 250px; transform: rotate(-45deg);"></div>
+            <div class="connection" style="bottom: 150px; right: 200px; width: 200px; transform: rotate(45deg);"></div>
+            
+            <!-- Legend -->
+            <div class="legend">
+                <div style="font-weight: bold; margin-bottom: 5px;">Legend</div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #e8f5e8; border-color: #27ae60;"></div>
+                    Must Have (MVP)
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #fff3cd; border-color: #f39c12;"></div>
+                    Should Have (R2)
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #34495e;"></div>
+                    Human Actor
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #e74c3c;"></div>
+                    System Actor
+                </div>
+            </div>
+        </div>
+        
+        <div class="step-by-step">
+            <h3>🎯 การอ่าน Use Case Diagram</h3>
+            
+            <div class="step">
+                <span class="step-number">Actors:</span> <strong>ใครบ้างที่เกี่ยวข้องกับระบบ?</strong>
+                <br>• <strong>Student & Staff:</strong> ผู้ใช้หลักที่บันทึกและติดตาม carbon footprint
+                <br>• <strong>System Admin:</strong> ดูแลระบบและการทำงาน
+                <br>• <strong>Sustainability Officer:</strong> วิเคราะห์ข้อมูลและสร้างรายงาน
+                <br>• <strong>External Systems:</strong> ระบบที่เชื่อมต่อจากภายนอก
+            </div>
+            
+            <div class="step">
+                <span class="step-number">Use Cases:</span> <strong>ระบบทำอะไรได้บ้าง?</strong>
+                <br>• <strong>สีเขียว (Must Have):</strong> ฟีเจอร์หลักที่จำเป็นสำหรับ MVP
+                <br>• <strong>สีเหลือง (Should Have):</strong> ฟีเจอร์ที่เพิ่มคุณค่าในเฟสต่อไป
+            </div>
+            
+            <div class="step">
+                <span class="step-number">Connections:</span> <strong>ใครสามารถทำอะไรได้บ้าง?</strong>
+                <br>• เส้นเชื่อมต่อแสดงว่า Actor นั้นสามารถใช้ Use Case ได้
+                <br>• ทุก Actor ต้องมีอย่างน้อย 1 Use Case ที่เชื่อมต่อ
+                <br>• ทุก Use Case ต้องมีอย่างน้อย 1 Actor ที่เชื่อมต่อ
+            </div>
+        </div>
+        
+        <div class="step-by-step">
+            <h3>✅ Validation Checklist</h3>
+            
+            <div class="step">
+                <strong>Completeness Check:</strong>
+                <br>☑️ ครอบคลุมทุก functional requirements หลัก?
+                <br>☑️ ทุก actors มี use cases ที่เกี่ยวข้อง?
+                <br>☑️ ทุก use cases มี business value ชัดเจน?
+            </div>
+            
+            <div class="step">
+                <strong>Consistency Check:</strong>
+                <br>☑️ ชื่อ actors และ use cases สื่อความหมายชัดเจน?
+                <br>☑️ ระดับความละเอียดสอดคล้องกัน?
+                <br>☑️ ไม่มีความขัดแย้งใน responsibilities?
+            </div>
+            
+            <div class="step">
+                <strong>Clarity Check:</strong>
+                <br>☑️ Stakeholders เข้าใจ diagram ได้โดยไม่ต้องอธิบาย?
+                <br>☑️ Layout อ่านง่าย ไม่รกและสับสน?
+                <br>☑️ Scope ของระบบเห็นได้ชัดเจน?
+            </div>
+        </div>
+        
+        <div class="step-by-step">
+            <h3>🚀 Next Steps</h3>
+            
+            <div class="step">
+                <span class="step-number">1.</span> <strong>Add Relationships:</strong> Include, Extend, Generalization
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2.</span> <strong>Create Use Case Specifications:</strong> รายละเอียดแต่ละ Use Case
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3.</span> <strong>Validate with Stakeholders:</strong> รับ feedback และปรับแก้
+            </div>
+            
+            <div class="step">
+                <span class="step-number">4.</span> <strong>Plan Development:</strong> จัดลำดับการพัฒนาตาม priority
+            </div>
+        </div>
+    </div>
+</body>
+</html>
