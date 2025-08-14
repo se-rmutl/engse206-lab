@@ -3,7 +3,7 @@
 
 ## บทนำ
 
-เอกสารนี้นำเสนอ Use Case Diagram ที่มีความละเอียดครบถ้วนสำหรับระบบ EcoTrack ตามข้อมูลจาก Requirements Analysis Document เพื่อใช้ประกอบการสอนและการพัฒนาระบบจริง
+เอกสารนี้นำเสนอ Use Case Diagram ที่มีความละเอียดครบถ้วนสำหรับระบบ EcoTrack ตามข้อมูลจาก Requirements Analysis Document เพื่อใช้ประกอบการพัฒนาระบบจริง
 
 ---
 
