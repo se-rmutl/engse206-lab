@@ -161,7 +161,7 @@ Desktop Application (Electron.js)
                     └─────────────────────────┘
 ```
 
-**📋 Component Specification Example:**
+**📋 Component Specification Markdown format Example:**
 
 ```markdown
 ## Authentication Component
@@ -589,7 +589,8 @@ Maintainability:
 - แลกเปลี่ยน insights
 - เสนอ improvements
 
-**📝 Review Feedback Template:**
+**📝 Review Feedback Markdown Template:**
+
 ```markdown
 ## Architecture Review Feedback
 
