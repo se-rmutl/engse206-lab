@@ -8,7 +8,7 @@
 
 นักศึกษาสามารถคลิกเพื่ออ่านเนื้อหาฉบับเต็มของสัปดาห์นี้ได้ที่ไฟล์สไลด์ด้านล่าง:
 
-* **[คลิกเพื่ออ่านสไลด์ Week 6: Design Patterns และ Architectural Patterns](./week6_slides.md)**
+* **[คลิกเพื่ออ่านสไลด์ Week 6: Design Patterns และ Architectural Patterns](week6_slides.md)**
 
 ---
 
