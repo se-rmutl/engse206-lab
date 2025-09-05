@@ -124,17 +124,17 @@ Production Environment:
     ┌──────────▼─────────────▼────────────────┐
     │         Database Layer                  │
     │                                         │
-    │  ┌─────────────────┐  ┌─────────────────┐│
-    │  │   MSSQL Server  │  │   MongoDB       ││
-    │  │   (Master Data) │  │   (Real-time)   ││
-    │  │   - OnlineAgents│  │   - StatusLogs  ││
-    │  │   - UserAccounts│  │   - MessageHist ││
-    │  └─────────────────┘  └─────────────────┘│
+    │  ┌─────────────────┐ ┌─────────────────┐│
+    │  │   MSSQL Server  │ │   MongoDB       ││
+    │  │   (Master Data) │ │   (Real-time)   ││
+    │  │   - OnlineAgents│ │   - StatusLogs  ││
+    │  │   - UserAccounts│ │   - MessageHist ││
+    │  └─────────────────┘ └─────────────────┘│
     │                                         │
-    │  ┌─────────────────┐  ┌─────────────────┐│
-    │  │   Backup        │  │   Monitoring    ││
-    │  │   Services      │  │   Services      ││
-    │  └─────────────────┘  └─────────────────┘│
+    │  ┌─────────────────┐ ┌─────────────────┐│
+    │  │   Backup        │ │   Monitoring    ││
+    │  │   Services      │ │   Services      ││
+    │  └─────────────────┘ └─────────────────┘│
     └─────────────────────────────────────────┘
 
 Development Environment:
@@ -148,7 +148,7 @@ Development Environment:
 │  │    :3000     :8000     :1433  :27017││
 │  │                                     ││
 │  │  [NGINX]    [Redis]   [Monitoring]  ││
-│  │   :80       :6379      :9090       ││
+│  │   :80       :6379      :9090        ││
 │  └─────────────────────────────────────┘│
 └─────────────────────────────────────────┘
 ```
