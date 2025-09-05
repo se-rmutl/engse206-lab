@@ -44,6 +44,8 @@
 * **[Part 4: Workshop, Assessment และการเตรียมตัว](./part4.md)**: แนวทางการทำ Workshop, เกณฑ์การประเมินผล, รายละเอียดงานที่มอบหมาย และการเตรียมตัวสำหรับสัปดาห์หน้า
 
 #### **C4 Model**
+* **[C4 Model Complete: จาก C1 ไป C2 งานของ week5](./c4-models/c1c2.md)**: C1 และ C2 - Container Diagram แสดงสถาปัตยกรรมภายในของ Agent Wallboard System โดยแบ่งเป็น Container หลักและระบุเทคโนโลยีที่ใช้ตาม 3-Tier Architecture
+
 * **[C4 Model Complete Guide: จาก C1 ไป C2 ไป C3](./c4-models)**: แนวทางการทำ Agent Wallboard System - การออกแบบสถาปัตยกรรมซอฟต์แวร์แบบเป็นขั้นตอน
 
 ---
