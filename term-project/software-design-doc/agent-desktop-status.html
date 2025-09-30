@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Agent Desktop App</title>
+  <style>
+    :root {
+      --app-bg: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #cbd5e1;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --success: #22c55e;
+      --warning: #f97316;
+      --break: #a855f7;
+      --danger: #ef4444;
+      --info: #0ea5e9;
+      --radius: 12px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    }
+
+    body {
+      margin: 0;
+      background: #f1f5f9;
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 30px;
+    }
+
+    .agent-desktop-app {
+      background: var(--app-bg);
+      color: var(--text-main);
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+      max-width: 800px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      background: var(--card-bg);
+    }
+    .agent-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .agent-name { font-weight: 600; }
+
+    /* Content */
+    .app-content { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+    section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+    }
+    h3 { margin-bottom: 12px; font-size: 16px; color: var(--text-main); }
+
+    /* Status */
+    .status-display {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+    }
+    .status-indicator {
+      width: 12px; height: 12px; border-radius: 50%;
+    }
+    .status-text { font-weight: 600; }
+
+    .status-options {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px;
+    }
+    .status-option {
+      border: none; padding: 6px 12px; border-radius: 8px;
+      font-size: 13px; cursor: pointer; font-weight: 600; color: #fff;
+    }
+    .status-option.available { background: var(--success); }
+    .status-option.busy { background: var(--warning); }
+    .status-option.break { background: var(--break); }
+    .status-option.training { background: var(--accent); }
+    .status-option.meeting { background: var(--info); }
+    .status-option:hover { opacity: 0.9; }
+
+    /* Footer */
+    .status-bar {
+      background: var(--card-bg);
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .connection-status { color: var(--success); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="agent-desktop-app">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="agent-info">
+        <img src="https://randomuser.me/api/portraits/men/11.jpg" class="avatar" />
+        <span class="agent-name">John Agent (AG001)</span>
+      </div>
+      <div class="system-controls">
+        <button>_</button><button>×</button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="app-content">
+      <section class="status-section">
+        <h3>Current Status</h3>
+        <div class="status-display">
+          <div class="status-indicator available"></div>
+          <span class="status-text">Available</span>
+          <span class="status-timer">02:45:30</span>
+        </div>
+        <div class="status-actions">
+          <div class="status-options">
+            <button class="status-option available" data-status="Available" data-color="available">Available</button>
+            <button class="status-option busy" data-status="Busy" data-color="busy">Busy</button>
+            <button class="status-option break" data-status="Break" data-color="break">Break</button>
+            <button class="status-option training" data-status="Training" data-color="training">Training</button>
+            <button class="status-option meeting" data-status="Meeting" data-color="meeting">Meeting</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="status-bar">
+      <span class="connection-status">Connected</span>
+      <span class="last-sync">Last sync: 2 minutes ago</span>
+    </footer>
+  </div>
+
+  <script>
+    const indicator = document.querySelector(".status-indicator");
+    const text = document.querySelector(".status-text");
+    const buttons = document.querySelectorAll(".status-option");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const status = btn.dataset.status;
+        const colorClass = btn.dataset.color;
+
+        // Reset indicator classes
+        indicator.className = "status-indicator " + colorClass;
+        text.textContent = status;
+      });
+    });
+  </script>
+</body>
+</html>

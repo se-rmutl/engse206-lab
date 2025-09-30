@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Agent Desktop App</title>
+  <style>
+    :root {
+      --app-bg: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #cbd5e1;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --success: #22c55e;
+      --warning: #f97316;
+      --break: #a855f7;
+      --danger: #ef4444;
+      --info: #0ea5e9;
+      --radius: 12px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    }
+
+    body {
+      margin: 0;
+      background: #f1f5f9;
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 30px;
+    }
+
+    .agent-desktop-app {
+      background: var(--app-bg);
+      color: var(--text-main);
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+      max-width: 1000px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      background: var(--card-bg);
+    }
+    .agent-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .agent-name {
+      font-weight: 600;
+    }
+    .system-controls button {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 16px;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+    .system-controls button:hover {
+      color: var(--text-main);
+    }
+
+    /* Content */
+    .app-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+    }
+    h3 {
+      margin-bottom: 12px;
+      font-size: 16px;
+      color: var(--text-main);
+    }
+
+    /* Status */
+    .status-display {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .status-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .status-indicator.available { background: var(--success); }
+    .status-indicator.busy { background: var(--warning); }
+    .status-indicator.break { background: var(--break); }
+    .status-indicator.emergency { background: var(--danger); }
+    .status-text { font-weight: 600; }
+    .status-timer {
+      margin-left: auto;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .status-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .status-option {
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 600;
+      background: #334155;
+      color: #f8fafc;
+    }
+    .status-option.available { background: var(--success); }
+    .status-option.busy { background: var(--warning); }
+    .status-option.break { background: var(--break); }
+    .status-option.training { background: var(--accent); }
+    .status-option.meeting { background: var(--info); }
+    .status-option:hover { opacity: 0.85; }
+
+    .quick-buttons {
+      display: flex;
+      gap: 8px;
+    }
+    .quick-break-btn,
+    .emergency-btn {
+      flex: 1;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #fff;
+    }
+    .quick-break-btn { background: var(--accent); }
+    .emergency-btn { background: var(--danger); }
+    .quick-break-btn:hover,
+    .emergency-btn:hover { opacity: 0.9; }
+
+    /* Messages */
+    .message-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .message-item {
+      background: var(--app-bg);
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+    }
+    .message-item.unread {
+      border-left: 4px solid var(--accent);
+      background: #243447;
+    }
+    .message-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .sender { font-weight: 600; }
+    .timestamp { color: var(--text-muted); }
+
+    /* Quick Actions */
+    .quick-actions {
+      display: flex;
+      gap: 12px;
+    }
+    .action-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: 600;
+      width: 160px;
+    }
+    .action-btn:hover { background: var(--accent-hover); }
+
+    /* Footer */
+    .status-bar {
+      background: var(--card-bg);
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .connection-status {
+      color: var(--success);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <!-- Agent Desktop App UI Layout -->
+  <div class="agent-desktop-app">
+    <!-- Header Bar -->
+    <header class="app-header">
+      <div class="agent-info">
+        <img src="https://randomuser.me/api/portraits/men/11.jpg" class="avatar" />
+        <span class="agent-name">John Agent (AG001)</span>
+      </div>
+      <div class="system-controls">
+        <button class="minimize-btn">_</button>
+        <button class="close-btn">×</button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="app-content">
+      <!-- Status Management Section -->
+      <section class="status-section">
+        <h3>Current Status</h3>
+        <div class="status-display">
+          <div class="status-indicator available"></div>
+          <span class="status-text">Available</span>
+          <span class="status-timer">02:45:30</span>
+        </div>
+        <div class="status-actions">
+          <div class="status-options">
+            <button class="status-option available">Available</button>
+            <button class="status-option busy">Busy</button>
+            <button class="status-option break">Break</button>
+            <button class="status-option training">Training</button>
+            <button class="status-option meeting">Meeting</button>
+          </div>
+          <div class="quick-buttons">
+            <button class="quick-break-btn">Quick Break (15 min)</button>
+            <button class="emergency-btn">Emergency</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Message/Notification Section -->
+      <section class="message-section">
+        <h3>Messages & Notifications</h3>
+        <div class="message-list">
+          <div class="message-item unread">
+            <div class="message-header">
+              <span class="sender">Supervisor Smith</span>
+              <span class="timestamp">10:30 AM</span>
+            </div>
+            <div class="message-content">
+              Team meeting in 15 minutes - Conference Room A
+            </div>
+          </div>
+          <div class="message-item">
+            <div class="message-header">
+              <span class="sender">System</span>
+              <span class="timestamp">09:45 AM</span>
+            </div>
+            <div class="message-content">
+              System maintenance scheduled for tonight 11 PM
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Actions -->
+      <section class="quick-actions">
+        <button class="action-btn">View Schedule</button>
+        <button class="action-btn">Contact Supervisor</button>
+        <button class="action-btn">Help & Support</button>
+      </section>
+    </main>
+
+    <!-- Status Bar -->
+    <footer class="status-bar">
+      <span class="connection-status">Connected</span>
+      <span class="last-sync">Last sync: 2 minutes ago</span>
+    </footer>
+  </div>
+</body>
+</html>
