@@ -29,12 +29,12 @@ npm run electron-dev
 
 แม้ว่าจะติดตั้ง X Server เช่น VcXsrv หรือ X410 แต่จะเจอปัญหา:
 
-❌ **Performance ต่ำ** - X Server forwarding ช้า
-❌ **Tray icon ไม่ทำงาน** - System tray ไม่รองรับ
-❌ **Notifications ไม่แสดง** - Windows notification ไม่ทำงาน
-❌ **Hardware acceleration ไม่ทำงาน** - GPU ไม่สามารถใช้งานได้เต็มที่
-❌ **Build executable ไม่ได้** - electron-builder สร้าง .exe ไม่ได้ถูกต้อง
-❌ **ซับซ้อนมาก** - ต้อง config หลายอย่าง
+❌ **Performance ต่ำ** - X Server forwarding ช้า <br>
+❌ **Tray icon ไม่ทำงาน** - System tray ไม่รองรับ <br>
+❌ **Notifications ไม่แสดง** - Windows notification ไม่ทำงาน <br>
+❌ **Hardware acceleration ไม่ทำงาน** - GPU ไม่สามารถใช้งานได้เต็มที่ <br>
+❌ **Build executable ไม่ได้** - electron-builder สร้าง .exe ไม่ได้ถูกต้อง <br>
+❌ **ซับซ้อนมาก** - ต้อง config หลายอย่าง <br>
 ❌ **ไม่ตรงกับ production environment** - User ใช้ Windows จริง ไม่ใช่ WSL2
 
 ---
