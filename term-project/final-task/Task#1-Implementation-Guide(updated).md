@@ -10,6 +10,7 @@
 **Changelog v1.2:**
 - 🔧 ปรับชื่อ teams and users tables ให้เป็นตัวเล็ก
 - 🔧 ปรับชื่อ การอ้าง FK ของตาราง users จาก id เป็น team_id
+- 🔧 ปรับชื่อ การอ้าง จาก t.name เป็น t.team_name
 - 🔧 ปรับ code ที่ให้ ในเอกสารให้อ้างถึง ตาราง teams and users ให้ถูกต้อง
 
 ---
