@@ -1,6 +1,6 @@
-# 📄 Task#1: User Management System - Implementation Guide (Updated v1.2)
+# 📄 Task#1: User Management System - Implementation Guide (Updated v1.1)
 
-**Document ID:** TASK1-IMPL-GUIDE-001-v1.2  
+**Document ID:** TASK1-IMPL-GUIDE-001-v1.1  
 **Version:** 1.1 (Updated)  
 **Created:** October 2025  
 **Last Updated:** October 2025  
@@ -35,8 +35,8 @@
 
 ✅ SQLite Database
    ├── wallboard.db
-   ├── agents table
-   └── teams table
+   ├── Agents table
+   └── Teams table
 
 ✅ MongoDB Database
    ├── messages collection
@@ -54,7 +54,7 @@
    └── middleware/validation.js (User validation)
 
 🆕 Database Tables
-   ├── users table (ใน SQLite)
+   ├── Users table (ใน SQLite)
    └── Sample users data
 
 🆕 Frontend Admin Panel (React - Project ใหม่)
@@ -113,7 +113,7 @@ agent-wallboard-system/
 │
 └── database/
     ├── sqlite/
-    │   └── wallboard.db         # แก้ไข: เพิ่ม users table
+    │   └── wallboard.db         # แก้ไข: เพิ่ม Users table
     └── scripts/
         ├── 01-create-users-table.sql  # 🆕 SQL script
         └── 02-insert-sample-users.sql # 🆕 SQL script
@@ -123,24 +123,24 @@ agent-wallboard-system/
 
 ## 2. ส่วนที่ 1: Database Setup
 
-### 2.1 สร้าง users Table (ให้ครบ 100%)
+### 2.1 สร้าง Users Table (ให้ครบ 100%)
 
 **ไฟล์: `database/scripts/01-create-users-table.sql`**
 
 ```sql
 -- ========================================
--- Task#1: User Management - users Table
--- Version: 1.2 (Updated with FK pragma)
+-- Task#1: User Management - Users Table
+-- Version: 1.1 (Updated with FK pragma)
 -- ========================================
 
 -- 🆕 IMPORTANT: เปิดใช้งาน Foreign Key constraints
 PRAGMA foreign_keys = ON;
 
 -- ลบตารางเดิมถ้ามี (สำหรับ development)
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS Users;
 
--- สร้างตาราง users
-CREATE TABLE users (
+-- สร้างตาราง Users
+CREATE TABLE Users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL UNIQUE,
     fullName TEXT NOT NULL,
@@ -151,22 +151,22 @@ CREATE TABLE users (
     updatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     lastLoginAt DATETIME,
     deletedAt DATETIME,
-    FOREIGN KEY (teamId) REFERENCES teams(team_id)
+    FOREIGN KEY (teamId) REFERENCES Teams(id)
 );
 
 -- สร้าง indexes เพื่อ performance
-CREATE INDEX idx_users_username ON users(username);
-CREATE INDEX idx_users_role ON users(role);
-CREATE INDEX idx_users_status ON users(status);
-CREATE INDEX idx_users_teamId ON users(teamId);
-CREATE INDEX idx_users_deletedAt ON users(deletedAt);
+CREATE INDEX idx_users_username ON Users(username);
+CREATE INDEX idx_users_role ON Users(role);
+CREATE INDEX idx_users_status ON Users(status);
+CREATE INDEX idx_users_teamId ON Users(teamId);
+CREATE INDEX idx_users_deletedAt ON Users(deletedAt);
 
 -- สร้าง trigger สำหรับ updatedAt
 CREATE TRIGGER update_users_timestamp 
-AFTER UPDATE ON users
+AFTER UPDATE ON Users
 FOR EACH ROW
 BEGIN
-    UPDATE users SET updatedAt = CURRENT_TIMESTAMP WHERE id = NEW.id;
+    UPDATE Users SET updatedAt = CURRENT_TIMESTAMP WHERE id = NEW.id;
 END;
 ```
 
@@ -182,28 +182,28 @@ sqlite3 wallboard.db < ../scripts/01-create-users-table.sql
 
 ```sql
 -- ========================================
--- Task#1: Sample users Data
+-- Task#1: Sample Users Data
 -- ========================================
 
 -- เปิดใช้งาน Foreign Key constraints
 PRAGMA foreign_keys = ON;
 
 -- ล้างข้อมูลเดิม (ถ้ามี)
-DELETE FROM users;
+DELETE FROM Users;
 
 -- Insert Admin users
-INSERT INTO users (username, fullName, role, teamId, status) VALUES
+INSERT INTO Users (username, fullName, role, teamId, status) VALUES
 ('AD001', 'Admin One', 'Admin', NULL, 'Active'),
 ('AD002', 'Admin Two', 'Admin', NULL, 'Active');
 
--- Insert Supervisor users (assuming teams with team_id 1,2,3 exist)
-INSERT INTO users (username, fullName, role, teamId, status) VALUES
+-- Insert Supervisor users (assuming Teams with id 1,2,3 exist)
+INSERT INTO Users (username, fullName, role, teamId, status) VALUES
 ('SP001', 'Supervisor Alpha', 'Supervisor', 1, 'Active'),
 ('SP002', 'Supervisor Beta', 'Supervisor', 2, 'Active'),
 ('SP003', 'Supervisor Gamma', 'Supervisor', 3, 'Active');
 
 -- Insert Agent users
-INSERT INTO users (username, fullName, role, teamId, status) VALUES
+INSERT INTO Users (username, fullName, role, teamId, status) VALUES
 ('AG001', 'Agent Smith', 'Agent', 1, 'Active'),
 ('AG002', 'Agent Johnson', 'Agent', 1, 'Active'),
 ('AG003', 'Agent Williams', 'Agent', 1, 'Active'),
@@ -222,7 +222,7 @@ SELECT
     teamId,
     status,
     createdAt
-FROM users
+FROM Users
 ORDER BY role, username;
 ```
 
@@ -236,13 +236,13 @@ sqlite3 wallboard.db < ../scripts/02-insert-sample-users.sql
 **ไฟล์: `database/scripts/03-test-users-queries.sql`**
 
 ```sql
--- Test queries for users table
+-- Test queries for Users table
 
 -- 1. Get all active users
-SELECT * FROM users WHERE deletedAt IS NULL;
+SELECT * FROM Users WHERE deletedAt IS NULL;
 
 -- 2. Get users by role
-SELECT * FROM users WHERE role = 'Agent' AND deletedAt IS NULL;
+SELECT * FROM Users WHERE role = 'Agent' AND deletedAt IS NULL;
 
 -- 3. Get user with team info
 SELECT 
@@ -250,25 +250,25 @@ SELECT
     u.username,
     u.fullName,
     u.role,
-    t.team_name as teamName,
+    t.name as teamName,
     u.status
-FROM users u
-LEFT JOIN teams t ON u.teamId = t.team_id
+FROM Users u
+LEFT JOIN Teams t ON u.teamId = t.id
 WHERE u.deletedAt IS NULL;
 
 -- 4. Count users by role
 SELECT role, COUNT(*) as count 
-FROM users 
+FROM Users 
 WHERE deletedAt IS NULL 
 GROUP BY role;
 
 -- 5. Find user by username
-SELECT * FROM users 
+SELECT * FROM Users 
 WHERE username = 'AG001' AND deletedAt IS NULL;
 
 -- 6. Test Foreign Key constraint
 -- This should fail if team doesn't exist
--- INSERT INTO users (username, fullName, role, teamId, status) 
+-- INSERT INTO Users (username, fullName, role, teamId, status) 
 -- VALUES ('AG999', 'Test Agent', 'Agent', 999, 'Active');
 ```
 
@@ -347,8 +347,8 @@ class UserRepository {
           u.createdAt,
           u.updatedAt,
           u.lastLoginAt
-        FROM users u
-        LEFT JOIN teams t ON u.teamId = t.team_id
+        FROM Users u
+        LEFT JOIN Teams t ON u.teamId = t.id
         WHERE u.deletedAt IS NULL
       `;
       
@@ -396,8 +396,8 @@ class UserRepository {
           u.createdAt,
           u.updatedAt,
           u.lastLoginAt
-        FROM users u
-        LEFT JOIN teams t ON u.teamId = t.team_id
+        FROM Users u
+        LEFT JOIN Teams t ON u.teamId = t.id
         WHERE u.id = ? AND u.deletedAt IS NULL
       `;
       
@@ -425,8 +425,8 @@ class UserRepository {
           u.createdAt,
           u.updatedAt,
           u.lastLoginAt
-        FROM users u
-        LEFT JOIN teams t ON u.teamId = t.team_id
+        FROM Users u
+        LEFT JOIN Teams t ON u.teamId = t.id
         WHERE u.username = ? AND u.deletedAt IS NULL
       `;
       
@@ -443,7 +443,7 @@ class UserRepository {
   async create(userData) {
     return new Promise((resolve, reject) => {
       const query = `
-        INSERT INTO users (username, fullName, role, teamId, status)
+        INSERT INTO Users (username, fullName, role, teamId, status)
         VALUES (?, ?, ?, ?, ?)
       `;
       
@@ -483,7 +483,7 @@ class UserRepository {
    *        params.push(userData.fullName)
    *    - ทำเหมือนกันกับ role, teamId, status
    * 4. เพิ่ม userId เป็น parameter สุดท้าย: params.push(userId)
-   * 5. สร้าง query: UPDATE users SET ${setClause} WHERE id = ? AND deletedAt IS NULL
+   * 5. สร้าง query: UPDATE Users SET ${setClause} WHERE id = ? AND deletedAt IS NULL
    * 6. รัน this.db.run(query, params, callback)
    * 7. ใน callback:
    *    - ถ้า err: reject(err)
@@ -515,7 +515,7 @@ class UserRepository {
       
       // Step 5-7: สร้าง query และรัน
       const query = `
-        UPDATE users 
+        UPDATE Users 
         SET ${setClause}
         WHERE id = ? AND deletedAt IS NULL
       `;
@@ -538,7 +538,7 @@ class UserRepository {
   async softDelete(userId) {
     return new Promise((resolve, reject) => {
       const query = `
-        UPDATE users 
+        UPDATE Users 
         SET status = 'Inactive', 
             deletedAt = CURRENT_TIMESTAMP,
             updatedAt = CURRENT_TIMESTAMP
@@ -563,7 +563,7 @@ class UserRepository {
   async updateLastLogin(userId) {
     return new Promise((resolve, reject) => {
       const query = `
-        UPDATE users 
+        UPDATE Users 
         SET lastLoginAt = CURRENT_TIMESTAMP
         WHERE id = ?
       `;
@@ -585,7 +585,7 @@ class UserRepository {
     return new Promise((resolve, reject) => {
       const query = `
         SELECT COUNT(*) as count 
-        FROM users 
+        FROM Users 
         WHERE username = ? AND deletedAt IS NULL
       `;
       
@@ -2910,9 +2910,9 @@ ls -lh database/sqlite/wallboard.db
 test -f backend-server/.env && echo "✅ Backend .env exists" || echo "❌ Backend .env missing"
 test -f admin-panel/.env && echo "✅ Frontend .env exists" || echo "❌ Frontend .env missing"
 
-# 7. ตรวจสอบ users table
+# 7. ตรวจสอบ Users table
 cd database/sqlite
-sqlite3 wallboard.db "SELECT COUNT(*) as user_count FROM users;"
+sqlite3 wallboard.db "SELECT COUNT(*) as user_count FROM Users;"
 # ควรเห็นจำนวน users
 
 # 8. ตรวจสอบ Foreign Keys
@@ -2955,7 +2955,7 @@ curl http://localhost:3001/api/users
 ```
 [ ] รัน 01-create-users-table.sql สำเร็จ
 [ ] รัน 02-insert-sample-users.sql สำเร็จ
-[ ] ตรวจสอบข้อมูลใน users table ด้วย SQLite
+[ ] ตรวจสอบข้อมูลใน Users table ด้วย SQLite
 [ ] Foreign Key constraints ทำงาน
 [ ] Indexes ถูกสร้างครบ
 [ ] Trigger updatedAt ทำงาน
@@ -3352,7 +3352,7 @@ npm run dev
 
 **Symptoms:**
 ```
-Error: no such table: users
+Error: no such table: Users
 ```
 
 **Solution:**
@@ -3362,7 +3362,7 @@ sqlite3 wallboard.db < ../scripts/01-create-users-table.sql
 sqlite3 wallboard.db < ../scripts/02-insert-sample-users.sql
 
 # ตรวจสอบ
-sqlite3 wallboard.db "SELECT * FROM users;"
+sqlite3 wallboard.db "SELECT * FROM Users;"
 ```
 
 ---
@@ -3571,11 +3571,11 @@ sqlite3 wallboard.db
 
 # Commands ใน SQLite
 .tables                    # แสดง tables ทั้งหมด
-.schema users             # แสดง schema ของ users table
+.schema Users             # แสดง schema ของ Users table
 PRAGMA foreign_keys;      # ตรวจสอบ FK status
-SELECT * FROM users;      # แสดงข้อมูลทั้งหมด
-SELECT * FROM users WHERE deletedAt IS NULL;  # แสดงเฉพาะ active users
-SELECT * FROM users WHERE deletedAt IS NOT NULL;  # แสดง deleted users
+SELECT * FROM Users;      # แสดงข้อมูลทั้งหมด
+SELECT * FROM Users WHERE deletedAt IS NULL;  # แสดงเฉพาะ active users
+SELECT * FROM Users WHERE deletedAt IS NOT NULL;  # แสดง deleted users
 .exit                     # ออกจาก SQLite
 ```
 
@@ -3593,7 +3593,7 @@ sqlite3 wallboard.db < ../scripts/01-create-users-table.sql
 sqlite3 wallboard.db < ../scripts/02-insert-sample-users.sql
 
 # ตรวจสอบ
-sqlite3 wallboard.db "SELECT COUNT(*) FROM users;"
+sqlite3 wallboard.db "SELECT COUNT(*) FROM Users;"
 ```
 
 ---
@@ -3604,12 +3604,12 @@ sqlite3 wallboard.db "SELECT COUNT(*) FROM users;"
 
 ```sql
 -- ✅ Good: มี indexes บน frequently queried columns
-CREATE INDEX idx_users_username ON users(username);
-CREATE INDEX idx_users_role ON users(role);
+CREATE INDEX idx_users_username ON Users(username);
+CREATE INDEX idx_users_role ON Users(role);
 
 -- Query จะเร็วขึ้นมาก
-SELECT * FROM users WHERE username = 'AG001';  -- ใช้ index
-SELECT * FROM users WHERE role = 'Agent';      -- ใช้ index
+SELECT * FROM Users WHERE username = 'AG001';  -- ใช้ index
+SELECT * FROM Users WHERE role = 'Agent';      -- ใช้ index
 ```
 
 ---
@@ -3680,7 +3680,7 @@ Testing:
 
 ```
 ✅ Database Setup (100%)
-├── users table พร้อม Foreign Keys
+├── Users table พร้อม Foreign Keys
 ├── Indexes สำหรับ performance
 ├── Triggers สำหรับ auto-update
 └── Sample data สำหรับทดสอบ
@@ -4068,7 +4068,7 @@ git checkout -b feature/task1-user-management
 
 # 2. Make commits throughout development
 git add database/scripts/01-create-users-table.sql
-git commit -m "feat: add users table schema with foreign keys"
+git commit -m "feat: add Users table schema with foreign keys"
 
 git add backend-server/repositories/userRepository.js
 git commit -m "feat: add UserRepository with CRUD operations"
@@ -4265,8 +4265,17 @@ Task นี้ออกแบบมาให้เป็นประสบกา
 **Last Updated:** October 2025  
 **Status:** Ready for Student Use ✅
 
-**Changelog v1.2:**
-- 🔧 Fixed teams and users tables
+**Changelog v1.1:**
+- 🆕 Added PRAGMA foreign_keys = ON to SQL scripts
+- 🆕 Added network error handling in API services
+- 🆕 Added success message auto-clear with useEffect
+- 🆕 Added environment verification steps
+- 🆕 Enhanced TODO comments with detailed instructions
+- 🆕 Improved error messages throughout
+- 🆕 Added more comprehensive troubleshooting
+- 🔧 Fixed userRepository constructor to enable FK
+- 🔧 Improved validation error handling
+- 📚 Enhanced documentation clarity
 
 ---
 
