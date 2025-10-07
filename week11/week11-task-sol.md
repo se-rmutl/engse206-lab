@@ -25,29 +25,29 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│ PHASE 1: ARRIVAL & LOGIN (8:45-8:48 AM)                           │
+│ PHASE 1: ARRIVAL & LOGIN (8:45-8:48 AM)                             │
 ├─────────────────────────────────────────────────────────────────────┤
 │ Actions:                                                            │
-│ • เปิดคอมพิวเตอร์ (1 min)                                           │
-│ • เปิด Chrome browser                                               │
-│ • พิมพ์ URL: wallboard.company.com                                  │
+│ • เปิดคอมพิวเตอร์ (1 min)                                              │
+│ • เปิด Chrome browser                                                │
+│ • พิมพ์ URL: wallboard.company.com                                    │
 │ • กรอก username: nok.s                                              │
-│ • กรอก password (ยาว 12 ตัว, ซับซ้อน)                               │
-│ • คลิก Login button                                                 │
-│ • รอ authentication (15-20 วินาที)                                  │
+│ • กรอก password (ยาว 12 ตัว, ซับซ้อน)                                  │
+│ • คลิก Login button                                                  │
+│ • รอ authentication (15-20 วินาที)                                    │
 │                                                                     │
 │ 💭 Thoughts:                                                        │
-│ "หวังว่าระบบจะไม่ช้าวันนี้"                                         │
-│ "Password นี้จำยาก ครั้งที่ 3 แล้วที่เกือบผิด"                      │
-│ "อีก 12 นาทีต้องพร้อมรับสายแล้ว"                                    │
+│ "หวังว่าระบบจะไม่ช้าวันนี้"                                                │
+│ "Password นี้จำยาก ครั้งที่ 3 แล้วที่เกือบผิด"                                 │
+│ "อีก 12 นาทีต้องพร้อมรับสายแล้ว"                                          │
 │                                                                     │
-│ 😐 Emotion: Neutral → 😟 Anxious                                   │
+│ 😐 Emotion: Neutral → 😟 Anxious                                    │
 │                                                                     │
 │ ❌ Pain Points:                                                     │
-│ 1. App โหลดช้า (30 วินาที) - เสียเวลาทุกเช้า                        │
-│ 2. Password ซับซ้อนเกินไป - ต้องดู sticky note                      │
-│ 3. ไม่มี "Remember me" option                                       │
-│ 4. Error message ไม่ชัด (แค่ "Login failed")                        │
+│ 1. App โหลดช้า (30 วินาที) - เสียเวลาทุกเช้า                              │
+│ 2. Password ซับซ้อนเกินไป - ต้องดู sticky note                           │
+│ 3. ไม่มี "Remember me" option                                         │
+│ 4. Error message ไม่ชัด (แค่ "Login failed")                           │
 │                                                                     │
 │ 💡 Opportunities:                                                   │
 │ • Single Sign-On (SSO) with Windows login                           │
@@ -58,34 +58,34 @@
 └─────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────┐
-│ PHASE 2: CHECK MESSAGES (8:48-8:52 AM)                             │
+│ PHASE 2: CHECK MESSAGES (8:48-8:52 AM)                              │
 ├─────────────────────────────────────────────────────────────────────┤
 │ Actions:                                                            │
-│ • ดูหน้าจอ - เห็น "Messages (6)" with red badge                     │
-│ • Scroll ดู messages list                                           │
-│ • อ่านข้อความจาก supervisor (ประชุม 15 นาที)                       │
-│ • คลิกข้อความอื่นๆ ทีละข้อความ                                      │
-│ • พยายามหาว่าข้อความไหนยังไม่ได้อ่าน                                │
-│ • เช็คว่ามีข้อความสำคัญไหม                                          │
+│ • ดูหน้าจอ - เห็น "Messages (6)" with red badge                        │
+│ • Scroll ดู messages list                                            │
+│ • อ่านข้อความจาก supervisor (ประชุม 15 นาที)                            │
+│ • คลิกข้อความอื่นๆ ทีละข้อความ                                            │
+│ • พยายามหาว่าข้อความไหนยังไม่ได้อ่าน                                      │
+│ • เช็คว่ามีข้อความสำคัญไหม                                               │
 │                                                                     │
 │ 💭 Thoughts:                                                        │
-│ "มี 6 ข้อความ แต่ข้อความไหนยังไม่ได้อ่านนะ?"                        │
-│ "Unread (1) แสดงอยู่ แต่หาไม่เจอ"                                   │
-│ "ต้องคลิกทีละข้อความเพื่อดูเนื้อหา - ช้ามาก"                       │
-│ "มีประชุม 15 นาที - ต้องจำไว้"                                      │
+│ "มี 6 ข้อความ แต่ข้อความไหนยังไม่ได้อ่านนะ?"                                │
+│ "Unread (1) แสดงอยู่ แต่หาไม่เจอ"                                       │
+│ "ต้องคลิกทีละข้อความเพื่อดูเนื้อหา - ช้ามาก"                                  │
+│ "มีประชุม 15 นาที - ต้องจำไว้"                                           │
 │                                                                     │
 │ 😟 Emotion: Confused → 😰 Frustrated                                │
 │                                                                     │
 │ ❌ Pain Points:                                                     │
-│ 1. ไม่เห็นชัดว่าข้อความไหน unread (ต้องหา)                          │
-│ 2. ต้องคลิกแต่ละข้อความเพื่ออ่านเนื้อหา                             │
-│ 3. Messages เรียงแบบเวลา ไม่ได้ prioritize สำคัญก่อน                │
-│ 4. "1 older messages hidden" - ต้องคลิกเพิ่ม (ทำไมซ่อน?)           │
-│ 5. ไม่มี notification sound เมื่อมีข้อความใหม่                      │
-│ 6. Filter tabs มี แต่ไม่มี "Important" filter                       │
+│ 1. ไม่เห็นชัดว่าข้อความไหน unread (ต้องหา)                                │
+│ 2. ต้องคลิกแต่ละข้อความเพื่ออ่านเนื้อหา                                      │
+│ 3. Messages เรียงแบบเวลา ไม่ได้ prioritize สำคัญก่อน                     │
+│ 4. "1 older messages hidden" - ต้องคลิกเพิ่ม (ทำไมซ่อน?)                 │
+│ 5. ไม่มี notification sound เมื่อมีข้อความใหม่                             │
+│ 6. Filter tabs มี แต่ไม่มี "Important" filter                           │
 │                                                                     │
 │ 💡 Opportunities:                                                   │
-│ • Unread messages โดดเด่น (bold, different bg color)                │
+│ • Unread messages โดดเด่น (bold, different bg color)                 │
 │ • Preview message content in list (first 2 lines)                   │
 │ • Priority badges (urgent, from supervisor)                         │
 │ • Mark as read/unread quickly                                       │
@@ -95,32 +95,32 @@
 └─────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────┐
-│ PHASE 3: CHANGE STATUS TO AVAILABLE (8:52-8:54 AM)                 │
+│ PHASE 3: CHANGE STATUS TO AVAILABLE (8:52-8:54 AM)                  │
 ├─────────────────────────────────────────────────────────────────────┤
 │ Actions:                                                            │
-│ • มองหา status control (ใช้เวลา 20 วินาที)                         │
-│ • เห็นปุ่ม 4 ปุ่มใหญ่: Available, Busy, Break, Offline              │
-│ • สังเกตว่า "Current: Available" แสดงอยู่ด้านบน                     │
-│ • งง ว่าจะคลิกอีกไหม (เพราะเห็นว่า current แล้ว)                   │
-│ • คลิกปุ่ม "Available" อีกรอบเพื่อยืนยัน                            │
-│ • รอ update (3-5 วินาที)                                            │
-│ • เห็นว่า status เปลี่ยนเป็นสีเขียว                                 │
+│ • มองหา status control (ใช้เวลา 20 วินาที)                             │
+│ • เห็นปุ่ม 4 ปุ่มใหญ่: Available, Busy, Break, Offline                    │
+│ • สังเกตว่า "Current: Available" แสดงอยู่ด้านบน                          │
+│ • งง ว่าจะคลิกอีกไหม (เพราะเห็นว่า current แล้ว)                          │
+│ • คลิกปุ่ม "Available" อีกรอบเพื่อยืนยัน                                    │
+│ • รอ update (3-5 วินาที)                                              │
+│ • เห็นว่า status เปลี่ยนเป็นสีเขียว                                        │
 │                                                                     │
 │ 💭 Thoughts:                                                        │
-│ "ปุ่มอยู่ไหนนะ? อ๋อ ข้างล่างเอง"                                    │
-│ "เห็นว่า Current: Available แล้ว ต้องกดอีกไหม?"                     │
-│ "กดแล้ว... Update แล้วหรือยัง?"                                     │
-│ "ไม่มี feedback ชัดเจนเลย"                                          │
+│ "ปุ่มอยู่ไหนนะ? อ๋อ ข้างล่างเอง"                                           │
+│ "เห็นว่า Current: Available แล้ว ต้องกดอีกไหม?"                          │
+│ "กดแล้ว... Update แล้วหรือยัง?"                                         │
+│ "ไม่มี feedback ชัดเจนเลย"                                             │
 │                                                                     │
 │ 😰 Emotion: Confused → 😖 Stressed                                  │
 │                                                                     │
 │ ❌ Pain Points:                                                     │
-│ 1. Status buttons อยู่ไกลด้านล่าง (ไม่เด่น)                         │
-│ 2. มี 4 ปุ่มใหญ่ แต่ใช้แค่ 1 ปุ่มบ่อยๆ (Available)                  │
-│ 3. Current status แสดงด้านบน แต่ต้อง scroll ลงไปกดปุ่ม              │
-│ 4. ไม่มี immediate feedback (ต้องรอ 3-5 วินาที)                    │
-│ 5. ไม่มี loading indicator                                          │
-│ 6. ไม่มี keyboard shortcut (เช่น F2=Available)                      │
+│ 1. Status buttons อยู่ไกลด้านล่าง (ไม่เด่น)                               │
+│ 2. มี 4 ปุ่มใหญ่ แต่ใช้แค่ 1 ปุ่มบ่อยๆ (Available)                            │
+│ 3. Current status แสดงด้านบน แต่ต้อง scroll ลงไปกดปุ่ม                   │
+│ 4. ไม่มี immediate feedback (ต้องรอ 3-5 วินาที)                          │
+│ 5. ไม่มี loading indicator                                            │
+│ 6. ไม่มี keyboard shortcut (เช่น F2=Available)                         │
 │                                                                     │
 │ 💡 Opportunities:                                                   │
 │ • Status toggle in header (always visible)                          │
@@ -133,29 +133,29 @@
 └─────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────┐
-│ PHASE 4: READY & WAIT FOR CALL (8:54-9:03 AM)                      │
+│ PHASE 4: READY & WAIT FOR CALL (8:54-9:03 AM)                       │
 ├─────────────────────────────────────────────────────────────────────┤
 │ Actions:                                                            │
-│ • นั่งรอสายเข้า                                                     │
-│ • ดูหน้าจอว่ามีข้อมูลอะไรอัพเดตไหม                                  │
-│ • Refresh หน้าจอเพื่อเช็คว่า status ยัง Available อยู่ไหม            │
-│ • ดูสถิติของตัวเอง (ไม่เจอที่ชัดเจน)                                │
-│ • เปิด tab อื่นดูข่าว/social media                                   │
+│ • นั่งรอสายเข้า                                                        │
+│ • ดูหน้าจอว่ามีข้อมูลอะไรอัพเดตไหม                                         │
+│ • Refresh หน้าจอเพื่อเช็คว่า status ยัง Available อยู่ไหม                   │
+│ • ดูสถิติของตัวเอง (ไม่เจอที่ชัดเจน)                                        │
+│ • เปิด tab อื่นดูข่าว/social media                                       │
 │                                                                     │
 │ 💭 Thoughts:                                                        │
-│ "Status ยัง Available อยู่ใช่ไหม? กลัวหลุด"                         │
-│ "วันนี้ต้องรับสาย 45 สายให้ได้"                                    │
-│ "อยากดูว่าตอนนี้รับไปกี่สายแล้ว แต่หาข้อมูลไม่เจอ"                 │
-│ "น่าจะมี dashboard เล็กๆ แสดงสถิติ"                                 │
+│ "Status ยัง Available อยู่ใช่ไหม? กลัวหลุด"                               │
+│ "วันนี้ต้องรับสาย 45 สายให้ได้"                                            │
+│ "อยากดูว่าตอนนี้รับไปกี่สายแล้ว แต่หาข้อมูลไม่เจอ"                              │
+│ "น่าจะมี dashboard เล็กๆ แสดงสถิติ"                                      │
 │                                                                     │
 │ 😐 Emotion: Bored → 😊 Ready                                        │
 │                                                                     │
 │ ❌ Pain Points:                                                     │
-│ 1. ไม่แน่ใจว่า status ยังคงอยู่ (ต้อง refresh เช็ค)                 │
-│ 2. ไม่มี personal statistics dashboard                              │
-│ 3. ไม่มี "calls today" counter                                      │
-│ 4. ไม่มี target tracking (เช่น 45 calls target)                     │
-│ 5. หน้าจอค่อนข้างเปล่า - ไม่มีข้อมูลที่เป็นประโยชน์                │
+│ 1. ไม่แน่ใจว่า status ยังคงอยู่ (ต้อง refresh เช็ค)                         │
+│ 2. ไม่มี personal statistics dashboard                                │
+│ 3. ไม่มี "calls today" counter                                        │
+│ 4. ไม่มี target tracking (เช่น 45 calls target)                        │
+│ 5. หน้าจอค่อนข้างเปล่า - ไม่มีข้อมูลที่เป็นประโยชน์                             │
 │                                                                     │
 │ 💡 Opportunities:                                                   │
 │ • Real-time status indicator (always visible, with heartbeat)       │
@@ -169,17 +169,17 @@
 └─────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────┐
-│ PHASE 5: RECEIVE FIRST CALL (9:03 AM)                              │
+│ PHASE 5: RECEIVE FIRST CALL (9:03 AM)                               │
 ├─────────────────────────────────────────────────────────────────────┤
 │ Actions:                                                            │
-│ • ได้ยินเสียง beep จากระบบโทรศัพท์ (ไม่ใช่จาก wallboard)           │
-│ • Wallboard auto-change status to "Busy" (สีส้ม)                    │
-│ • เริ่มรับสาย - ใช้ระบบโทรศัพท์หลัก                                 │
+│ • ได้ยินเสียง beep จากระบบโทรศัพท์ (ไม่ใช่จาก wallboard)                   │
+│ • Wallboard auto-change status to "Busy" (สีส้ม)                      │
+│ • เริ่มรับสาย - ใช้ระบบโทรศัพท์หลัก                                        │
 │ • Wallboard แสดง timer (call duration)                              │
 │                                                                     │
 │ 💭 Thoughts:                                                        │
-│ "เริ่มแล้ว! มั่นใจแล้วว่าระบบ sync ได้"                             │
-│ "ดีที่ status เปลี่ยนอัตโนมัติ ไม่ต้องกดเอง"                        │
+│ "เริ่มแล้ว! มั่นใจแล้วว่าระบบ sync ได้"                                     │
+│ "ดีที่ status เปลี่ยนอัตโนมัติ ไม่ต้องกดเอง"                                  │
 │                                                                     │
 │ 😊 Emotion: Confident → 😌 Focused                                  │
 │                                                                     │
@@ -622,9 +622,9 @@ Implementation: Socket.io for live updates
 │ HEADER (60px height, fixed)                                         │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│ [Logo] Agent Wallboard        [🟢 Available ▾]  [🔔3] [John] [⚙]  │
-│                               ─────────────────                      │
-│                               Status Quick Toggle                    │
+│ [Logo] Agent Wallboard        [🟢 Available ▾]  [🔔3] [John] [⚙]    │
+│                               ─────────────────                     │
+│                               Status Quick Toggle                   │
 │                                                                     │
 │ Annotations:                                                        │
 │ • Logo: 40px height, clickable → home                               │
@@ -634,40 +634,40 @@ Implementation: Socket.io for live updates
 │ • Settings: Quick access to preferences                             │
 └─────────────────────────────────────────────────────────────────────┘
 
-┌─────────────────────────────────────────────────────────────────────┐
-│ MAIN CONTENT AREA (2-column layout)                                 │
-├──────────────────────────────┬──────────────────────────────────────┤
-│ LEFT COLUMN (70%)            │ RIGHT COLUMN (30%)                   │
-│ Width: ~1000px               │ Width: ~400px                        │
-│                              │                                      │
+┌───────────────────────────────────────────────────────────────────┐
+│ MAIN CONTENT AREA (2-column layout)                               │
+├──────────────────────────────┬────────────────────────────────────┤
+│ LEFT COLUMN (70%)            │ RIGHT COLUMN (30%)                 │
+│ Width: ~1000px               │ Width: ~400px                      │
+│                              │                                    │
 │ ┌──────────────────────────┐ │ ┌────────────────────────────────┐ │
 │ │ PERSONAL STATS WIDGET    │ │ │ MESSAGES CENTER                │ │
 │ │ (240px height)           │ │ │ (Full height, scrollable)      │ │
 │ ├──────────────────────────┤ │ ├────────────────────────────────┤ │
 │ │                          │ │ │                                │ │
-│ │ Today's Progress         │ │ │ Messages (6)  [1 unread] 🔽   │ │
+│ │ Today's Progress         │ │ │ Messages (6)  [1 unread] 🔽    │ │
 │ │                          │ │ │ ────────────────────────────── │ │
-│ │ Calls: 12/45 ▰▰▰▱▱      │ │ │                                │ │
-│ │ 📞 Target: 73%          │ │ │ [Filter Pills]                 │ │
-│ │                          │ │ │ [All] [Unread] [Urgent]       │ │
+│ │ Calls: 12/45 ▰▰▰▱▱       │ │ │                                │ │
+│ │ 📞 Target: 73%           │ │ │ [Filter Pills]                 │ │
+│ │                          │ │ │ [All] [Unread] [Urgent]        │ │
 │ │ Avg Handle: 5m 32s       │ │ │                                │ │
-│ │ ⏱ -18s vs yesterday     │ │ │ ┌────────────────────────────┐ │ │
+│ │ ⏱ -18s vs yesterday      │ │ │ ┌────────────────────────────┐ │ │
 │ │                          │ │ │ │ 🔴 UNREAD                  │ │ │
-│ │ Satisfaction: 4.8⭐      │ │ │ │ From: SP001 (Sarah)       │ │ │
-│ │ 📊 +0.2 this week       │ │ │ │ Team meeting in 15 mins   │ │ │
-│ │                          │ │ │ │ 📢 Broadcast • 20:11      │ │ │
+│ │ Satisfaction: 4.8⭐      │ │ │ │ From: SP001 (Sarah)        │ │ │
+│ │ 📊 +0.2 this week        │ │ │ │ Team meeting in 15 mins    │ │ │
+│ │                          │ │ │ │ 📢 Broadcast • 20:11       │ │ │
 │ │ [View Details →]         │ │ │ └────────────────────────────┘ │ │
 │ └──────────────────────────┘ │ │                                │ │
 │                              │ │ ┌────────────────────────────┐ │ │
-│ ┌──────────────────────────┐ │ │ │ From: SP001               │ │ │
-│ │ QUICK ACTIONS            │ │ │ │ Product update shared     │ │ │
-│ │ (120px height)           │ │ │ │ 💬 Direct • 19:48         │ │ │
+│ ┌──────────────────────────┐ │ │ │ From: SP001                │ │ │
+│ │ QUICK ACTIONS            │ │ │ │ Product update shared      │ │ │
+│ │ (120px height)           │ │ │ │ 💬 Direct • 19:48          │ │ │
 │ ├──────────────────────────┤ │ │ └────────────────────────────┘ │ │
 │ │                          │ │ │                                │ │
 │ │ [📋 Knowledge Base]      │ │ │ ┌────────────────────────────┐ │ │
-│ │ [📞 Call History]        │ │ │ │ From: HR                  │ │ │
-│ │ [📊 My Reports]          │ │ │ │ Payroll reminder          │ │ │
-│ │ [❓ Request Help]        │ │ │ │ 📢 Broadcast • Yesterday  │ │ │
+│ │ [📞 Call History]        │ │ │ │ From: HR                   │ │ │
+│ │ [📊 My Reports]          │ │ │ │ Payroll reminder           │ │ │
+│ │ [❓ Request Help]        │ │ │ │ 📢 Broadcast • Yesterday   │ │ │
 │ │                          │ │ │ └────────────────────────────┘ │ │
 │ └──────────────────────────┘ │ │                                │ │
 │                              │ │ [Show All (3 more) ▾]          │ │
@@ -675,14 +675,14 @@ Implementation: Socket.io for live updates
 │ │ UPCOMING SCHEDULE        │ │ │ ┌────────────────────────────┐ │ │
 │ │ (180px height)           │ │ │ │ QUICK COMPOSE              │ │ │
 │ ├──────────────────────────┤ │ │ ├────────────────────────────┤ │ │
-│ │                          │ │ │ │ To: [Select recipient ▾]  │ │ │
-│ │ 🕒 10:30 - 10:45         │ │ │ │ [Type message...]         │ │ │
-│ │    Break (15 mins)       │ │ │ │                           │ │ │
-│ │                          │ │ │ │ Templates:                │ │ │
-│ │ 📅 11:00 - 11:30         │ │ │ │ • Need help               │ │ │
-│ │    Team Meeting          │ │ │ │ • Taking break            │ │ │
-│ │    Location: Conf. B     │ │ │ │ • Technical issue         │ │ │
-│ │                          │ │ │ │                    [Send] │ │ │
+│ │                          │ │ │ │ To: [Select recipient ▾]   │ │ │
+│ │ 🕒 10:30 - 10:45         │ │ │ │ [Type message...]          │ │ │
+│ │    Break (15 mins)       │ │ │ │                            │ │ │
+│ │                          │ │ │ │ Templates:                 │ │ │
+│ │ 📅 11:00 - 11:30         │ │ │ │ • Need help                │ │ │
+│ │    Team Meeting          │ │ │ │ • Taking break             │ │ │
+│ │    Location: Conf. B     │ │ │ │ • Technical issue          │ │ │
+│ │                          │ │ │ │                    [Send]  │ │ │
 │ │ 🕒 15:00 - 15:15         │ │ │ └────────────────────────────┘ │ │
 │ │    Break (15 mins)       │ │ └────────────────────────────────┘ │
 │ │                          │ │                                    │
@@ -705,10 +705,10 @@ Implementation: Socket.io for live updates
 └──────────────────────────────┴────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────┐
-│ FLOATING STATUS BAR (Bottom-right corner, 60px height)             │
+│ FLOATING STATUS BAR (Bottom-right corner, 60px height)              │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│                              [🟢 Available] [F2-F4 for status]     │
+│                              [🟢 Available] [F2-F4 for status]      │
 │                              ───────────────                        │
 │                              Always-on indicator                    │
 └─────────────────────────────────────────────────────────────────────┘
@@ -759,7 +759,7 @@ Implementation: Socket.io for live updates
 │ HEADER (60px height)                                                │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│ [Logo] Agent Wallboard    [Team: Customer Service ▾]  [Send Msg]   │
+│ [Logo] Agent Wallboard    [Team: Customer Service ▾]  [Send Msg]    │
 │                                                   [🔔2] [Sarah] [⚙] │
 └─────────────────────────────────────────────────────────────────────┘
 
@@ -767,67 +767,67 @@ Implementation: Socket.io for live updates
 │ METRICS DASHBOARD (120px height)                                    │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ │
-│ │ 👥       │ │ 🟢       │ │ 📞       │ │ ⏱        │ │ 😊       │ │
-│ │ 12       │ │ 8        │ │ 147      │ │ 4m 32s   │ │ 4.7⭐    │ │
-│ │ Total    │ │ Online   │ │ Calls    │ │ Avg Time │ │ CSAT     │ │
-│ │ Agents   │ │ Now      │ │ Today    │ │ Today    │ │ Today    │ │
-│ └──────────┘ └──────────┘ └──────────┘ └──────────┘ └──────────┘ │
+│ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐    │
+│ │ 👥       │ │ 🟢       │ │ 📞       │ │ ⏱        │ │ 😊       │    │
+│ │ 12       │ │ 8        │ │ 147      │ │ 4m 32s   │ │ 4.7⭐    │    │
+│ │ Total    │ │ Online   │ │ Calls    │ │ Avg Time │ │ CSAT     │    │
+│ │ Agents   │ │ Now      │ │ Today    │ │ Today    │ │ Today    │    │
+│ └──────────┘ └──────────┘ └──────────┘ └──────────┘ └──────────┘    │
 │                                                                     │
-│ Real-time SLA: 94% ▰▰▰▰▰▰▰▰▰▱ (Target: 95%) ⚠️                    │
+│ Real-time SLA: 94% ▰▰▰▰▰▰▰▰▰▱ (Target: 95%) ⚠️                      │
 └─────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────┐
 │ FILTERS & ACTIONS BAR (50px height)                                 │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│ [🟢 Available 4] [🟠 Busy 3] [🔵 Break 1] [⚫ Offline 4]          │
+│ [🟢 Available 4] [🟠 Busy 3] [🔵 Break 1] [⚫ Offline 4]            │
 │                                                                     │
-│ 🔍 [Search agents...]              [Sort: Status ▾] [View: Grid ▾] │
+│ 🔍 [Search agents...]              [Sort: Status ▾] [View: Grid ▾]  │
 └─────────────────────────────────────────────────────────────────────┘
 
-┌─────────────────────────────────────────────────────────────────────┐
-│ AGENT CARDS GRID (Compact Layout - 4 columns × 2 rows)             │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
+┌───────────────────────────────────────────────────────────────────┐
+│ AGENT CARDS GRID (Compact Layout - 4 columns × 2 rows)            │
+├───────────────────────────────────────────────────────────────────┤
+│                                                                   │
 │ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌────────────┐ │
-│ │🟢John Smith │ │🟠Emma Davis │ │🟢Lisa Wong  │ │🔵Mike Lee │ │
-│ │ AG001       │ │ AG002       │ │ AG005       │ │ AG007     │ │
-│ │             │ │             │ │             │ │           │ │
-│ │ Available   │ │ Busy 🔥     │ │ Available   │ │ Break     │ │
-│ │ 12 calls    │ │ 15 calls    │ │ 8 calls     │ │ 14 calls  │ │
-│ │ 5m 20s avg  │ │ 6m 45s avg  │ │ 4m 10s avg  │ │ 5m 05s   │ │
-│ │ Updated now │ │ Call: 12m   │ │ Updated 1m  │ │ 10m left  │ │
-│ │             │ │             │ │             │ │           │ │
-│ │ [💬 Msg]    │ │ [💬 Msg]    │ │ [💬 Msg]    │ │ [💬 Msg]  │ │
+│ │🟢John Smith  │ │🟠Emma Davis  │ │🟢Lisa Wong   │ │🔵Mike Lee  │ │
+│ │ AG001        │ │ AG002        │ │ AG005        │ │ AG007      │ │
+│ │              │ │              │ │              │ │            │ │
+│ │ Available    │ │ Busy 🔥      │ │ Available    │ │ Break      │ │
+│ │ 12 calls     │ │ 15 calls     │ │ 8 calls      │ │ 14 calls   │ │
+│ │ 5m 20s avg   │ │ 6m 45s avg   │ │ 4m 10s avg   │ │ 5m 05s     │ │
+│ │ Updated now  │ │ Call: 12m    │ │ Updated 1m   │ │ 10m left   │ │
+│ │              │ │              │ │              │ │            │ │
+│ │ [💬 Msg]     │ │ [💬 Msg]     │ │ [💬 Msg]     │ │ [💬 Msg]   │ │
 │ └──────────────┘ └──────────────┘ └──────────────┘ └────────────┘ │
-│                                                                     │
+│                                                                   │
 │ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌────────────┐ │
-│ │🟢Sarah Chen │ │🟠Tom Brown  │ │🟢Amy Park   │ │🟢Dan Kim  │ │
-│ │ AG003       │ │ AG004       │ │ AG006       │ │ AG008     │ │
-│ │             │ │             │ │             │ │           │ │
-│ │ Available   │ │ Busy        │ │ Available   │ │ Available │ │
-│ │ 10 calls    │ │ 13 calls    │ │ 9 calls     │ │ 11 calls  │ │
-│ │ 4m 50s avg  │ │ 5m 30s avg  │ │ 5m 15s avg  │ │ 4m 45s   │ │
-│ │ Updated 2m  │ │ Call: 3m    │ │ Updated now │ │ Updated 1m│ │
-│ │             │ │             │ │             │ │           │ │
-│ │ [💬 Msg]    │ │ [💬 Msg]    │ │ [💬 Msg]    │ │ [💬 Msg]  │ │
+│ │🟢Sarah Chen  │ │🟠Tom Brown   │ │🟢Amy Park    │ │🟢Dan Kim   │ │
+│ │ AG003        │ │ AG004        │ │ AG006        │ │ AG008      │ │
+│ │              │ │              │ │              │ │            │ │
+│ │ Available    │ │ Busy         │ │ Available    │ │ Available  │ │
+│ │ 10 calls     │ │ 13 calls     │ │ 9 calls      │ │ 11 calls   │ │
+│ │ 4m 50s avg   │ │ 5m 30s avg   │ │ 5m 15s avg   │ │ 4m 45s     │ │
+│ │ Updated 2m   │ │ Call: 3m     │ │ Updated now  │ │ Updated 1m │ │
+│ │              │ │              │ │              │ │            │ │
+│ │ [💬 Msg]     │ │ [💬 Msg]     │ │ [💬 Msg]     │ │ [💬 Msg]   │ │
 │ └──────────────┘ └──────────────┘ └──────────────┘ └────────────┘ │
-│                                                                     │
-│                       [Show 4 Offline Agents ▾]                     │
-└─────────────────────────────────────────────────────────────────────┘
+│                                                                   │
+│                       [Show 4 Offline Agents ▾]                   │
+└───────────────────────────────────────────────────────────────────┘
 
-┌─────────────────────────────────────────────────────────────────────┐
-│ ALERTS PANEL (Collapsible, shows when there are issues)            │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
-│ ⚠️  Active Alerts (1)                                    [Dismiss] │
-│ ─────────────────────────────────────────────────────────────────  │
-│                                                                     │
-│ 🔥 Emma Davis (AG002) - Long call duration (12 mins)               │
+┌───────────────────────────────────────────────────────────────────┐
+│ ALERTS PANEL (Collapsible, shows when there are issues)           │
+├───────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│ ⚠️  Active Alerts (1)                                   [Dismiss] │
+│ ──────────────────────────────────────────────────────────────────│
+│                                                                   │
+│ 🔥 Emma Davis (AG002) - Long call duration (12 mins)              │
 │    Average: 6m 45s | This call: 12m 20s                           │
-│    [Send Message] [View Detail] [Dismiss]                          │
-└─────────────────────────────────────────────────────────────────────┘
+│    [Send Message] [View Detail] [Dismiss]                         │
+└───────────────────────────────────────────────────────────────────┘
 
 ANNOTATIONS:
 
@@ -892,15 +892,15 @@ Click Behavior:
 ### Screen 3: Agent Detail Modal (for Supervisor)
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│ AGENT DETAIL MODAL - OVERLAY                                        │
-│ Size: 800px × 600px (centered)                                      │
-└─────────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────┐
+│ AGENT DETAIL MODAL - OVERLAY                                       │
+│ Size: 800px × 600px (centered)                                     │
+└────────────────────────────────────────────────────────────────────┘
 
-┌─────────────────────────────────────────────────────────────────────┐
-│ [✕ Close]                          AGENT DETAIL                     │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
+┌────────────────────────────────────────────────────────────────────┐
+│ [✕ Close]                          AGENT DETAIL                    │
+├────────────────────────────────────────────────────────────────────┤
+│                                                                    │
 │ ┌─────────────────────────────────────────────────────────────────┐│
 │ │ HEADER SECTION                                                  ││
 │ ├─────────────────────────────────────────────────────────────────┤│
@@ -909,15 +909,15 @@ Click Behavior:
 │ │           Customer Service Team                                 ││
 │ │           Last update: Just now                                 ││
 │ │                                                                 ││
-│ │ [Send Message] [Change Status] [View Full Profile]             ││
+│ │ [Send Message] [Change Status] [View Full Profile]              ││
 │ └─────────────────────────────────────────────────────────────────┘│
-│                                                                     │
+│                                                                    │
 │ ┌─────────────────────────────────────────────────────────────────┐│
 │ │ TABS NAVIGATION                                                 ││
 │ ├─────────────────────────────────────────────────────────────────┤│
 │ │ [Overview] [Performance] [Activity] [Messages]                  ││
 │ └─────────────────────────────────────────────────────────────────┘│
-│                                                                     │
+│                                                                    │
 │ ┌─────────────────────────────────────────────────────────────────┐│
 │ │ OVERVIEW TAB (Active)                                           ││
 │ ├─────────────────────────────────────────────────────────────────┤│
@@ -928,30 +928,30 @@ Click Behavior:
 │ │ Calls: 12/45 (73%)              Status: Available               ││
 │ │ Talk Time: 1h 4m                Duration: 45m 20s               ││
 │ │ Avg Handle: 5m 20s              Last Call: 2m ago               ││
-│ │ CSAT: 4.8⭐                      Breaks: 1/3                     ││
+│ │ CSAT: 4.8⭐                      Breaks: 1/3                    ││
 │ │                                                                 ││
 │ │ STATUS HISTORY TODAY                                            ││
 │ │ ────────────────────                                            ││
 │ │                                                                 ││
 │ │ Timeline:                                                       ││
-│ │ 09:00 ─────🟢─── 10:30 ─🔵─ 10:45 ─────🟢──── Now             ││
+│ │ 09:00 ─────🟢─── 10:30 ─🔵─ 10:45 ─────🟢──── Now               ││
 │ │       Available      Break      Available                       ││
 │ │                                                                 ││
 │ │ RECENT CALLS (Last 5)                                           ││
 │ │ ─────────────────────                                           ││
 │ │                                                                 ││
-│ │ 1. 11:23 - 11:28 (5m 12s) ✓ Resolved                           ││
-│ │ 2. 11:10 - 11:15 (4m 52s) ✓ Resolved                           ││
-│ │ 3. 10:58 - 11:04 (6m 20s) ✓ Resolved                           ││
-│ │ 4. 10:48 - 10:53 (5m 05s) ✓ Escalated                          ││
-│ │ 5. 10:35 - 10:42 (7m 10s) ✓ Resolved                           ││
+│ │ 1. 11:23 - 11:28 (5m 12s) ✓ Resolved                            ││
+│ │ 2. 11:10 - 11:15 (4m 52s) ✓ Resolved                            ││
+│ │ 3. 10:58 - 11:04 (6m 20s) ✓ Resolved                            ││
+│ │ 4. 10:48 - 10:53 (5m 05s) ✓ Escalated                           ││
+│ │ 5. 10:35 - 10:42 (7m 10s) ✓ Resolved                            ││
 │ │                                                                 ││
 │ │ [View All Call History →]                                       ││
 │ │                                                                 ││
 │ └─────────────────────────────────────────────────────────────────┘│
-│                                                                     │
-│                                [Close]                              │
-└─────────────────────────────────────────────────────────────────────┘
+│                                                                    │
+│                                [Close]                             │
+└────────────────────────────────────────────────────────────────────┘
 
 BEHAVIOR:
 • Modal darkens background (overlay 50% opacity)
@@ -980,49 +980,49 @@ BEHAVIOR:
 │ CONVERSATIONS    │ ACTIVE CONVERSATION                              │
 │ (320px width)    │                                                  │
 ├──────────────────┤ ┌────────────────────────────────────────────────┤
-│                  │ │ CONVERSATION HEADER                           │
+│                  │ │ CONVERSATION HEADER                            │
 │ 🔍 [Search...]   │ ├────────────────────────────────────────────────┤
-│                  │ │ To: John Smith (AG001)                        │
-│ ┌──────────────┐ │ │ Status: 🟢 Available                          │
-│ │ 🔴 John Smith│ │ │ [Call] [Video] [More ⋮]                       │
+│                  │ │ To: John Smith (AG001)                         │
+│ ┌──────────────┐ │ │ Status: 🟢 Available                           │
+│ │ 🔴 John Smith│ │ │ [Call] [Video] [More ⋮]                        │
 │ │ AG001        │ │ └────────────────────────────────────────────────┘
 │ │ Need help... │ │                                                  │
 │ │ 2m ago       │ │ ┌────────────────────────────────────────────────┤
-│ └──────────────┘ │ │ MESSAGE HISTORY (Scrollable)                  │
+│ └──────────────┘ │ │ MESSAGE HISTORY (Scrollable)                   │
 │                  │ ├────────────────────────────────────────────────┤
-│ ┌──────────────┐ │ │                                               │
-│ │ Emma Davis   │ │ │        ┌─────────────────────────┐           │
-│ │ AG002        │ │ │        │ Hi Sarah, I need help   │ 10:23 AM  │
-│ │ Break approv.│ │ │        │ with a customer issue   │           │
-│ │ 15m ago      │ │ │        └─────────────────────────┘           │
-│ └──────────────┘ │ │                                               │
-│                  │ │ ┌─────────────────────────┐                   │
-│ ┌──────────────┐ │ │ │ Sure! What's the issue? │        10:24 AM  │
-│ │ Team: CS     │ │ │ └─────────────────────────┘                   │
-│ │ 12 members   │ │ │                                               │
-│ │ Meeting at..│ │ │        ┌─────────────────────────┐           │
-│ │ 1h ago       │ │ │        │ Customer wants refund   │ 10:24 AM  │
-│ └──────────────┘ │ │        │ but item is used        │           │
-│                  │ │        └─────────────────────────┘           │
-│ [+ New Conv.]    │ │                                               │
-│                  │ │ ┌─────────────────────────┐                   │
-│                  │ │ │ Check policy section 4.2 │        10:25 AM  │
+│ ┌──────────────┐ │ │                                                │
+│ │ Emma Davis   │ │ │        ┌─────────────────────────┐             │
+│ │ AG002        │ │ │        │ Hi Sarah, I need help   │ 10:23 AM    │
+│ │ Break approv.│ │ │        │ with a customer issue   │             │
+│ │ 15m ago      │ │ │        └─────────────────────────┘             │
+│ └──────────────┘ │ │                                                │
+│                  │ │ ┌─────────────────────────┐                    │
+│ ┌──────────────┐ │ │ │ Sure! What's the issue? │        10:24 AM    │
+│ │ Team: CS     │ │ │ └─────────────────────────┘                    │
+│ │ 12 members   │ │ │                                                │
+│ │ Meeting at.. │ │ │        ┌─────────────────────────┐             │
+│ │ 1h ago       │ │ │        │ Customer wants refund   │ 10:24 AM    │
+│ └──────────────┘ │ │        │ but item is used        │             │
+│                  │ │        └─────────────────────────┘             │
+│ [+ New Conv.]    │ │                                                │
+│                  │ │ ┌─────────────────────────┐                    │
+│                  │ │ │ Check policy section 4.2 │        10:25 AM   │
 │                  │ │ │ Use template: REFUND_02  │                   │
-│                  │ │ └─────────────────────────┘                   │
-│                  │ │                                               │
-│                  │ │        ┌─────────────────────────┐           │
-│                  │ │        │ Got it! Thanks! ✓       │ 10:26 AM  │
-│                  │ │        └─────────────────────────┘           │
-│                  │ │                                               │
+│                  │ │ └─────────────────────────┘                    │
+│                  │ │                                                │
+│                  │ │        ┌─────────────────────────┐             │
+│                  │ │        │ Got it! Thanks! ✓       │ 10:26 AM    │
+│                  │ │        └─────────────────────────┘             │
+│                  │ │                                                │
 │                  │ └────────────────────────────────────────────────┘
 │                  │                                                  │
 │                  │ ┌────────────────────────────────────────────────┤
-│                  │ │ MESSAGE COMPOSER                              │
+│                  │ │ MESSAGE COMPOSER                               │
 │                  │ ├────────────────────────────────────────────────┤
-│                  │ │                                               │
-│                  │ │ [Type your message...]                        │
-│                  │ │                                               │
-│                  │ │ [📎] [😊] [Template ▾]            [Send →]    │
+│                  │ │                                                │
+│                  │ │ [Type your message...]                         │
+│                  │ │                                                │
+│                  │ │ [📎] [😊] [Template ▾]            [Send →]     │
 │                  │ └────────────────────────────────────────────────┘
 └──────────────────┴──────────────────────────────────────────────────┘
 
@@ -1051,39 +1051,39 @@ FEATURES:
 │ (240px)          │                                                  │
 ├──────────────────┤                                                  │
 │                  │ ┌────────────────────────────────────────────────┤
-│ Settings         │ │ NOTIFICATION PREFERENCES                      │
+│ Settings         │ │ NOTIFICATION PREFERENCES                       │
 │                  │ ├────────────────────────────────────────────────┤
-│ • Profile        │ │                                               │
-│ • Notifications ✓│ │ Desktop Notifications                         │
-│ • Display        │ │ ───────────────────────                       │
-│ • Keyboard       │ │                                               │
-│ • Privacy        │ │ [✓] Enable desktop notifications              │
-│ • Integrations   │ │ [✓] Play sound for new messages               │
-│ • About          │ │ [✓] Show preview in notifications             │
-│                  │ │                                               │
-│                  │ │ Sound: [Chime ▾]  Volume: ▰▰▰▰▱ [Test]       │
-│                  │ │                                               │
-│                  │ │ Message Notifications                         │
-│                  │ │ ──────────────────────                        │
-│                  │ │                                               │
-│                  │ │ [✓] All messages                              │
-│                  │ │ [✓] Direct messages only                      │
-│                  │ │ [✓] Urgent messages                           │
-│                  │ │ [ ] Broadcast messages                        │
-│                  │ │                                               │
-│                  │ │ Status Change Alerts                          │
-│                  │ │ ─────────────────────                         │
-│                  │ │                                               │
-│                  │ │ [✓] Notify when supervisor sends message      │
-│                  │ │ [✓] Alert on system status change             │
-│                  │ │ [ ] Notify on team member status change       │
-│                  │ │                                               │
-│                  │ │ Quiet Hours                                   │
-│                  │ │ ────────────                                  │
-│                  │ │                                               │
-│                  │ │ [ ] Enable quiet hours                        │
-│                  │ │ From: [18:00 ▾] To: [08:00 ▾]                 │
-│                  │ │                                               │
+│ • Profile        │ │                                                │
+│ • Notifications ✓│ │ Desktop Notifications                          │
+│ • Display        │ │ ───────────────────────                        │
+│ • Keyboard       │ │                                                │
+│ • Privacy        │ │ [✓] Enable desktop notifications               │
+│ • Integrations   │ │ [✓] Play sound for new messages                │
+│ • About          │ │ [✓] Show preview in notifications              │
+│                  │ │                                                │
+│                  │ │ Sound: [Chime ▾]  Volume: ▰▰▰▰▱ [Test]         │
+│                  │ │                                                │
+│                  │ │ Message Notifications                          │
+│                  │ │ ──────────────────────                         │
+│                  │ │                                                │
+│                  │ │ [✓] All messages                               │
+│                  │ │ [✓] Direct messages only                       │
+│                  │ │ [✓] Urgent messages                            │
+│                  │ │ [ ] Broadcast messages                         │
+│                  │ │                                                │
+│                  │ │ Status Change Alerts                           │
+│                  │ │ ─────────────────────                          │
+│                  │ │                                                │
+│                  │ │ [✓] Notify when supervisor sends message       │
+│                  │ │ [✓] Alert on system status change              │
+│                  │ │ [ ] Notify on team member status change        │
+│                  │ │                                                │
+│                  │ │ Quiet Hours                                    │
+│                  │ │ ────────────                                   │
+│                  │ │                                                │
+│                  │ │ [ ] Enable quiet hours                         │
+│                  │ │ From: [18:00 ▾] To: [08:00 ▾]                  │
+│                  │ │                                                │
 │                  │ └────────────────────────────────────────────────┘
 │                  │                                                  │
 │                  │                         [Cancel] [Save Changes]  │
