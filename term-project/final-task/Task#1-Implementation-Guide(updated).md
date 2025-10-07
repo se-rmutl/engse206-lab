@@ -1,7 +1,7 @@
 # 📄 Task#1: User Management System - Implementation Guide (Updated v1.2)
 
 **Document ID:** TASK1-IMPL-GUIDE-001-v1.2  
-**Version:** 1.1 (Updated)  
+**Version:** 1.2 (Updated)  
 **Created:** October 2025  
 **Last Updated:** October 2025  
 **Course:** ENGSE206 - Software Requirements Specification and Design  
