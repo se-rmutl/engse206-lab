@@ -1,7 +1,7 @@
 # 📄 Task#1: User Management System - Implementation Guide
 
 **Document ID:** TASK1-IMPL-GUIDE-001  
-**Version:** 1.0  
+**Version:** 1.1  
 **Created:** October 2025  
 **Course:** ENGSE206 - Software Requirements Specification and Design  
 **สำหรับ:** กลุ่มเลขคี่ (Odd Groups)  
@@ -36,7 +36,7 @@
 ✅ SQLite Database
    ├── wallboard.db
    ├── Agents table
-   └── Teams table
+   └── teams table
 
 ✅ MongoDB Database
    ├── messages collection
@@ -54,7 +54,7 @@
    └── middleware/validation.js (User validation)
 
 🆕 Database Tables
-   ├── Users table (ใน SQLite)
+   ├── users table (ใน SQLite)
    └── Sample users data
 
 🆕 Frontend Admin Panel (React - Project ใหม่)
@@ -113,7 +113,7 @@ agent-wallboard-system/
 │
 └── database/
     ├── sqlite/
-    │   └── wallboard.db         # แก้ไข: เพิ่ม Users table
+    │   └── wallboard.db         # แก้ไข: เพิ่ม users table
     └── scripts/
         ├── 01-create-users-table.sql  # 🆕 SQL script
         └── 02-insert-sample-users.sql # 🆕 SQL script
@@ -123,20 +123,20 @@ agent-wallboard-system/
 
 ## 2. ส่วนที่ 1: Database Setup
 
-### 2.1 สร้าง Users Table (ให้ครบ 100%)
+### 2.1 สร้าง users Table (ให้ครบ 100%)
 
 **ไฟล์: `database/scripts/01-create-users-table.sql`**
 
 ```sql
 -- ========================================
--- Task#1: User Management - Users Table
+-- Task#1: User Management - users Table
 -- ========================================
 
 -- ลบตารางเดิมถ้ามี (สำหรับ development)
-DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS users;
 
--- สร้างตาราง Users
-CREATE TABLE Users (
+-- สร้างตาราง users
+CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL UNIQUE,
     fullName TEXT NOT NULL,
@@ -147,21 +147,21 @@ CREATE TABLE Users (
     updatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     lastLoginAt DATETIME,
     deletedAt DATETIME,
-    FOREIGN KEY (teamId) REFERENCES Teams(id)
+    FOREIGN KEY (teamId) REFERENCES teams(team_id)
 );
 
 -- สร้าง indexes เพื่อ performance
-CREATE INDEX idx_users_username ON Users(username);
-CREATE INDEX idx_users_role ON Users(role);
-CREATE INDEX idx_users_status ON Users(status);
-CREATE INDEX idx_users_teamId ON Users(teamId);
-CREATE INDEX idx_users_deletedAt ON Users(deletedAt);
+CREATE INDEX idx_users_username ON users(username);
+CREATE INDEX idx_users_role ON users(role);
+CREATE INDEX idx_users_status ON users(status);
+CREATE INDEX idx_users_teamId ON users(teamId);
+CREATE INDEX idx_users_deletedAt ON users(deletedAt);
 
 -- สร้าง trigger สำหรับ updatedAt
 CREATE TRIGGER update_users_timestamp 
-AFTER UPDATE ON Users
+AFTER UPDATE ON users
 BEGIN
-    UPDATE Users SET updatedAt = CURRENT_TIMESTAMP WHERE id = NEW.id;
+    UPDATE users SET updatedAt = CURRENT_TIMESTAMP WHERE id = NEW.id;
 END;
 ```
 
@@ -177,25 +177,25 @@ sqlite3 wallboard.db < ../scripts/01-create-users-table.sql
 
 ```sql
 -- ========================================
--- Task#1: Sample Users Data
+-- Task#1: Sample users Data
 -- ========================================
 
 -- ล้างข้อมูลเดิม (ถ้ามี)
-DELETE FROM Users;
+DELETE FROM users;
 
 -- Insert Admin users
-INSERT INTO Users (username, fullName, role, teamId, status) VALUES
+INSERT INTO users (username, fullName, role, teamId, status) VALUES
 ('AD001', 'Admin One', 'Admin', NULL, 'Active'),
 ('AD002', 'Admin Two', 'Admin', NULL, 'Active');
 
--- Insert Supervisor users (assuming Teams with id 1,2,3 exist)
-INSERT INTO Users (username, fullName, role, teamId, status) VALUES
+-- Insert Supervisor users (assuming teams with id 1,2,3 exist)
+INSERT INTO users (username, fullName, role, teamId, status) VALUES
 ('SP001', 'Supervisor Alpha', 'Supervisor', 1, 'Active'),
 ('SP002', 'Supervisor Beta', 'Supervisor', 2, 'Active'),
 ('SP003', 'Supervisor Gamma', 'Supervisor', 3, 'Active');
 
 -- Insert Agent users
-INSERT INTO Users (username, fullName, role, teamId, status) VALUES
+INSERT INTO users (username, fullName, role, teamId, status) VALUES
 ('AG001', 'Agent Smith', 'Agent', 1, 'Active'),
 ('AG002', 'Agent Johnson', 'Agent', 1, 'Active'),
 ('AG003', 'Agent Williams', 'Agent', 1, 'Active'),
@@ -214,7 +214,7 @@ SELECT
     teamId,
     status,
     createdAt
-FROM Users
+FROM users
 ORDER BY role, username;
 ```
 
@@ -228,13 +228,13 @@ sqlite3 wallboard.db < ../scripts/02-insert-sample-users.sql
 **ไฟล์: `database/scripts/03-test-users-queries.sql`**
 
 ```sql
--- Test queries for Users table
+-- Test queries for users table
 
 -- 1. Get all active users
-SELECT * FROM Users WHERE deletedAt IS NULL;
+SELECT * FROM users WHERE deletedAt IS NULL;
 
 -- 2. Get users by role
-SELECT * FROM Users WHERE role = 'Agent' AND deletedAt IS NULL;
+SELECT * FROM users WHERE role = 'Agent' AND deletedAt IS NULL;
 
 -- 3. Get user with team info
 SELECT 
@@ -242,20 +242,20 @@ SELECT
     u.username,
     u.fullName,
     u.role,
-    t.name as teamName,
+    t.team_name as teamName,
     u.status
-FROM Users u
-LEFT JOIN Teams t ON u.teamId = t.id
+FROM users u
+LEFT JOIN teams t ON u.teamId = t.team_id
 WHERE u.deletedAt IS NULL;
 
 -- 4. Count users by role
 SELECT role, COUNT(*) as count 
-FROM Users 
+FROM users 
 WHERE deletedAt IS NULL 
 GROUP BY role;
 
 -- 5. Find user by username
-SELECT * FROM Users 
+SELECT * FROM users 
 WHERE username = 'AG001' AND deletedAt IS NULL;
 ```
 
@@ -327,13 +327,13 @@ class UserRepository {
           u.fullName,
           u.role,
           u.teamId,
-          t.name as teamName,
+          t.team_name as teamName,
           u.status,
           u.createdAt,
           u.updatedAt,
           u.lastLoginAt
-        FROM Users u
-        LEFT JOIN Teams t ON u.teamId = t.id
+        FROM users u
+        LEFT JOIN teams t ON u.teamId = t.team_id
         WHERE u.deletedAt IS NULL
       `;
       
@@ -376,13 +376,13 @@ class UserRepository {
           u.fullName,
           u.role,
           u.teamId,
-          t.name as teamName,
+          t.team_name as teamName,
           u.status,
           u.createdAt,
           u.updatedAt,
           u.lastLoginAt
-        FROM Users u
-        LEFT JOIN Teams t ON u.teamId = t.id
+        FROM users u
+        LEFT JOIN teams t ON u.teamId = t.team_id
         WHERE u.id = ? AND u.deletedAt IS NULL
       `;
       
@@ -405,13 +405,13 @@ class UserRepository {
           u.fullName,
           u.role,
           u.teamId,
-          t.name as teamName,
+          t.team_name as teamName,
           u.status,
           u.createdAt,
           u.updatedAt,
           u.lastLoginAt
-        FROM Users u
-        LEFT JOIN Teams t ON u.teamId = t.id
+        FROM users u
+        LEFT JOIN teams t ON u.teamId = t.team_id
         WHERE u.username = ? AND u.deletedAt IS NULL
       `;
       
@@ -428,7 +428,7 @@ class UserRepository {
   async create(userData) {
     return new Promise((resolve, reject) => {
       const query = `
-        INSERT INTO Users (username, fullName, role, teamId, status)
+        INSERT INTO users (username, fullName, role, teamId, status)
         VALUES (?, ?, ?, ?, ?)
       `;
       
@@ -459,11 +459,11 @@ class UserRepository {
   async update(userId, userData) {
     return new Promise((resolve, reject) => {
       // TODO: Build dynamic UPDATE query
-      // Hint: UPDATE Users SET fullName = ?, role = ?, teamId = ?, status = ?, updatedAt = CURRENT_TIMESTAMP
+      // Hint: UPDATE users SET fullName = ?, role = ?, teamId = ?, status = ?, updatedAt = CURRENT_TIMESTAMP
       // Hint: WHERE id = ? AND deletedAt IS NULL
       
       // Example structure:
-      let query = 'UPDATE Users SET updatedAt = CURRENT_TIMESTAMP';
+      let query = 'UPDATE users SET updatedAt = CURRENT_TIMESTAMP';
       const params = [];
       
       if (userData.fullName !== undefined) {
@@ -492,7 +492,7 @@ class UserRepository {
   async softDelete(userId) {
     return new Promise((resolve, reject) => {
       const query = `
-        UPDATE Users 
+        UPDATE users 
         SET status = 'Inactive', 
             deletedAt = CURRENT_TIMESTAMP,
             updatedAt = CURRENT_TIMESTAMP
@@ -515,7 +515,7 @@ class UserRepository {
   async updateLastLogin(userId) {
     return new Promise((resolve, reject) => {
       const query = `
-        UPDATE Users 
+        UPDATE users 
         SET lastLoginAt = CURRENT_TIMESTAMP
         WHERE id = ?
       `;
@@ -537,7 +537,7 @@ class UserRepository {
     return new Promise((resolve, reject) => {
       const query = `
         SELECT COUNT(*) as count 
-        FROM Users 
+        FROM users 
         WHERE username = ? AND deletedAt IS NULL
       `;
       
@@ -1929,7 +1929,7 @@ npm start
 ✅ Database Setup
 ├── [ ] รัน 01-create-users-table.sql สำเร็จ
 ├── [ ] รัน 02-insert-sample-users.sql สำเร็จ
-└── [ ] ตรวจสอบข้อมูลใน Users table ด้วย SQLite
+└── [ ] ตรวจสอบข้อมูลใน users table ด้วย SQLite
 
 ✅ API Endpoints
 ├── [ ] GET /api/users - แสดงรายการ users ทั้งหมด
@@ -2309,7 +2309,7 @@ npm run dev
 
 **Symptoms:**
 ```
-Error: no such table: Users
+Error: no such table: users
 ```
 
 **Solution:**
@@ -2319,7 +2319,7 @@ sqlite3 wallboard.db < ../scripts/01-create-users-table.sql
 sqlite3 wallboard.db < ../scripts/02-insert-sample-users.sql
 
 # ตรวจสอบ
-sqlite3 wallboard.db "SELECT * FROM Users;"
+sqlite3 wallboard.db "SELECT * FROM users;"
 ```
 
 ---
@@ -2476,9 +2476,9 @@ sqlite3 wallboard.db
 
 # Commands
 .tables                    # แสดง tables ทั้งหมด
-.schema Users             # แสดง schema ของ Users table
-SELECT * FROM Users;      # แสดงข้อมูลทั้งหมด
-SELECT * FROM Users WHERE deletedAt IS NULL;  # แสดงเฉพาะ active users
+.schema users             # แสดง schema ของ users table
+SELECT * FROM users;      # แสดงข้อมูลทั้งหมด
+SELECT * FROM users WHERE deletedAt IS NULL;  # แสดงเฉพาะ active users
 .exit                     # ออกจาก SQLite
 ```
 
@@ -2584,11 +2584,11 @@ const handleEdit = (user) => {
 
 ```sql
 -- ✅ Good: Use indexes
-CREATE INDEX idx_users_username ON Users(username);
-SELECT * FROM Users WHERE username = 'AG001';
+CREATE INDEX idx_users_username ON users(username);
+SELECT * FROM users WHERE username = 'AG001';
 
 -- ❌ Bad: No index on frequently queried columns
-SELECT * FROM Users WHERE username = 'AG001';  -- Slow without index
+SELECT * FROM users WHERE username = 'AG001';  -- Slow without index
 ```
 
 ---
@@ -2716,7 +2716,7 @@ Agents:
 
 ```
 ✅ Database Setup (100%)
-├── Users table พร้อม indexes
+├── users table พร้อม indexes
 ├── Sample data สำหรับทดสอบ
 └── Test queries
 
