@@ -1,6 +1,10 @@
-resources
-resources2
-case-study-completed
-week8
-final
 
+.DS_Store
+Thumbs.db
+~$*.docx
+~$*.xlsx
+~$*.pptx
+*.tmp
+*.bak
+.env
+.env.*
