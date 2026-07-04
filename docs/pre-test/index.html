@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-test: Readiness for ENGSE206</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- html2canvas for PNG export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        .header-banner {
+            background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 5px solid #ffc107;
+            margin-bottom: 30px;
+        }
+        .card-custom {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        .question-block {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #0d6efd;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease;
+        }
+        .question-block:hover {
+            transform: translateX(5px);
+            border-left: 4px solid #ffc107;
+        }
+        .question-text {
+            font-weight: 500;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .form-check {
+            margin-bottom: 10px;
+            padding-left: 2rem;
+        }
+        .form-check-label {
+            cursor: pointer;
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        .form-check-input:checked + .form-check-label {
+            background-color: #e9ecef;
+            font-weight: 500;
+            color: #0d6efd;
+        }
+        #resultSection {
+            display: none;
+        }
+        .result-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            position: relative;
+        }
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 0 auto 20px auto;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .score-pass { background-color: #198754; }
+        .score-fair { background-color: #fd7e14; }
+        .score-fail { background-color: #dc3545; }
+        
+        .analysis-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-banner">
+        <div class="container">
+            <h1 class="fw-bold"><i class="fas fa-clipboard-check me-2"></i>ENGSE206 Pre-test</h1>
+            <p class="fs-5">แบบทดสอบวัดความรู้พื้นฐานก่อนเรียน: การกำหนดความต้องการและการออกแบบทางซอฟต์แวร์</p>
+            <p class="small text-white-50">(ทดสอบความรู้จากวิชา Introduction to Software Engineering)</p>
+        </div>
+    </div>
+
+    <div class="container pb-5">
+        
+        <!-- Student Info Form -->
+        <div class="card card-custom" id="studentInfoCard">
+            <div class="card-header bg-white fw-bold fs-5 py-3 text-primary border-bottom-0">
+                <i class="fas fa-user-graduate me-2"></i>ข้อมูลนักศึกษา
+            </div>
+            <div class="card-body pt-0">
+                <form id="studentForm">
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small fw-bold">รหัสนักศึกษา <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="studentId" placeholder="เช่น 6xxxxxxxx" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small fw-bold">ชื่อจริง <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="firstName" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label text-muted small fw-bold">นามสกุล <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="lastName" required>
+                        </div>
+                        <div class="col-md-1">
+                            <label class="form-label text-muted small fw-bold">ชื่อเล่น</label>
+                            <input type="text" class="form-control" id="nickname">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label text-muted small fw-bold">กลุ่มเรียน <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="className" placeholder="เช่น Sec 1" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div id="quizSection">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="text-secondary mb-0"><i class="fas fa-list-ol me-2"></i>แบบทดสอบปรนัย 20 ข้อ</h4>
+                <span class="badge bg-primary rounded-pill p-2">เกณฑ์ผ่าน: 10/20 คะแนน</span>
+            </div>
+            <form id="quizForm">
+                <div id="questionsContainer"></div>
+                
+                <div class="text-center mt-5 mb-5">
+                    <button type="button" class="btn btn-primary btn-lg px-5 fw-bold rounded-pill shadow" onclick="submitQuiz()">
+                        <i class="fas fa-paper-plane me-2"></i>ส่งคำตอบ
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Result Section (Hidden initially) -->
+        <div id="resultSection">
+            <div class="result-card shadow" id="captureArea">
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold text-primary mb-0">ผลการทดสอบ Pre-test ENGSE206</h2>
+                    <hr class="w-25 mx-auto border-2 border-primary rounded">
+                </div>
+                
+                <div class="row mb-4 bg-light p-3 rounded mx-1 border">
+                    <div class="col-md-6">
+                        <strong>รหัสนักศึกษา:</strong> <span id="resStudentId" class="text-primary"></span><br>
+                        <strong>ชื่อ-สกุล:</strong> <span id="resName"></span>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <strong>ชื่อเล่น:</strong> <span id="resNickname"></span><br>
+                        <strong>กลุ่มเรียน:</strong> <span id="resClass"></span>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <div id="scoreCircle" class="score-circle">
+                        <span id="scoreText">0/20</span>
+                    </div>
+                    <h3 id="resultVerdict" class="fw-bold mb-1"></h3>
+                    <p id="percentageText" class="text-muted"></p>
+                </div>
+
+                <div class="analysis-box">
+                    <h5 class="fw-bold text-dark"><i class="fas fa-chart-line me-2 text-warning"></i>วิเคราะห์ผลการเรียนรู้:</h5>
+                    <p id="analysisGeneral" class="mb-2"></p>
+                    <div id="analysisWeakpoints" class="mt-3"></div>
+                </div>
+                
+                <div class="mt-4 text-center text-muted small">
+                    <p>ทำแบบทดสอบเมื่อ: <span id="testDate"></span></p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <button class="btn btn-success btn-lg fw-bold rounded-pill px-4 shadow-sm" onclick="exportPNG()">
+                    <i class="fas fa-download me-2"></i>ดาวน์โหลดผลเป็นรูปภาพ (PNG)
+                </button>
+                <button class="btn btn-outline-secondary btn-lg ms-2 fw-bold rounded-pill px-4" onclick="location.reload()">
+                    <i class="fas fa-redo me-2"></i>ทำแบบทดสอบใหม่
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Categories definition for detailed analysis
+        const catNames = {
+            fundamentals: "พื้นฐานวิศวกรรมซอฟต์แวร์และ SDLC",
+            req_types: "ประเภทและคุณสมบัติของความต้องการ (Requirements)",
+            agile_roles: "บทบาทผู้ส่วนได้ส่วนเสียและแนวคิดการทำงาน",
+            tools_techniques: "เทคนิคการเก็บข้อมูลและโมเดลระบบเบื้องต้น",
+            design_test: "การเชื่อมโยงสู่การออกแบบและการทดสอบ"
+        };
+
+        // Questions Array
+        const questions = [
+            { q: "1. วงจรการพัฒนาซอฟต์แวร์ (SDLC) ขั้นตอนใดที่เน้นการทำความเข้าใจปัญหาและสิ่งที่ผู้ใช้ต้องการมากที่สุด?", options: ["การเขียนโปรแกรม (Implementation)", "การวิเคราะห์ความต้องการ (Requirement Analysis)", "การทดสอบ (Testing)", "การบำรุงรักษา (Maintenance)"], ans: 1, cat: "fundamentals" },
+            { q: "2. ข้อใดคือความหมายของ Functional Requirement อย่างถูกต้องที่สุด?", options: ["ความสามารถ การทำงาน หรือพฤติกรรมที่ระบบต้องสามารถทำได้", "ประสิทธิภาพความเร็วในการทำงานของระบบว่าต้องประมวลผลได้กี่วินาที", "ความมั่นคงปลอดภัยของข้อมูลในระบบรหัสผ่าน", "รูปแบบสี ตัวอักษร และความสวยงามของหน้าจอ"], ans: 0, cat: "req_types" },
+            { q: "3. ข้อใดคือตัวอย่างของ Non-functional Requirement (NFR)?", options: ["ระบบต้องสามารถพิมพ์ใบเสร็จและใบกำกับภาษีได้", "ระบบต้องรองรับผู้ใช้งานพร้อมกัน 1,000 คนโดยที่ระบบไม่ล่ม (Performance)", "ระบบต้องมีปุ่มเพิ่มสินค้าลงในตะกร้าช้อปปิ้ง", "ระบบต้องบันทึกประวัติการแก้ไขข้อมูลส่วนตัวของพนักงานได้"], ans: 1, cat: "req_types" },
+            { q: "4. ในบริบทของ Agile Framework (เช่น Scrum) ใครคือผู้รับผิดชอบหลักในการจัดลำดับความสำคัญของความต้องการ?", options: ["Scrum Master", "Developer / Programmer", "Product Owner", "System Analyst"], ans: 2, cat: "agile_roles" },
+            { q: "5. ข้อใดไม่ใช่บทบาทของผู้มีส่วนได้ส่วนเสีย (Stakeholder) ในโปรเจกต์การพัฒนาซอฟต์แวร์?", options: ["ผู้บริหารระดับสูงที่เป็นผู้ให้งบประมาณ", "พนักงานระดับปฏิบัติการที่จะเป็นผู้ใช้งานระบบตัวจริง", "บริษัทคู่แข่งในตลาดที่ไม่เกี่ยวข้องกับการพัฒนาระบบ", "ลูกค้าหรือผู้ซื้อสินค้าผ่านระบบออนไลน์"], ans: 2, cat: "agile_roles" },
+            { q: "6. เอกสาร SRS ซึ่งเป็นผลลัพธ์สำคัญของการเก็บความต้องการ ย่อมาจากคำว่าอะไร?", options: ["System Requirement System", "Software Requirements Specification", "Software Reliability Standard", "System Resource Specification"], ans: 1, cat: "fundamentals" },
+            { q: "7. แผนภาพใดใน UML ที่นิยมใช้แสดงปฏิสัมพันธ์ระหว่างผู้ใช้ (Actor) กับระบบ (System) ในภาพรวมมากที่สุด?", options: ["Class Diagram", "Sequence Diagram", "Use Case Diagram", "Activity Diagram"], ans: 2, cat: "tools_techniques" },
+            { q: "8. ข้อใดคือข้อจำกัดหรือข้อเสียของการบริหารจัดการโปรเจกต์แบบ Waterfall เมื่อเทียบกับแบบ Agile?", options: ["ไม่มีเอกสารสรุปความต้องการที่เป็นลายลักษณ์อักษร", "ใช้เวลาในการพัฒนารวดเร็วเกินไปจนไม่ได้คุณภาพ", "เมื่อเริ่มเขียนโค้ดแล้ว การขอปรับเปลี่ยน Requirement ภายหลังจะทำได้ยากและมีค่าใช้จ่ายสูง", "ทีมพัฒนาต้องพูดคุยกับลูกค้าทุกวัน"], ans: 2, cat: "fundamentals" },
+            { q: "9. การสัมภาษณ์ (Interview) เป็นเทคนิคที่ใช้ในขั้นตอนย่อยใดของวิศวกรรมความต้องการ (Requirements Engineering)?", options: ["Elicitation (การค้นหาและเก็บรวบรวม)", "Specification (การเขียนเอกสารข้อกำหนด)", "Validation (การตรวจสอบความถูกต้อง)", "Design (การออกแบบสถาปัตยกรรม)"], ans: 0, cat: "tools_techniques" },
+            { q: "10. 'ระบบต้องประมวลผลการสั่งซื้อให้เสร็จสิ้นภายในเวลาไม่เกิน 2 วินาที' จัดเป็น Requirement ประเภทใด?", options: ["Business Rule (กฎทางธุรกิจ)", "Functional Requirement (ความต้องการเชิงฟังก์ชัน)", "Performance Requirement (จัดอยู่ในกลุ่ม Non-functional)", "Design Constraint (ข้อจำกัดด้านการออกแบบ)"], ans: 2, cat: "req_types" },
+            { q: "11. บทบาทใดทำหน้าที่เสมือน 'สะพานเชื่อม' (Bridge) ในการแปลงความต้องการทางธุรกิจของลูกค้า ให้เป็นข้อกำหนดทางเทคนิคที่โปรแกรมเมอร์เข้าใจ?", options: ["Database Administrator (DBA)", "Business Analyst (BA) / System Analyst (SA)", "Full-stack Programmer", "Quality Assurance (QA)"], ans: 1, cat: "agile_roles" },
+            { q: "12. การทำ Prototype (ต้นแบบหน้าจอ) มีประโยชน์อย่างไรในกระบวนการ Requirements?", options: ["สามารถนำโค้ดจาก Prototype ไปใช้เป็นโปรแกรมจริงได้เลยทันที 100%", "ช่วยให้ผู้ใช้เห็นภาพตรงกันและสามารถยืนยันความต้องการได้ชัดเจนขึ้น ลดความเข้าใจผิดพลาด", "ช่วยลดค่าใช้จ่ายในการเช่า Cloud Server ลงได้", "ใช้สำหรับการตรวจสอบความปลอดภัย (Security Audit) ของฐานข้อมูลเป็นหลัก"], ans: 1, cat: "tools_techniques" },
+            { q: "13. ข้อใดคือลักษณะสำคัญของ Requirement ที่ดี (Good Requirement)?", options: ["ชัดเจน ไม่กำกวม และสามารถนำไปเขียนแผนการทดสอบ (Testable) ได้", "เขียนด้วยภาษาทางโปรแกรมมิ่ง (Source Code) เท่านั้นเพื่อให้โปรแกรมเมอร์เข้าใจ", "ต้องมีความยาวและซับซ้อนมากที่สุดเพื่อให้ครอบคลุมทุกกรณีอย่างละเอียด", "เปิดกว้างและคลุมเครือ เพื่อให้โปรแกรมเมอร์สามารถคิดและออกแบบเองได้อย่างอิสระ"], ans: 0, cat: "req_types" },
+            { q: "14. การตรวจสอบ Requirement แบบ Validation ในวิศวกรรมซอฟต์แวร์ มุ่งเน้นการตอบคำถามในข้อใด?", options: ["เราเขียนโค้ดได้ถูกต้องตามหลักไวยากรณ์ (Syntax) หรือไม่?", "เรากำลังสร้างผลิตภัณฑ์ที่ตอบโจทย์และแก้ปัญหาให้ผู้ใช้ได้จริงหรือไม่? (Are we building the right product?)", "ระบบสามารถประมวลผลข้อมูลบิ๊กดาต้าได้เร็วพอหรือไม่?", "โครงสร้างฐานข้อมูลถูกออกแบบตามหลัก Normalization แล้วหรือยัง?"], ans: 1, cat: "fundamentals" },
+            { q: "15. Use Case Diagram โดยทั่วไปจะประกอบด้วยองค์ประกอบหลักอะไรบ้าง?", options: ["Classes, Objects, และ Methods", "Actor (ผู้กระทำ), Use Case (ระบบงาน), และ Relationship (ความสัมพันธ์)", "Nodes, Components, และ Interfaces", "States, Transitions, และ Events"], ans: 1, cat: "tools_techniques" },
+            { q: "16. ข้อใดคือเป้าหมายหลักของการออกแบบซอฟต์แวร์ (Software Design) หลังจากได้ Requirement แล้ว?", options: ["แปลงข้อกำหนด (Requirement) ให้เป็นโครงสร้างทางเทคนิคและส่วนประกอบที่สามารถนำไปเขียนโค้ดได้", "การร่างคู่มือการใช้งานระบบสำหรับ User (User Manual)", "การออกไปสัมภาษณ์ลูกค้าซ้ำอีกครั้งเพื่อหาความต้องการใหม่ๆ", "การทดสอบหาช่องโหว่และข้อผิดพลาด (Bugs) ของโปรแกรมขั้นสุดท้าย"], ans: 0, cat: "design_test" },
+            { q: "17. การทดสอบในระดับใดที่มุ่งเน้นการตรวจสอบว่าระบบสามารถตอบสนองความต้องการได้ครบถ้วนและลูกค้า 'ยอมรับ' ระบบเพื่อนำไปใช้งานจริง?", options: ["Unit Testing (การทดสอบระดับย่อย)", "Integration Testing (การทดสอบการเชื่อมต่อ)", "System Testing (การทดสอบทั้งระบบ)", "User Acceptance Testing: UAT (การทดสอบการยอมรับของผู้ใช้)"], ans: 3, cat: "design_test" },
+            { q: "18. ข้อใดคือสาเหตุอันดับต้นๆ ที่มักทำให้โปรเจกต์พัฒนาซอฟต์แวร์ส่วนใหญ่ประสบความล้มเหลว?", options: ["การใช้ภาษาโปรแกรมที่เก่าและล้าสมัยเกินไป", "อุปกรณ์เซิร์ฟเวอร์มีราคาแพงเกินงบประมาณ", "Requirement ไม่ชัดเจน ไม่ครบถ้วน และมีการเปลี่ยนแปลงบ่อยโดยไม่มีระบบบริหารจัดการ", "โปรแกรมเมอร์ขาดความรู้เรื่องฐานข้อมูลเชิงสัมพันธ์"], ans: 2, cat: "fundamentals" },
+            { q: "19. Traceability Matrix มีประโยชน์อย่างไรในกระบวนการวิศวกรรมซอฟต์แวร์?", options: ["ใช้คำนวณต้นทุนเวลาและเงินเดือนของทีมพัฒนา", "ใช้ติดตามความเชื่อมโยงตั้งแต่ความต้องการ (Requirement) ไปสู่การออกแบบ (Design) และแผนทดสอบ (Test Case)", "ใช้สำหรับสร้างตารางในฐานข้อมูล (Database Scheme) แบบอัตโนมัติ", "ใช้ทดสอบประสิทธิภาพความเร็วของเครือข่ายอินเทอร์เน็ตในการส่งข้อมูล"], ans: 1, cat: "tools_techniques" },
+            { q: "20. ข้อใดคือหลักปฏิบัติทางจริยธรรม (Ethics) ที่สำคัญที่สุดในระหว่างการเข้าไปเก็บ Requirement จากผู้ใช้งาน?", options: ["การนำข้อมูลความลับทางธุรกิจของลูกค้าไปขายให้คู่แข่ง", "การเคารพและรักษาความลับของข้อมูลส่วนบุคคลตลอดจนความลับทางธุรกิจที่ได้จากการสัมภาษณ์", "การแอบเพิ่มฟังก์ชันการทำงานที่ลูกค้าไม่ได้ร้องขอเพื่อที่จะสามารถเรียกเก็บเงินเพิ่มได้ในภายหลัง", "การรับงานซ้อนหลายโปรเจกต์ในเวลาเดียวกันเพื่อเร่งสร้างรายได้สูงสุด"], ans: 1, cat: "agile_roles" }
+        ];
+
+        // Render Questions on load
+        window.onload = function() {
+            const container = document.getElementById('questionsContainer');
+            questions.forEach((q, index) => {
+                let html = `<div class="question-block" id="qBlock${index}">
+                                <div class="question-text">${q.q}</div>`;
+                q.options.forEach((opt, oIndex) => {
+                    html += `<div class="form-check">
+                                <input class="form-check-input" type="radio" name="q${index}" id="q${index}o${oIndex}" value="${oIndex}">
+                                <label class="form-check-label" for="q${index}o${oIndex}">${opt}</label>
+                             </div>`;
+                });
+                html += `</div>`;
+                container.innerHTML += html;
+            });
+            
+            // Set current date in result area
+            const dateOpts = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute:'2-digit' };
+            document.getElementById('testDate').innerText = new Date().toLocaleDateString('th-TH', dateOpts) + " น.";
+        };
+
+        function submitQuiz() {
+            // Validate Form Inputs
+            const studentId = document.getElementById('studentId').value.trim();
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const nickname = document.getElementById('nickname').value.trim();
+            const className = document.getElementById('className').value.trim();
+
+            if(!studentId || !firstName || !lastName || !className) {
+                alert("⚠️ กรุณากรอกข้อมูลนักศึกษาให้ครบถ้วน (ช่องที่มีเครื่องหมาย *)");
+                document.getElementById('studentInfoCard').scrollIntoView({behavior: 'smooth'});
+                return;
+            }
+
+            // Grade the quiz
+            let totalScore = 0;
+            // Structure: { category_key: [score_earned, total_possible_in_category] }
+            let catScores = { fundamentals: [0,0], req_types: [0,0], agile_roles: [0,0], tools_techniques: [0,0], design_test: [0,0] }; 
+
+            for(let i=0; i<questions.length; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                
+                if(!selected) {
+                    alert(`⚠️ กรุณาตอบคำถามให้ครบทุกข้อ (คุณยังไม่ได้ตอบข้อ ${i+1})`);
+                    const elem = document.getElementById(`qBlock${i}`);
+                    elem.scrollIntoView({behavior: 'smooth', block: 'center'});
+                    elem.style.borderLeft = "4px solid red";
+                    setTimeout(() => { elem.style.borderLeft = "4px solid #0d6efd"; }, 2000);
+                    return;
+                }
+                
+                const cat = questions[i].cat;
+                catScores[cat][1] += 1; // Increment total possible for this category
+
+                if(parseInt(selected.value) === questions[i].ans) {
+                    totalScore++;
+                    catScores[cat][0] += 1; // Increment earned score
+                }
+            }
+
+            // Transfer Data to Result UI
+            document.getElementById('resStudentId').innerText = studentId;
+            document.getElementById('resName').innerText = firstName + " " + lastName;
+            document.getElementById('resNickname').innerText = nickname || "-";
+            document.getElementById('resClass').innerText = className;
+            
+            const scoreText = document.getElementById('scoreText');
+            const percentageText = document.getElementById('percentageText');
+            const scoreCircle = document.getElementById('scoreCircle');
+            const verdict = document.getElementById('resultVerdict');
+            const analysisGen = document.getElementById('analysisGeneral');
+            const analysisWeak = document.getElementById('analysisWeakpoints');
+            
+            scoreText.innerText = `${totalScore}/20`;
+            const percentage = (totalScore / 20) * 100;
+            percentageText.innerText = `คิดเป็น ${percentage}%`;
+            
+            // Reset classes
+            scoreCircle.className = "score-circle"; 
+            
+            // Category Analysis (Find weak points < 60%)
+            let weakCats = [];
+            let strongCats = [];
+            for (const [key, val] of Object.entries(catScores)) {
+                let ratio = val[0] / val[1];
+                if(ratio <= 0.6) {
+                    weakCats.push({name: catNames[key], score: val[0], total: val[1]});
+                } else {
+                    strongCats.push({name: catNames[key], score: val[0], total: val[1]});
+                }
+            }
+
+            // Build Weakness HTML
+            let weakHtml = "";
+            if(weakCats.length > 0) {
+                weakHtml += "<h6 class='fw-bold mt-3 text-danger'><i class='fas fa-exclamation-triangle me-2'></i>จุดที่ต้องกลับไปทบทวนด่วน (ได้คะแนนน้อยกว่า 60%):</h6>";
+                weakHtml += "<ul class='mb-0'>";
+                weakCats.forEach(c => {
+                    weakHtml += `<li class='mb-1'><strong>${c.name}</strong> <span class='badge bg-danger rounded-pill'>${c.score}/${c.total}</span></li>`;
+                });
+                weakHtml += "</ul>";
+            } 
+            if(strongCats.length === Object.keys(catScores).length) {
+                weakHtml = "<div class='alert alert-success py-2 mb-0 mt-3'><i class='fas fa-check-circle me-2'></i> ไม่มีจุดอ่อนที่น่ากังวล คุณทำคะแนนในทุกหมวดหมู่ได้ดีมาก</div>";
+            }
+
+            // Grading Criteria & Feedback Logic
+            if(totalScore < 10) {
+                // Fail
+                scoreCircle.classList.add('score-fail');
+                verdict.innerText = "ยังไม่ผ่านเกณฑ์ (Needs Improvement)";
+                verdict.className = "fw-bold text-danger mt-3";
+                analysisGen.innerHTML = "คุณยังมีจุดที่ต้องทบทวนพื้นฐานจากวิชา Introduction to Software Engineering ค่อนข้างมาก การที่จะเรียนรายวิชา ENGSE206 (Requirements & Design) ได้อย่างราบรื่น คุณจำเป็นต้องกลับไปทบทวนหัวข้อต่อไปนี้อย่างเร่งด่วนครับ:";
+                analysisWeak.innerHTML = weakHtml;
+            } 
+            else if(totalScore >= 10 && totalScore <= 14) {
+                // Fair
+                scoreCircle.classList.add('score-fair');
+                verdict.innerText = "ผ่านเกณฑ์ระดับพอใช้ (Fair)";
+                verdict.className = "fw-bold text-warning mt-3";
+                analysisGen.innerHTML = "คุณมีความเข้าใจในระดับพื้นฐานแล้ว ถือว่าสอบผ่านเกณฑ์ แต่ยังมีบางหัวข้อที่อาจจะยังสับสนหรือลืมไปบ้าง เพื่อความพร้อมสูงสุดในการเรียนสัปดาห์ต่อๆ ไป ขอแนะนำให้คุณทบทวนหัวข้อเหล่านี้เพิ่มเติมครับ:";
+                analysisWeak.innerHTML = weakHtml;
+            } 
+            else {
+                // Excellent (15-20)
+                scoreCircle.classList.add('score-pass');
+                verdict.innerText = "ทำได้ดีเยี่ยม (Excellent)";
+                verdict.className = "fw-bold text-success mt-3";
+                analysisGen.innerHTML = "ยอดเยี่ยมมาก! พื้นฐานวิศวกรรมซอฟต์แวร์ของคุณแน่นมาก คุณพร้อมสำหรับการต่อยอดในวิชา ENGSE206 อย่างเต็มที่ หากคุณเก็บคะแนนได้เต็ม ถือว่าไร้ที่ติ แต่หากยังมีผิดพลาดเล็กน้อย สามารถดูหัวข้อที่พลาดได้ด้านล่างนี้ครับ:";
+                analysisWeak.innerHTML = weakHtml;
+            }
+
+            // Transition UI
+            document.getElementById('studentInfoCard').style.display = 'none';
+            document.getElementById('quizSection').style.display = 'none';
+            document.getElementById('resultSection').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Export Result card to PNG
+        function exportPNG() {
+            const captureArea = document.getElementById('captureArea');
+            // Change UI slightly for the screenshot
+            captureArea.style.border = "1px solid #ddd";
+            
+            html2canvas(captureArea, {
+                scale: 2, // High-res export
+                useCORS: true,
+                backgroundColor: "#ffffff"
+            }).then(canvas => {
+                const link = document.createElement('a');
+                const studentId = document.getElementById('studentId').value || "NoID";
+                link.download = `Pretest_ENGSE206_${studentId}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                
+                // Revert UI change
+                captureArea.style.border = "none";
+            }).catch(err => {
+                alert("เกิดข้อผิดพลาดในการบันทึกภาพ: " + err);
+            });
+        }
+    </script>
+</body>
+</html>

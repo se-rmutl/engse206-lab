@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENGSE206 - Software Requirements Specification and Design</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        /* Navbar */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.9), rgba(13, 202, 240, 0.8)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            margin-top: 56px;
+        }
+        .hero-title {
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            font-weight: 600;
+            color: #0d6efd;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: #ffc107;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Cards */
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: #0d6efd;
+            margin-bottom: 20px;
+        }
+
+        /* Timeline / Weekly Schedule */
+        .schedule-card {
+            border-left: 4px solid #0d6efd;
+            background: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .week-badge {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        /* Resource Links */
+        .resource-links a {
+            margin-right: 10px;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+            border-radius: 20px;
+        }
+
+        /* Workshops */
+        .workshop-card {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 100%;
+        }
+        .workshop-header {
+            background-color: #0d6efd;
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+        }
+        .workshop-body {
+            padding: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #212529;
+            color: #adb5bd;
+            padding: 40px 0;
+            text-align: center;
+        }
+        footer a {
+            color: #ffc107;
+            text-decoration: none;
+        }
+        
+        /* Phase Progress */
+        .phase-step {
+            text-align: center;
+            padding: 20px;
+        }
+        .phase-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background-color: #e9ecef;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+            font-size: 2rem;
+            color: #0d6efd;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#main-navbar" data-bs-offset="70" tabindex="0">
+
+    <!-- Navigation -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#"><i class="fas fa-layer-group me-2"></i>ENGSE206</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#overview">ภาพรวมรายวิชา</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#phases">4 ระยะการเรียนรู้</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#schedule">แผนการสอน (ทฤษฎี)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#workshops">กิจกรรมปฏิบัติ (Workshop)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#evaluation">การประเมินผล</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <h1 class="hero-title">ENGSE206 การกำหนดความต้องการ<br>และการออกแบบทางซอฟต์แวร์</h1>
+            <p class="hero-subtitle">Software Requirements Specification and Design (3 หน่วยกิต)</p>
+            <p class="lead mb-4">"เปลี่ยนความต้องการที่ซับซ้อน สู่พิมพ์เขียวซอฟต์แวร์ที่สมบูรณ์แบบ"<br>จากความเข้าใจปัญหา สู่การออกแบบโซลูชันที่พัฒนาได้จริง</p>
+            <a href="#schedule" class="btn btn-warning btn-lg px-4 me-2 fw-bold text-dark"><i class="fas fa-calendar-alt me-2"></i>ดูแผนการสอน</a>
+            <a href="#workshops" class="btn btn-outline-light btn-lg px-4 fw-bold"><i class="fas fa-laptop-code me-2"></i>กิจกรรม Workshop</a>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-5">
+        <div class="container">
+            <h2 class="section-title">ทำไมต้องเรียน ENGSE206 ?</h2>
+            
+            <!-- Use a placeholder image, but try to load the local one first -->
+            <div class="text-center mb-5">
+                <img src="images/ENGSE206_Overview.png" 
+                     alt="ENGSE206 Overview" 
+                     class="img-fluid rounded shadow" 
+                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80';">
+                <p class="text-muted mt-2 small">ภาพประกอบจากเอกสาร Overview (ดึงจาก Unsplash หากไม่มีไฟล์ในโฟลเดอร์ images)</p>
+            </div>
+
+            <div class="row g-4 mt-2">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fas fa-users feature-icon"></i>
+                        <h4>1. เข้าใจผู้ใช้ (What & Why)</h4>
+                        <p class="text-muted">เก็บและวิเคราะห์ความต้องการ เข้าใจบริบทและปัญหาที่แท้จริงของผู้มีส่วนได้ส่วนเสีย</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fas fa-pencil-ruler feature-icon"></i>
+                        <h4>2. ออกแบบโซลูชัน (How)</h4>
+                        <p class="text-muted">แปลงข้อกำหนดเป็นสถาปัตยกรรมเชิงแนวคิด ออกแบบรายละเอียดและ UX/UI</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fas fa-file-signature feature-icon"></i>
+                        <h4>3. ทบทวนและประเมิน (Review)</h4>
+                        <p class="text-muted">เขียนเอกสาร SRS สื่อสารเหตุผลการออกแบบ และประเมินผลอย่างเป็นระบบ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4 Phases Section -->
+    <section id="phases" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">โครงสร้างการเรียนรู้ 4 ระยะ (15 สัปดาห์)</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-3 col-sm-6 phase-step">
+                    <div class="phase-icon-wrapper"><i class="fas fa-search"></i></div>
+                    <h5>Phase 1: Discover</h5>
+                    <p class="text-muted small">สัปดาห์ 1-4<br>ค้นพบปัญหาและความต้องการที่แท้จริง</p>
+                </div>
+                <div class="col-md-3 col-sm-6 phase-step">
+                    <div class="phase-icon-wrapper"><i class="fas fa-tasks"></i></div>
+                    <h5>Phase 2: Define</h5>
+                    <p class="text-muted small">สัปดาห์ 5-8<br>ระบุและจัดระเบียบข้อกำหนด (SRS)</p>
+                </div>
+                <div class="col-md-3 col-sm-6 phase-step">
+                    <div class="phase-icon-wrapper"><i class="fas fa-sitemap"></i></div>
+                    <h5>Phase 3: Design</h5>
+                    <p class="text-muted small">สัปดาห์ 10-12<br>ออกแบบสถาปัตยกรรมและปฏิสัมพันธ์</p>
+                </div>
+                <div class="col-md-3 col-sm-6 phase-step">
+                    <div class="phase-icon-wrapper"><i class="fas fa-check-circle"></i></div>
+                    <h5>Phase 4: Evaluate</h5>
+                    <p class="text-muted small">สัปดาห์ 13-16<br>ประเมิน สื่อสาร และปรับปรุงการออกแบบ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Schedule (Theory) -->
+    <section id="schedule" class="py-5">
+        <div class="container">
+            <h2 class="section-title">แผนการจัดการเรียนรู้และสื่อการสอน (ทฤษฎี)</h2>
+            <p class="text-center mb-4 text-muted">คลิกที่ปุ่มลิงก์ด้านล่างเพื่อเข้าถึงสื่อประกอบการสอน (เอกสาร PDF, สไลด์ PowerPoint, หรือเทมเพลต Canva)</p>
+            
+            <div class="row">
+                <!-- Discover -->
+                <h4 class="mb-3 text-primary mt-3"><i class="fas fa-search me-2"></i>ระยะที่ 1: Discover (เข้าใจปัญหา)</h4>
+                <div class="col-12">
+                    <div class="schedule-card">
+                        <span class="week-badge">สัปดาห์ที่ 1</span>
+                        <h5>บทบาทของ Requirements และ Design ใน SDLC</h5>
+                        <p class="mb-2 text-muted">เรียนรู้ความแตกต่างของ Problem, Requirement, Design และทำความเข้าใจวงจร SDLC</p>
+                        <div class="resource-links">
+                            <a href="week01/ENGSE206_Week01.pdf" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF Slides</a>
+                            <a href="week01/ENGSE206_Week01_เอกสารประกอบการสอน.pdf" class="btn btn-sm btn-outline-primary"><i class="fas fa-file-pdf me-1"></i>เอกสารประกอบการสอน</a>
+                        </div>
+                    </div>
+                    <div class="schedule-card">
+                        <span class="week-badge">สัปดาห์ที่ 2</span>
+                        <h5>Problem Framing, Stakeholder & Scope</h5>
+                        <p class="mb-2 text-muted">การวิเคราะห์ผู้มีส่วนได้ส่วนเสีย ขอบเขตระบบ ข้อจำกัด และประเด็นจริยธรรมข้อมูล</p>
+                        <div class="resource-links">
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF Slides</a>
+                        </div>
+                    </div>
+                    <div class="schedule-card">
+                        <span class="week-badge">สัปดาห์ที่ 3</span>
+                        <h5>Elicitation Plan & Interview Technique</h5>
+                        <p class="mb-2 text-muted">แผนเก็บ Requirement, เทคนิคการสัมภาษณ์ และการออกแบบคำถามให้ตรงประเด็น</p>
+                        <div class="resource-links">
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF Slides</a>
+                            <a href="#" class="btn btn-sm btn-outline-success"><i class="fas fa-file-excel me-1"></i>Interview Template</a>
+                        </div>
+                    </div>
+                    <div class="schedule-card">
+                        <span class="week-badge">สัปดาห์ที่ 4</span>
+                        <h5>Facilitation, Observation & Negotiation</h5>
+                        <p class="mb-2 text-muted">การจัดการเวิร์กชอป การสังเกตงานจริง และการเจรจาต่อรองเมื่อเกิดความขัดแย้ง</p>
+                        <div class="resource-links">
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF Slides</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Define -->
+                <h4 class="mb-3 text-primary mt-4"><i class="fas fa-tasks me-2"></i>ระยะที่ 2: Define (กำหนดข้อกำหนด)</h4>
+                <div class="col-12">
+                    <div class="schedule-card">
+                        <span class="week-badge">สัปดาห์ที่ 5</span>
+                        <h5>Requirement Analysis & Prioritization</h5>
+                        <p class="mb-2 text-muted">แยกแยะ Functional/Non-functional และจัดลำดับความสำคัญ (Prioritized Backlog)</p>
+                        <div class="resource-links">
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF Slides</a>
+                        </div>
+                    </div>
+                    <div class="schedule-card">
+                        <span class="week-badge">สัปดาห์ที่ 6</span>
+                        <h5>User Story, Use Case & Modelling</h5>
+                        <p class="mb-2 text-muted">การเขียน Acceptance Criteria ที่ตรวจสอบได้ และการใช้ Model เพื่อสื่อสาร</p>
+                        <div class="resource-links">
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF Slides</a>
+                        </div>
+                    </div>
+                    <div class="schedule-card">
+                        <span class="week-badge">สัปดาห์ที่ 7</span>
+                        <h5>SRS and Requirement Specification</h5>
+                        <p class="mb-2 text-muted">โครงสร้างเอกสาร SRS และคุณลักษณะของ Requirement ที่ดี (Clear, Testable)</p>
+                        <div class="resource-links">
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF Slides</a>
+                            <a href="#" class="btn btn-sm btn-outline-primary"><i class="fas fa-file-word me-1"></i>SRS Word Template</a>
+                        </div>
+                    </div>
+                    <div class="schedule-card">
+                        <span class="week-badge">สัปดาห์ที่ 8</span>
+                        <h5>Validation, Traceability & Change Management</h5>
+                        <p class="mb-2 text-muted">การทำ Peer Review สร้าง Traceability Matrix และจัดการการเปลี่ยนแปลง (Change Request)</p>
+                        <div class="resource-links">
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF Slides</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- สอบกลางภาค -->
+                <div class="col-12 mt-3 mb-4">
+                    <div class="alert alert-warning text-center fw-bold">
+                        <i class="fas fa-exclamation-triangle me-2"></i> สัปดาห์ที่ 9 : สอบกลางภาค (Midterm Examination)
+                    </div>
+                </div>
+
+                <!-- Design -->
+                <h4 class="mb-3 text-primary"><i class="fas fa-sitemap me-2"></i>ระยะที่ 3: Design (ออกแบบสถาปัตยกรรมและ UX)</h4>
+                <div class="col-12">
+                    <div class="schedule-card">
+                        <span class="week-badge">สัปดาห์ที่ 10</span>
+                        <h5>Design Strategy & Constraints</h5>
+                        <p class="mb-2 text-muted">หลักการแปลง Requirement เป็นแนวคิดการออกแบบ กลยุทธ์ และเหตุผล (Design Rationale)</p>
+                        <div class="resource-links">
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF Slides</a>
+                        </div>
+                    </div>
+                    <div class="schedule-card">
+                        <span class="week-badge">สัปดาห์ที่ 11</span>
+                        <h5>Conceptual Architecture</h5>
+                        <p class="mb-2 text-muted">ขอบเขตระบบ องค์ประกอบ ข้อมูล ส่วนติดต่อ และ External Dependency</p>
+                        <div class="resource-links">
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF Slides</a>
+                        </div>
+                    </div>
+                    <div class="schedule-card">
+                        <span class="week-badge">สัปดาห์ที่ 12</span>
+                        <h5>Human-centred Interaction & UX/UI</h5>
+                        <p class="mb-2 text-muted">การวาง User Flow การทำ Wireframe/Prototype และเรื่อง Usability & Accessibility</p>
+                        <div class="resource-links">
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF Slides</a>
+                            <a href="#" class="btn btn-sm btn-outline-info"><i class="fas fa-link me-1"></i>Figma Templates</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evaluate -->
+                <h4 class="mb-3 text-primary mt-4"><i class="fas fa-check-circle me-2"></i>ระยะที่ 4: Evaluate & Communicate (ประเมินและสื่อสาร)</h4>
+                <div class="col-12">
+                    <div class="schedule-card">
+                        <span class="week-badge">สัปดาห์ที่ 13</span>
+                        <h5>Detailed Design</h5>
+                        <p class="mb-2 text-muted">Component Responsibility, Data/API Contract, Interaction Flow</p>
+                        <div class="resource-links">
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF Slides</a>
+                        </div>
+                    </div>
+                    <div class="schedule-card">
+                        <span class="week-badge">สัปดาห์ที่ 14</span>
+                        <h5>Design Quality Criteria & Review</h5>
+                        <p class="mb-2 text-muted">ประเมิน Feasibility, Security, Maintainability และ Requirement Coverage</p>
+                        <div class="resource-links">
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF Slides</a>
+                        </div>
+                    </div>
+                    <div class="schedule-card">
+                        <span class="week-badge">สัปดาห์ที่ 15</span>
+                        <h5>Usability Evidence & Refinement</h5>
+                        <p class="mb-2 text-muted">นำผลลัพธ์จาก Usability Testing และ Peer Feedback มาปรับปรุงชิ้นงาน</p>
+                        <div class="resource-links">
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF Slides</a>
+                        </div>
+                    </div>
+                    <div class="schedule-card">
+                        <span class="week-badge">สัปดาห์ที่ 16</span>
+                        <h5>Integration, Design Pitch & Reflection</h5>
+                        <p class="mb-2 text-muted">นำเสนอแพ็กเกจสมบูรณ์ (Requirement-to-Design Package) และการสะท้อนผลการเรียนรู้</p>
+                        <div class="resource-links">
+                            <a href="#" class="btn btn-sm btn-outline-danger"><i class="fas fa-file-pdf me-1"></i>PDF Slides</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+             <!-- สอบปลายภาค -->
+            <div class="col-12 mt-3">
+                <div class="alert alert-danger text-center fw-bold">
+                    <i class="fas fa-graduation-cap me-2"></i> สัปดาห์ที่ 17 : สอบปลายภาค (Final Examination)
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Workshops Section -->
+    <section id="workshops" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">กิจกรรมปฏิบัติการ (Studio & Workshops)</h2>
+            <p class="text-center mb-5 text-muted">การเรียนรู้แบบใช้กรณีศึกษา (Case-Based) ต่อเนื่องตลอดภาคการศึกษา สร้างชิ้นงานจริงทุกสัปดาห์</p>
+            
+            <div class="row g-4">
+                <!-- WS1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="workshop-card shadow-sm">
+                        <div class="workshop-header">Workshop 1: Stakeholder & Context</div>
+                        <div class="workshop-body">
+                            <p class="text-muted"><i class="far fa-clock me-2"></i>สัปดาห์ที่ 2</p>
+                            <p>กำหนด Problem Statement, Stakeholder Map, ขอบเขต และประเด็นข้อมูล/จริยธรรม</p>
+                            <hr>
+                            <small class="fw-bold text-primary"><i class="fas fa-file-alt me-1"></i> ชิ้นงาน: Stakeholder Map & Scope Statement</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- WS2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="workshop-card shadow-sm">
+                        <div class="workshop-header">Workshop 2: Interview Clinic</div>
+                        <div class="workshop-body">
+                            <p class="text-muted"><i class="far fa-clock me-2"></i>สัปดาห์ที่ 3</p>
+                            <p>ออกแบบแผนเก็บ Requirement และชุดคำถามสัมภาษณ์ที่ตรวจสอบเป้าหมาย</p>
+                            <hr>
+                            <small class="fw-bold text-primary"><i class="fas fa-file-alt me-1"></i> ชิ้นงาน: Elicitation Plan & Interview Guide</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- WS3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="workshop-card shadow-sm">
+                        <div class="workshop-header">Workshop 3: Role-Play Simulation</div>
+                        <div class="workshop-body">
+                            <p class="text-muted"><i class="far fa-clock me-2"></i>สัปดาห์ที่ 4</p>
+                            <p>จำลองบทบาทเป็น BA และลูกค้าเพื่อฝึกการสัมภาษณ์ บันทึกหลักฐาน และเจรจาต่อรอง</p>
+                            <hr>
+                            <small class="fw-bold text-primary"><i class="fas fa-file-alt me-1"></i> ชิ้นงาน: Evidence Log & Unresolved Issues</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- WS4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="workshop-card shadow-sm">
+                        <div class="workshop-header">LAB 1-2: SRS Studio & Clinic</div>
+                        <div class="workshop-body">
+                            <p class="text-muted"><i class="far fa-clock me-2"></i>สัปดาห์ที่ 7-8</p>
+                            <p>เขียนเอกสาร SRS ตรวจสอบความครบถ้วน สอดคล้อง และจัดทำความเชื่อมโยง</p>
+                            <hr>
+                            <small class="fw-bold text-primary"><i class="fas fa-file-alt me-1"></i> ชิ้นงาน: SRS v1 & Traceability Matrix</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- WS5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="workshop-card shadow-sm">
+                        <div class="workshop-header">LAB 3-4: Design & UX Studio</div>
+                        <div class="workshop-body">
+                            <p class="text-muted"><i class="far fa-clock me-2"></i>สัปดาห์ที่ 11-12</p>
+                            <p>แปลงความต้องการเป็นสถาปัตยกรรมเชิงแนวคิด ออกแบบ User Flow และสร้าง Prototype</p>
+                            <hr>
+                            <small class="fw-bold text-primary"><i class="fas fa-file-alt me-1"></i> ชิ้นงาน: Architecture View & UI Prototype</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- WS6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="workshop-card shadow-sm">
+                        <div class="workshop-header">Workshop 5: Design Review</div>
+                        <div class="workshop-body">
+                            <p class="text-muted"><i class="far fa-clock me-2"></i>สัปดาห์ที่ 14-16</p>
+                            <p>ประเมินการออกแบบด้วยเกณฑ์มาตรฐาน ปรับปรุงชิ้นงาน และเตรียมนำเสนอแบบมืออาชีพ</p>
+                            <hr>
+                            <small class="fw-bold text-primary"><i class="fas fa-file-alt me-1"></i> ชิ้นงาน: Review Report & Final Package</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evaluation Section -->
+    <section id="evaluation" class="py-5">
+        <div class="container">
+            <h2 class="section-title">การประเมินผล (คะแนนรวม 100%)</h2>
+            
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center mb-4 mb-md-0">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Evaluation" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-md-6">
+                    <h4 class="mb-4">"คะแนนเกินครึ่งมาจากชิ้นงานและการลงมือทำ"</h4>
+                    
+                    <h5 class="text-primary"><i class="fas fa-laptop-code me-2"></i>กลุ่มปฏิบัติและชิ้นงาน (55%)</h5>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                            A3: Requirements Engineering Portfolio
+                            <span class="badge bg-primary rounded-pill">25%</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                            A4: Design Portfolio
+                            <span class="badge bg-primary rounded-pill">25%</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                            A5: Design Pitch & Peer Review
+                            <span class="badge bg-primary rounded-pill">5%</span>
+                        </li>
+                    </ul>
+
+                    <h5 class="text-warning text-dark"><i class="fas fa-book-reader me-2"></i>กลุ่มทดสอบทฤษฎี (45%)</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                            A1: Learning Check / Quizzes
+                            <span class="badge bg-secondary rounded-pill">10%</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                            A2: สอบกลางภาค (Midterm Exam)
+                            <span class="badge bg-secondary rounded-pill">20%</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                            A6: สอบปลายภาค (Final Exam)
+                            <span class="badge bg-secondary rounded-pill">15%</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h4 class="text-white">ENGSE206 การกำหนดความต้องการและการออกแบบทางซอฟต์แวร์</h4>
+            <p>สาขาวิชาวิศวกรรมซอฟต์แวร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา</p>
+            <p class="small text-muted mt-4">อาจารย์ผู้สอน: อ.ธนิต เกตุแก้ว | สงวนลิขสิทธิ์ &copy; 2026</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
