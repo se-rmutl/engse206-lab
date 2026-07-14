@@ -1,85 +1,97 @@
-# Week 04: Workshop 3: Stakeholder Simulation
+# Week 04 — Workshop 3: AI Stakeholder Panel, Evidence Logging and Negotiation
 
-## ข้อมูลสัปดาห์
+> **READ** instruction/role packs from Course Repository → **WORK & SUBMIT** all evidence in Team Repository.  
+> [Assignment Contract](assignment-contract.md) · [Prompt Pack](prompt-pack.md) · [Role Packs](role-packs/README.md) · [Rubric](rubric.md)
+
+## 1. ข้อมูลสัปดาห์
 
 | รายการ | รายละเอียด |
 |---|---|
 | บทเรียน | 2.2 Facilitation, Observation, Workshop และ Negotiation |
 | CLO | CLO2, CLO6 |
-| เวลา | ทฤษฎี 2 ชั่วโมง + ปฏิบัติ/กิจกรรม 3 ชั่วโมง |
-| รูปแบบ | Role-play + Evidence Logging + Issue Clinic |
-| ผลงานที่ต้องส่ง | Evidence Log + Workshop Minutes + Issue/Conflict List |
+| เวลา | ทฤษฎี 2 ชั่วโมง + Workshop 3 ชั่วโมง |
+| Inputs | Week 3 Elicitation Plan + revised Interview Guide |
+| Outputs | Simulation Log + Evidence Log + Conflict/Negotiation + Requirement Candidates |
+| คะแนน | A3 = 4 คะแนน |
 
-## เป้าหมายการเรียนรู้
+## 2. เป้าหมาย
 
-จำลองสัมภาษณ์และการประชุม stakeholder ฝึกฟังเชิงลึก บันทึกหลักฐาน และแยกข้อขัดแย้งออกจากข้อเท็จจริง
+ดำเนินการ stakeholder simulation หลายบทบาท เก็บ evidence โดยไม่ตีความเกินข้อมูล ระบุความขัดแย้ง วิเคราะห์ position/interest/constraint/options และสร้าง requirement candidates ที่อ้าง E-ID พร้อม status/confidence/follow-up
 
-เมื่อจบสัปดาห์ นักศึกษาต้องสร้างหลักฐานการเรียนรู้ที่เชื่อมโยงกับ Case Project ของตน ไม่ใช่เพียงทำกิจกรรมตามตัวอย่าง
+## 3. Theory Brief — 2 ชั่วโมง
 
-## การเตรียมก่อนเรียน
+- Facilitation roles, active listening and power balance
+- Observation/minutes/evidence logging
+- Fact, simulated need, constraint, opinion, assumption and proposed solution
+- Conflict: position vs interest; authority and decision rights
+- Negotiation options, criteria, rationale and unresolved status
+- Responsible AI: role isolation, no PII and simulation label
 
-- อ่าน artefact ของสัปดาห์ก่อนและเปิด repository ของกลุ่มให้พร้อม
-- เตรียมแม่แบบที่เกี่ยวข้องจาก [`templates/`](../../templates/README.md)
-- ผู้สอนเตรียม worked example, checklist/rubric และเวลา feedback ระหว่าง workshop
+## 4. Workshop — 180 นาที
 
-## แผนสอนทฤษฎี 2 ชั่วโมง
+| เวลา | ขั้นตอน | Output |
+|---|---|---|
+| 00–15 | แบ่งบทบาท เปิด Plan/Guide และเลือก stakeholder 3–4 roles | role assignment |
+| 15–50 | Interview Round 1: Primary User + Operational Staff | notes/E-ID candidates |
+| 50–70 | Evidence Review: CF/SN/CT/OP/AS/PS/OQ | evidence table + follow-ups |
+| 70–105 | Panel Round 2: Policy/Manager + Technical/Privacy/Safety | authority/constraint evidence |
+| 105–135 | Negotiation Clinic: conflict, interests, options, criteria, status | negotiation record |
+| 135–155 | Requirement Candidates 5–8 ข้ออ้าง E-ID | RC list |
+| 155–175 | Tabletop presentation 4–5 นาที | evidence/conflict/decision summary |
+| 175–180 | commit/push | submission checkpoint |
 
-### 1) Activate prior knowledge — 15 นาที
-- ทบทวนงานสัปดาห์ก่อนด้วยคำถามสั้นหรือ artefact ที่มีข้อผิดพลาด
-- เชื่อมสิ่งที่จะเรียนกับ Requirement-to-Design Package ของกลุ่ม
+## 5. Evidence Tags
 
-### 2) Mini lecture + worked example — 55 นาที
-- Facilitation และ active listening
-- Observation, workshop minutes และ evidence logging
-- Conflict identification และ negotiation basics
+| Tag | Meaning |
+|---|---|
+| `CF` | Case Fact from authorized case/document |
+| `SN` | Simulated Need stated by an AI role; requires verification |
+| `CT` | Constraint/rule; record authority/source |
+| `OP` | Opinion/preference; not automatically a requirement |
+| `AS` | Assumption; create follow-up/open question |
+| `PS` | Proposed solution; search for underlying need |
+| `OQ` | Open question/unresolved information |
 
-ผู้สอนควรใช้ Case เดียวตัวอย่าง 1 เรื่อง และแสดงทั้งตัวอย่างที่ดี/ไม่ดีเพื่อให้เห็นเกณฑ์คุณภาพชัดเจน
+## 6. Exact Output Paths ใน Team Repo
 
-### 3) Guided analysis — 35 นาที
-- ให้กลุ่มวิเคราะห์สถานการณ์สั้น
-- ใช้ think-pair-share หรือถามตอบเพื่อทดลองตัดสินใจ
-- สรุป misconception สำคัญก่อนปฏิบัติ
+- `evidence/week-04/ai-stakeholder-simulation-log.md`
+- `docs/04-evidence-log.md`
+- `project-management/risk-and-issue-log.md`
+- `project-management/decision-log.md`
+- `project-management/team-worklog.md`
+- `project-management/ai-use-log.md`
+- `submissions/week-04-submission.md`
 
-### 4) Briefing งานปฏิบัติ — 15 นาที
-- อธิบาย output, rubric, commit/submission rule และเวลาส่ง
-- ย้ำความต่างระหว่าง **facts**, **assumptions**, **requirements** และ **design choices** ตามหัวข้อของสัปดาห์
+## 7. Controlled Simulation Rules
 
-## แผน Workshop/LAB 3 ชั่วโมง
+1. One stakeholder role per chat/session.
+2. AI Operator may read the role pack; interviewers should discover details through questions.
+3. Never invent real names, personal data, university policy or statistics.
+4. AI statements must be labelled simulation and assigned source/tag/confidence.
+5. A simulated panel may produce **Candidate/Provisional/Unresolved**, not real-world Approved requirements.
+6. Record contradictions instead of silently merging them.
 
-1. แบ่ง role: customer/user/staff/technical representative/BA
-2. ดำเนิน stakeholder simulation รอบที่ 1
-3. บันทึก evidence แบบไม่ตีความเกินข้อมูล
-4. สรุป issue/conflict/open question
-5. สะท้อนการถามและการฟัง
+## 8. Tabletop Presentation — 4–5 นาที
 
-### Checkpoints
-- นาทีที่ 45: แสดง output ขั้นต้นให้เพื่อนหรือผู้สอนตรวจ
-- นาทีที่ 100: ต้องมี artefact ที่มีโครงสร้างครบ แม้รายละเอียดไม่สมบูรณ์
-- นาทีที่ 155: ตรวจ checklist และอธิบายสิ่งที่เปลี่ยนหลังได้รับ feedback
-- ก่อนจบ: commit/push หรือส่งลิงก์ตามช่องทางอาจารย์กำหนด
+1. Stakeholder roles interviewed
+2. Important evidence with source/tag/confidence
+3. One conflict: positions, interests, authority and constraints
+4. Options and decision/status/rationale
+5. One or two evidence-linked requirement candidates
+6. Unresolved issue and verification plan for Week 5
 
-## สิ่งที่ต้องส่ง
+## 9. Commit
 
-1. อัปเดตไฟล์ใน repository ของกลุ่ม
-2. เก็บภาพ/บันทึก/หลักฐานใน `evidence/` เมื่อมีสัมภาษณ์ role-play หรือ test
-3. เขียน Team Worklog ระบุผู้รับผิดชอบและงานที่ทำ
-4. ใช้ commit message ที่บอกเนื้อหาการเปลี่ยนแปลง
+```text
+checkpoint(w04): stakeholder evidence and conflict analysis
+submit(w04): stakeholder evidence negotiation and candidates
+```
 
-## เกณฑ์ตรวจแบบเร็ว
+## 10. Definition of Done
 
-- [ ] โครงสร้างเอกสารถูกต้องและครบหัวข้อ
-- [ ] เนื้อหาสอดคล้องกับ Case Card/หลักฐาน ไม่คิด solution ลอย ๆ
-- [ ] ขอบเขตไม่ใหญ่เกินข้อกำหนดรายวิชา
-- [ ] มีเหตุผลหรือหลักฐานรองรับ requirement/design decision
-- [ ] ทุกคนมีส่วนร่วมที่ตรวจสอบได้
-- [ ] ส่งงานครบและตรงเวลา
-
-## การให้ feedback
-
-ใช้คำถามชี้นำ เช่น
-- หลักฐานใดสนับสนุนข้อสรุปนี้
-- stakeholder คนใดยังไม่ได้พิจารณา
-- requirement นี้ตรวจสอบความสำเร็จได้อย่างไร
-- design decision นี้ตอบ requirement ข้อใด
-
-ดู [แผนประเมินผล](../../docs/assessment-rubrics.md) และ [Artefact Roadmap](../../docs/artefact-roadmap.md)
+- [ ] ≥ 3 stakeholder roles, separate sessions
+- [ ] Evidence has E-ID, source, tag, context, confidence and follow-up
+- [ ] ≥ 1 conflict with ≥ 2 options and explicit status/rationale
+- [ ] 5–8 RCs link to E-IDs and do not overclaim approval
+- [ ] no PII/confidential data; AI use is disclosed
+- [ ] repository links, logs, contribution and commit history are complete

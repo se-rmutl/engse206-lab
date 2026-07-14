@@ -1,4 +1,6 @@
 # Week 14: Workshop 5: Peer Design Review Simulation
+> **Repository workflow:** อ่านโจทย์จาก Course Repo แต่ทำและส่งงานใน Team Repo ของกลุ่ม  
+> [เปิด Assignment Contract](assignment-contract.md) | [คู่มือ 2 Repository](../../docs/two-repository-workflow.md)
 
 ## ข้อมูลสัปดาห์
 

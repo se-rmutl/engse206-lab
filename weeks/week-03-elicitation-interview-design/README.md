@@ -1,85 +1,89 @@
-# Week 03: Workshop 2: Interview Design Clinic
+# Week 03 — Workshop 2: Elicitation Planning and AI Interview Rehearsal
 
-## ข้อมูลสัปดาห์
+> **READ** คำสั่งและ Case จาก Course Repository → **WORK & SUBMIT** ใน Team Repository ของกลุ่ม  
+> [Assignment Contract](assignment-contract.md) · [Prompt Pack](prompt-pack.md) · [Rubric](rubric.md) · [Two-Repository Guide](../../docs/two-repository-workflow.md)
+
+## 1. ข้อมูลสัปดาห์
 
 | รายการ | รายละเอียด |
 |---|---|
-| บทเรียน | 2.1 Elicitation Plan และ Interview Design |
+| บทเรียน | 2.1 การวางแผนเก็บ Requirement และการสัมภาษณ์ |
 | CLO | CLO2 |
-| เวลา | ทฤษฎี 2 ชั่วโมง + ปฏิบัติ/กิจกรรม 3 ชั่วโมง |
-| รูปแบบ | Interview Design + Peer Critique |
-| ผลงานที่ต้องส่ง | Elicitation Plan + Interview Guide |
+| เวลา | ทฤษฎี 2 ชั่วโมง + Workshop 3 ชั่วโมง |
+| จุดเริ่ม | Problem Brief + Stakeholder/Context/Scope + Open Questions จาก Week 2 |
+| ผลลัพธ์ | Elicitation Plan + Interview Guide + AI Rehearsal Notes |
+| คะแนน | A3 = 3 คะแนน; A1 Exit Ticket รายบุคคล = 2 คะแนน |
 
-## เป้าหมายการเรียนรู้
+## 2. เป้าหมาย
 
-เลือกเทคนิคเก็บ requirement ที่เหมาะสม ออกแบบคำถามเปิด คำถามติดตาม และตรวจอคติของทีม
+เมื่อจบสัปดาห์ ทีมต้องสามารถเปลี่ยนสิ่งที่ยังไม่รู้เป็น **Elicitation Objectives**, เลือก stakeholder/technique/evidence ที่เหมาะสม, เขียนคำถามแบบกึ่งโครงสร้าง และใช้ AI เป็นคู่ซ้อมเพื่อค้นปัญหาของคำถามโดยไม่ถือคำตอบจำลองเป็น Requirement จริง
 
-เมื่อจบสัปดาห์ นักศึกษาต้องสร้างหลักฐานการเรียนรู้ที่เชื่อมโยงกับ Case Project ของตน ไม่ใช่เพียงทำกิจกรรมตามตัวอย่าง
+## 3. ก่อนเริ่ม
 
-## การเตรียมก่อนเรียน
+1. เปิด Case Card ของทีมจาก [`cases/`](../../cases/README.md)
+2. เปิด artefacts ใน Team Repo:
+   - `docs/01-problem-brief-v0.1.md`
+   - `docs/02-stakeholder-context-scope.md`
+3. เลือก Open Questions สำคัญ 3–5 ข้อ
+4. กำหนดบทบาท Facilitator, Interviewer, Probe Interviewer, Note-taker, AI Operator และ Quality Reviewer
+5. อ่าน [Responsible AI Prompt Pack](prompt-pack.md)
 
-- อ่าน artefact ของสัปดาห์ก่อนและเปิด repository ของกลุ่มให้พร้อม
-- เตรียมแม่แบบที่เกี่ยวข้องจาก [`templates/`](../../templates/README.md)
-- ผู้สอนเตรียม worked example, checklist/rubric และเวลา feedback ระหว่าง workshop
+## 4. Theory Brief — 2 ชั่วโมง
 
-## แผนสอนทฤษฎี 2 ชั่วโมง
+| เวลา | สาระ/กิจกรรม |
+|---|---|
+| 00–20 | Open Question → Elicitation Objective |
+| 20–45 | เลือก stakeholder, technique และ evidence source |
+| 45–70 | Elicitation Plan: owner, time, risk, exit criteria |
+| 70–100 | Interview structure, question funnel, probing, exception |
+| 100–115 | Leading/solution/confirmation/authority bias; privacy |
+| 115–120 | Briefing output, rubric และ commit rule |
 
-### 1) Activate prior knowledge — 15 นาที
-- ทบทวนงานสัปดาห์ก่อนด้วยคำถามสั้นหรือ artefact ที่มีข้อผิดพลาด
-- เชื่อมสิ่งที่จะเรียนกับ Requirement-to-Design Package ของกลุ่ม
+## 5. Workshop — 180 นาที
 
-### 2) Mini lecture + worked example — 55 นาที
-- Elicitation goals และวิธีเก็บ requirement
-- Interview question design และ note taking
-- Bias, assumption และ evidence quality
+| เวลา | ขั้นตอน | Checkpoint |
+|---|---|---|
+| 00–20 | ทบทวน Case/Week 2 และเลือก OQ 3–5 ข้อ | OQ shortlist |
+| 20–45 | เขียน EO: ต้องรู้อะไร จากใคร หลักฐานใด ใช้ตัดสินใจอะไร | EO table |
+| 45–75 | ทำ Elicitation Plan | stakeholder/method/evidence/time/risk |
+| 75–110 | เขียน Interview Guide 10–12 ข้อ | opening/current work/pain/rule/exception/outcome/closing |
+| 110–130 | Bias Check + Peer Critique | before/after questions อย่างน้อย 2 ข้อ |
+| 130–160 | AI Interview Rehearsal กับ stakeholder **1 บทบาท** | transcript/notes + limitations |
+| 160–175 | ปรับ Guide และเตรียม tabletop summary | revised questions |
+| 175–180 | commit/push + exit ticket | submission checkpoint |
 
-ผู้สอนควรใช้ Case เดียวตัวอย่าง 1 เรื่อง และแสดงทั้งตัวอย่างที่ดี/ไม่ดีเพื่อให้เห็นเกณฑ์คุณภาพชัดเจน
+## 6. Exact Output Paths ใน Team Repo
 
-### 3) Guided analysis — 35 นาที
-- ให้กลุ่มวิเคราะห์สถานการณ์สั้น
-- ใช้ think-pair-share หรือถามตอบเพื่อทดลองตัดสินใจ
-- สรุป misconception สำคัญก่อนปฏิบัติ
+- `docs/03-elicitation-plan.md`
+- `docs/03-interview-guide.md`
+- `evidence/week-03/ai-interview-rehearsal-notes.md`
+- `feedback/week-03-peer-feedback.md`
+- `project-management/team-worklog.md`
+- `project-management/ai-use-log.md`
+- `submissions/week-03-submission.md`
 
-### 4) Briefing งานปฏิบัติ — 15 นาที
-- อธิบาย output, rubric, commit/submission rule และเวลาส่ง
-- ย้ำความต่างระหว่าง **facts**, **assumptions**, **requirements** และ **design choices** ตามหัวข้อของสัปดาห์
+## 7. Tabletop Presentation — 3–5 นาที
 
-## แผน Workshop/LAB 3 ชั่วโมง
+1. Case, OQ และ stakeholder ที่เลือก
+2. คำถามเดิมที่มีปัญหา 1 ข้อ
+3. สิ่งที่เกิดระหว่าง AI Rehearsal
+4. คำถามฉบับปรับและเหตุผล
+5. สิ่งที่พร้อมใช้ใน Week 4 / สิ่งที่ยังไม่พร้อม
 
-1. เลือก stakeholder ที่ต้องเก็บข้อมูล
-2. สร้าง elicitation plan
-3. ออกแบบคำถามเปิด/คำถามติดตาม
-4. peer critique เพื่อตรวจ leading questions
-5. ปรับและบันทึก interview guide
+## 8. Commit
 
-### Checkpoints
-- นาทีที่ 45: แสดง output ขั้นต้นให้เพื่อนหรือผู้สอนตรวจ
-- นาทีที่ 100: ต้องมี artefact ที่มีโครงสร้างครบ แม้รายละเอียดไม่สมบูรณ์
-- นาทีที่ 155: ตรวจ checklist และอธิบายสิ่งที่เปลี่ยนหลังได้รับ feedback
-- ก่อนจบ: commit/push หรือส่งลิงก์ตามช่องทางอาจารย์กำหนด
+```text
+checkpoint(w03): elicitation plan and interview rehearsal
+submit(w03): elicitation plan interview guide and rehearsal
+```
 
-## สิ่งที่ต้องส่ง
+## 9. Definition of Done
 
-1. อัปเดตไฟล์ใน repository ของกลุ่ม
-2. เก็บภาพ/บันทึก/หลักฐานใน `evidence/` เมื่อมีสัมภาษณ์ role-play หรือ test
-3. เขียน Team Worklog ระบุผู้รับผิดชอบและงานที่ทำ
-4. ใช้ commit message ที่บอกเนื้อหาการเปลี่ยนแปลง
+- [ ] EO ทุกข้อเชื่อมกับ OQ และการตัดสินใจ
+- [ ] Plan ระบุ stakeholder/method/evidence/owner/time/risk/exit criteria
+- [ ] Guide มีคำถาม 10–12 ข้อและมี EO ID
+- [ ] ตรวจ bias/solution fixation และ privacy แล้ว
+- [ ] AI output ติดป้าย **Simulation** พร้อม human review และ unresolved issues
+- [ ] artefacts, logs, links และ commit history ตรวจย้อนหลังได้
 
-## เกณฑ์ตรวจแบบเร็ว
-
-- [ ] โครงสร้างเอกสารถูกต้องและครบหัวข้อ
-- [ ] เนื้อหาสอดคล้องกับ Case Card/หลักฐาน ไม่คิด solution ลอย ๆ
-- [ ] ขอบเขตไม่ใหญ่เกินข้อกำหนดรายวิชา
-- [ ] มีเหตุผลหรือหลักฐานรองรับ requirement/design decision
-- [ ] ทุกคนมีส่วนร่วมที่ตรวจสอบได้
-- [ ] ส่งงานครบและตรงเวลา
-
-## การให้ feedback
-
-ใช้คำถามชี้นำ เช่น
-- หลักฐานใดสนับสนุนข้อสรุปนี้
-- stakeholder คนใดยังไม่ได้พิจารณา
-- requirement นี้ตรวจสอบความสำเร็จได้อย่างไร
-- design decision นี้ตอบ requirement ข้อใด
-
-ดู [แผนประเมินผล](../../docs/assessment-rubrics.md) และ [Artefact Roadmap](../../docs/artefact-roadmap.md)
+ดู [rubric.md](rubric.md) ก่อนส่ง

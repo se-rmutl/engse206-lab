@@ -37,3 +37,32 @@
 | Exit Ticket รายบุคคล | 1 | A1 Learning Check |
 
 รายละเอียด Week 1 อยู่ที่ [Grading Rubric](../weeks/week-01-problem-brief/grading-rubric.md)
+
+
+## v2 Alignment — A1/A3 Weekly Scores
+
+### A1 Learning Checks — 10 points
+
+| Week | Individual evidence | Points |
+|---|---|---:|
+| 1 | learning check / exit ticket | 2 |
+| 3 | technique rationale, bias rewrite, AI limitation | 2 |
+| 5 | analysis/prioritization check | 2 |
+| 10 | design-strategy check | 2 |
+| 15 | usability/revision reflection | 2 |
+
+### A3 Requirements Engineering Portfolio — 25 points
+
+| Week | Milestone | Points |
+|---|---|---:|
+| 1 | Problem Brief | 4 |
+| 2 | Stakeholder/Context/Scope | 3 |
+| 3 | Elicitation Plan/Interview Guide/Rehearsal | 3 |
+| 4 | Evidence/Conflict/Negotiation | 4 |
+| 5 | Analysis/Prioritization | 3 |
+| 6 | Models/Acceptance Criteria | 3 |
+| 7 | SRS Draft | 3 |
+| 8 | Validation/Traceability | 2 |
+| **Total** | | **25** |
+
+> A3 submission period is Week 1–8 in v2 so the Problem Brief is part of the same continuous Requirements Engineering Portfolio.

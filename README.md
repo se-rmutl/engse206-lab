@@ -9,6 +9,21 @@
 
 รายวิชานี้ต่อยอดจากพื้นฐานการเขียนโปรแกรม กระบวนการซอฟต์แวร์ คุณภาพ และฐานข้อมูลที่ผู้เรียนได้รับจาก ENGCC304, ENGSE203, ENGSE204, ENGSE205 และ ENGSE219 แล้วเปลี่ยนความรู้เชิงเทคนิคให้เป็นชิ้นงานที่ตอบคำถามว่า **ระบบควรทำอะไร เพื่อใคร และควรออกแบบอย่างไร**
 
+## รูปแบบ Repository ที่ใช้ในรายวิชา
+
+> **READ from Course Repo → WORK and SUBMIT in Team Repo**
+
+- Repository นี้ (`engse206-lab-v2`) เป็นแหล่งโจทย์ 10 cases, คำสั่งงาน, workshop, rubric และตัวอย่าง
+- นักศึกษาใช้ repository ของกลุ่มที่สร้างจาก [https://github.com/se-rmutl/engse206-project-template](https://github.com/se-rmutl/engse206-project-template) เป็นพื้นที่ทำงานและส่งงานตลอด 15 สัปดาห์เรียน
+- ห้ามส่งงานโดยแก้ Course Repo และห้ามนำ Course Repo ทั้งชุดไปใส่ใน Team Repo
+
+เอกสารสำคัญ:
+
+- [รูปแบบการใช้ 2 Repository](docs/two-repository-workflow.md)
+- [ตาราง READ–WORK–SUBMIT 15 สัปดาห์](docs/15-week-read-work-submit-matrix.md)
+- [คู่มือนักศึกษา](docs/student-15-week-repository-guide.md)
+- [คู่มือผู้สอน](docs/instructor-repository-governance.md)
+
 ## เริ่มต้นใช้งาน
 
 1. อาจารย์อ่าน [คู่มือเริ่มต้นสำหรับอาจารย์](docs/instructor-quick-start.md) และกำหนดกลุ่ม/กรณีศึกษา
@@ -68,3 +83,8 @@ ENGSE206-Requirements-and-Design/
 - แผนนี้ตั้งใจให้ **มี Workshop / Document Studio / Role-play / Peer Review** สลับกับ Computer LAB ไม่ใช่บังคับให้ใช้คอมพิวเตอร์ทุกสัปดาห์
 - สัปดาห์ที่ 1 มีชุดเอกสารพร้อมใช้งานครบ: Case Cards 10 เรื่อง, คู่มืออาจารย์, ใบงานนักศึกษา, starter repo, rubric, ตัวอย่างงาน และภาพ infographic
 - นักศึกษาส่งชิ้นงานผ่าน Git เพื่อให้เห็น revision history, หลักฐานการทำงาน และสามารถให้ feedback เป็นรอบได้
+
+
+## Example Completed Work — Campus Resource Booking
+
+ตัวอย่างผลงานที่เสร็จสมบูรณ์สำหรับ Week 1–4 อยู่ที่ [`examples/campus-resource-booking/`](examples/campus-resource-booking/README.md) โดยแสดงสายธาร Problem Brief → Stakeholder/Context/Scope → Elicitation Plan/Interview Guide → Evidence/Negotiation/Requirement Candidates

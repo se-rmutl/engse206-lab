@@ -1,4 +1,6 @@
 # Week 01: Problem Brief Kick-off
+> **Repository workflow:** อ่านโจทย์จาก Course Repo แต่ทำและส่งงานใน Team Repo ของกลุ่ม  
+> [เปิด Assignment Contract](assignment-contract.md) | [คู่มือ 2 Repository](../../docs/two-repository-workflow.md)
 
 ## ชื่อหน่วยเรียน
 **หน่วยที่ 1: ฐานคิดของวิศวกรรมความต้องการและความเข้าใจปัญหา**

@@ -1,4 +1,6 @@
 # Week 11: LAB 3: Conceptual Architecture Studio
+> **Repository workflow:** อ่านโจทย์จาก Course Repo แต่ทำและส่งงานใน Team Repo ของกลุ่ม  
+> [เปิด Assignment Contract](assignment-contract.md) | [คู่มือ 2 Repository](../../docs/two-repository-workflow.md)
 
 ## ข้อมูลสัปดาห์
 

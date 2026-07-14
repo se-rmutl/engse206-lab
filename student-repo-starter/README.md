@@ -1,18 +1,9 @@
-# ENGSE206 Group Project Starter Repository
+# Student Repository Starter — Deprecated Pointer
 
-ให้นักศึกษาคัดลอกโฟลเดอร์นี้หรือใช้เป็น GitHub template เพื่อสร้าง repository ของกลุ่ม
+เพื่อไม่ให้เกิด template สองแหล่ง รายวิชานี้ใช้ GitHub Template Repository กลางเพียงแห่งเดียว:
 
-## ก่อนเริ่ม Week 1
-1. เปลี่ยนชื่อ repository เป็น `ENGSE206-GroupXX-ProjectName`
-2. แก้ `docs/00-project-profile.md`
-3. เติม Problem Brief v0.1 ใน `docs/01-problem-brief-v0.1.md`
-4. บันทึกหลักฐานใน `evidence/`
-5. commit และ push ก่อน deadline
+- https://github.com/se-rmutl/engse206-project-template
 
-## Checklist Week 1
-- [ ] กรอกข้อมูลทีมครบ
-- [ ] ระบุ Case Card
-- [ ] Problem Brief มี Facts, Pain Points, Stakeholders, Goals, Scope, Requirements, NFR, Open Questions
-- [ ] มี Team Worklog และหลักฐาน
-- [ ] commit message สื่อความหมาย
-- [ ] URL repository เข้าถึงได้ตามที่อาจารย์กำหนด
+นักศึกษาให้กด **Use this template** จาก repository ข้างต้น แล้วอ่านคำสั่งจาก `https://github.com/se-rmutl/engse206-lab-v2`
+
+ดู [Two-Repository Operating Model](../docs/two-repository-workflow.md)
