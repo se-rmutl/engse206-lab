@@ -32,6 +32,11 @@
 4. ใช้ [Starter Repository สำหรับนักศึกษา](student-repo-starter/README.md) เป็นจุดเริ่มต้นของ repository กลุ่ม
 5. เปิด [สัปดาห์ที่ 1](weeks/week-01-problem-brief/README.md) และดำเนินงานตามลำดับ
 
+## Completed Examples
+
+- [Campus Resource Booking — ตัวอย่างงานสำเร็จ Week 2–4](examples/campus-resource-booking/README.md) แสดงสายงานตั้งแต่ Stakeholder/Context/Scope → Elicitation Plan/Interview Guide → Evidence/Negotiation/Requirement Candidates
+- ตัวอย่างเป็น **Teaching Example** สำหรับดูโครงสร้าง คุณภาพ และ traceability ไม่ใช่นโยบายจริงของมหาวิทยาลัย และไม่ควรคัดลอกไปส่งโดยไม่ปรับตาม Case/หลักฐานของทีม
+
 ## แผนที่เอกสารสำคัญ
 
 | สิ่งที่ต้องการ | เอกสาร |
@@ -63,7 +68,7 @@ ENGSE206-Requirements-and-Design/
 | 1 | Requirements & Design in SDLC; Problem Brief Kick-off | [Week 01](weeks/week-01-problem-brief/README.md) |
 | 2 | Stakeholder, Context, Scope, Ethics | [Week 02](weeks/week-02-stakeholder-context-scope/README.md) |
 | 3 | Elicitation Plan and Interview Design | [Week 03](weeks/week-03-elicitation-interview-design/README.md) |
-| 4 | Stakeholder Simulation, Evidence Log, Negotiation | [Week 04](weeks/week-04-stakeholder-simulation-negotiation/README.md) |
+| 4 | AI Evidence Rehearsal, Evidence Log, Requirement Candidates | [Week 04](weeks/week-04-stakeholder-simulation-negotiation/README.md) |
 | 5 | Requirement Analysis, Classification, Prioritization | [Week 05](weeks/week-05-requirement-analysis-prioritization/README.md) |
 | 6 | User Story, Use Case, Acceptance Criteria, Negotiation Board | [Week 06](weeks/week-06-requirement-modeling-negotiation/README.md) |
 | 7 | SRS Authoring Studio | [Week 07](weeks/week-07-srs-authoring/README.md) |
@@ -83,8 +88,3 @@ ENGSE206-Requirements-and-Design/
 - แผนนี้ตั้งใจให้ **มี Workshop / Document Studio / Role-play / Peer Review** สลับกับ Computer LAB ไม่ใช่บังคับให้ใช้คอมพิวเตอร์ทุกสัปดาห์
 - สัปดาห์ที่ 1 มีชุดเอกสารพร้อมใช้งานครบ: Case Cards 10 เรื่อง, คู่มืออาจารย์, ใบงานนักศึกษา, starter repo, rubric, ตัวอย่างงาน และภาพ infographic
 - นักศึกษาส่งชิ้นงานผ่าน Git เพื่อให้เห็น revision history, หลักฐานการทำงาน และสามารถให้ feedback เป็นรอบได้
-
-
-## Example Completed Work — Campus Resource Booking
-
-ตัวอย่างผลงานที่เสร็จสมบูรณ์สำหรับ Week 1–4 อยู่ที่ [`examples/campus-resource-booking/`](examples/campus-resource-booking/README.md) โดยแสดงสายธาร Problem Brief → Stakeholder/Context/Scope → Elicitation Plan/Interview Guide → Evidence/Negotiation/Requirement Candidates

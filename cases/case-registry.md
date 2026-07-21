@@ -14,3 +14,5 @@
 | 10 | Case 10: ระบบแจ้งปัญหาพื้นที่ส่วนกลางและติดตามการแก้ไข | [เปิด Case Card](https://github.com/se-rmutl/engse206-lab-v2/blob/main/cases/10-common-area-issue-reporting.md) |  | Active |
 
 > Case ID และแกนปัญหาใช้ต่อเนื่องถึง Week 16 การเปลี่ยน case ต้องได้รับอนุมัติและบันทึกเหตุผล
+
+> สำหรับ Week 04 ให้ใช้ Case Card ร่วมกับ Role Pack ที่มีชื่อ case เดียวกันใน `weeks/week-04-stakeholder-simulation-negotiation/role-packs/` แล้วสร้างหลักฐานตามลำดับ AI conversation → evidence → need → requirement candidate

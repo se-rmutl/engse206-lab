@@ -27,3 +27,11 @@ Case Cards ชุดนี้เป็นโจทย์มาตรฐานส
 - [ใบจัดสรร Case ให้แต่ละกลุ่ม](case-assignment-sheet.md)
 - [CSV สำหรับกรอกการจัดสรร](case-assignment-sheet.csv)
 - [วิธีใช้ Semester Project Case](../docs/semester-project-method.md)
+
+## ใช้ Case ใน Week 04
+
+- เปิด Case Card ของกลุ่มควบคู่กับ Role Pack ที่ตรงกันใน `weeks/week-04-stakeholder-simulation-negotiation/role-packs/`
+- ใช้ AI เป็น stakeholder จำลองตาม Role Pack แล้วคัดเฉพาะบทสนทนาที่เป็นประโยชน์ลงใน AI Conversation Excerpt
+- แยกข้อความเป็น Evidence ก่อนสรุปเป็น Need และ Requirement Candidate; ไม่ข้ามจากคำตอบของ AI ไปเป็น requirement ทันที
+- ผลลัพธ์ Week 04 คือ Evidence Log และ Requirement Candidates ซึ่งยังไม่ใช่ requirement final
+- ดูตัวอย่างทำครบกระบวนการได้ที่ [`campus_resource_booking_case/week04-campus-resource-booking-example/`](../campus_resource_booking_case/week04-campus-resource-booking-example/)

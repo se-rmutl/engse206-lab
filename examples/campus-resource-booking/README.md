@@ -1,77 +1,57 @@
-# Example Completed Work — Campus Resource Booking (Week 1–4)
+# Campus Resource Booking — Example Completed Work (Week 2–4)
 
-> ตัวอย่างนี้เป็น **worked example สำหรับการเรียนรู้** ไม่ใช่คำตอบสำเร็จรูปที่ให้นักศึกษาคัดลอกไปส่งงาน  
-> นักศึกษาต้องอ่านโจทย์จาก Course Repo แล้วสร้าง artefact ของ Case Project ตนเองใน Team Repo
+> **สถานะ:** Canonical teaching example สำหรับ ENGSE206  
+> **Case:** Case 01 — ระบบจองพื้นที่ทำงานกลุ่มและอุปกรณ์การเรียนรู้  
+> **หลักการใช้งาน:** อ่านตัวอย่างจาก Course Repo แต่ทำและส่งหลักฐานของทีมใน Team Repo
 
-![ภาพรวมตัวอย่าง](images/example-completed-work-overview.png)
+ชุดนี้แสดงหน้าตาของ “งานที่ทำเสร็จในระดับพร้อมส่ง” โดยใช้กรณีศึกษาเดียวต่อเนื่องสามสัปดาห์ จุดสำคัญไม่ใช่จำนวนข้อความ แต่คือการอธิบายที่มาของข้อสรุปและการตามรอยได้ตั้งแต่คำถามจนถึง Requirement Candidate
 
-## วัตถุประสงค์
+![Learning flow](week-02/images/w02-learning-flow.svg)
 
-ชุดตัวอย่างนี้แสดงให้เห็นว่า artefact ระหว่าง Week 1–4 เชื่อมต่อกันอย่างไร
+## เส้นทางหลักฐาน
 
-```text
-Week 1: Problem Brief v0.1 — Facts / Pain Points / Goals / Scope / Open Questions
-        ↓ ขยาย stakeholder, context และ boundary
-Week 2: Stakeholder / Context / Scope
-        ↓ แปลง Open Questions เป็นแผนเก็บข้อมูล
-Week 3: Elicitation Plan / Interview Guide
-        ↓ เก็บและจัดระเบียบหลักฐาน
-Week 4: Evidence Log → Negotiation → Requirement Candidates
-```
+| ช่วง | คำถามที่ต้องตอบ | ผลงานตัวอย่าง | ส่งต่อไปสัปดาห์ถัดไป |
+|---|---|---|---|
+| [Week 02](week-02/02-stakeholder-context-scope.md) | ใครเกี่ยวข้อง ระบบอยู่ตรงไหน และอะไรอยู่ใน/นอกขอบเขต | Stakeholder Register, System Context, Scope, Assumption, Open Question | `OQ-*`, `AS-*`, stakeholder และ boundary |
+| [Week 03](week-03/03-elicitation-plan.md) | ต้องหาความรู้อะไร จากใคร ด้วยวิธีใด และจะถามอย่างไร | Elicitation Objectives/Plan และ [Interview Guide](week-03/03-interview-guide.md) | `EO-*`, `EP-*`, `Q-*`, expected evidence |
+| [Week 04](week-04/04-evidence-log.md) | ได้หลักฐานอะไร ขัดแย้งกันตรงไหน และแปลงเป็น candidate อย่างไร | Evidence Log, [Negotiation Record](week-04/04-negotiation-record.md), [Requirement Candidates](week-04/04-requirement-candidates.md) | `E-*`, `N-*`, `RC-*` สำหรับ Week 5 analysis/prioritization |
 
-## โครงสร้างไฟล์
+## แผนที่ไฟล์
 
 ```text
 examples/campus-resource-booking/
 ├── README.md
-├── MANIFEST.md
-├── images/
-│   └── example-completed-work-overview.png
-├── week-01/
-│   ├── README.md
-│   ├── problem-brief-v0.1.md
-│   ├── team-worklog.md
-│   ├── problem-framing-overview.png
-│   └── facts-assumptions-map.png
 ├── week-02/
-│   ├── stakeholder-context-scope.md
-│   ├── stakeholder-map.png
-│   ├── system-context.png
-│   └── scope-boundary.png
+│   ├── 02-stakeholder-context-scope.md
+│   ├── submission-week-02.md
+│   └── images/
 ├── week-03/
-│   ├── elicitation-plan.md
-│   ├── interview-guide.md
-│   ├── elicitation-flow.png
-│   └── interview-question-funnel.png
+│   ├── 03-elicitation-plan.md
+│   ├── 03-interview-guide.md
+│   ├── submission-week-03.md
+│   └── images/
 └── week-04/
-    ├── evidence-log.md
-    ├── negotiation-record.md
-    ├── requirement-candidates.md
-    ├── evidence-traceability.png
-    └── negotiation-options.png
+    ├── 04-evidence-log.md
+    ├── 04-negotiation-record.md
+    ├── 04-requirement-candidates.md
+    ├── submission-week-04.md
+    └── images/
 ```
 
-## จุดเชื่อมโยงสำคัญ
+## กติกาการอ่านตัวอย่าง
 
-| จาก | ไป | กลไกเชื่อมโยง |
-|---|---|---|
-| Week 1 Facts/Pain Points | Week 2 Context/Stakeholder | ใช้ F-ID/P-ID ตรวจว่าขอบเขตและ stakeholder มาจากปัญหาใด |
-| Week 1 Open Questions | Week 3 Elicitation Plan | ใช้ OQ-ID ตั้ง elicitation objective และคำถามสัมภาษณ์ |
-| Week 2 Stakeholder | Week 3 Participant Plan | เลือกผู้ให้ข้อมูลตามอำนาจ ความสนใจ และบทบาท |
-| Week 3 Evidence | Week 4 Evidence Log | ทุก insight มี E-ID และแหล่งที่มา |
-| Week 4 Evidence/Negotiation | Requirement Candidates | Candidate แต่ละข้ออ้าง E-ID/Decision ID ได้ |
+1. ข้อเท็จจริงจาก Case Card ใช้รหัส `F-*` หรือ evidence tag `CF` และอ้างแหล่งที่มา
+2. คำตอบจาก stakeholder simulation ใช้ tag `SN` และยังไม่ถือเป็นนโยบายจริง
+3. ข้อที่ยังไม่มีหลักฐานอยู่ใน `AS-*` หรือ `OQ-*`; ห้ามเปลี่ยนเป็น requirement แบบ Approved
+4. Requirement Candidate ทุกข้ออ้าง `E-*` และระบุสถานะ ความเชื่อมั่น และสิ่งที่ต้องตรวจต่อ
+5. ชื่อบุคคล นโยบาย ตัวเลข และข้อมูลใช้งานเป็นข้อมูลจำลองเท่านั้น
 
-## วิธีใช้สำหรับผู้สอน
+## Definition of Done ของชุดตัวอย่าง
 
-1. เปิดตัวอย่างบางส่วนก่อน Workshop เพื่อสาธิตโครงสร้างและเกณฑ์คุณภาพ
-2. ซ่อนส่วนคำตอบบางตาราง แล้วให้นักศึกษาช่วยกันเติม
-3. ใช้ F-ID, P-ID, A-ID, OQ-ID, E-ID และ RC-ID เพื่อสาธิต traceability
-4. ชวนอภิปรายว่าข้อใดเป็น **fact, simulated need, constraint, opinion, assumption หรือ proposed solution**
-5. ย้ำว่าข้อมูลจำลองและ Requirement Candidates ยังไม่ใช่ requirement ที่อนุมัติจริง
+- [x] ลิงก์ภาพใช้ relative path และเปิดจาก Markdown ได้
+- [x] ID เชื่อม Week 2 → 3 → 4 อย่างสม่ำเสมอ
+- [x] แยก Fact, Assumption, Simulated Need, Constraint, Opinion และ Proposed Solution
+- [x] มี conflict/option/rationale/status โดยไม่อ้างว่าเป็นนโยบายจริง
+- [x] มี submission summary และ checklist ของแต่ละสัปดาห์
 
-## ข้อจำกัดของตัวอย่าง
-
-- ชื่อบุคคลทั้งหมดเป็นบทบาทสมมติ
-- ไม่มีข้อมูลส่วนบุคคลจริง
-- ข้อกำหนด นโยบาย และตัวเลขบางส่วนเป็น **สมมติฐานเพื่อการสอน** และติดป้ายไว้
-- Requirement Candidates ใน Week 4 ยังต้องตรวจสอบใน Week 5 ก่อนจัดลำดับและเขียน specification
+> นักศึกษาควรใช้ชุดนี้เพื่อเทียบ “โครงสร้างและคุณภาพ” เท่านั้น งานจริงต้องอ้าง Case และหลักฐานของกลุ่ม พร้อมแสดง revision history ใน Team Repo

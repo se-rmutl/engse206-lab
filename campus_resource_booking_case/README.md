@@ -1,13 +1,14 @@
-# ENGSE206 — Campus Resource Booking Case Study Examples (Week 02–03)
+# ENGSE206 — Campus Resource Booking Case Study Examples (Week 02–04)
 
-ชุดตัวอย่างนี้ใช้ **Campus Resource Booking** เป็นกรณีศึกษาแกนกลาง เพื่อสาธิตผลลัพธ์ที่นักศึกษาควรจัดเก็บใน GitHub หลังจบ Workshop ของ Week 02 และ Week 03 ตามโครง `git-student-template-week02-week03`
+ชุดตัวอย่างนี้ใช้ **Campus Resource Booking** เป็นกรณีศึกษาแกนกลาง เพื่อสาธิตผลลัพธ์ที่นักศึกษาควรจัดเก็บใน GitHub หลังจบ Workshop ของ Week 02–04
 
 ## โครงสร้าง
 
 ```text
 ENGSE206_Campus_Resource_Booking_Week02_Week03_Examples/
 ├── week02-campus-resource-booking-example/   # Discover: stakeholder, context, scope
-└── week03-campus-resource-booking-example/   # Elicitation planning and interview design
+├── week03-campus-resource-booking-example/   # Elicitation planning and interview design
+└── week04-campus-resource-booking-example/   # AI conversation to evidence and requirement candidates
 ```
 
 ## ความต่อเนื่อง
@@ -16,6 +17,7 @@ ENGSE206_Campus_Resource_Booking_Week02_Week03_Examples/
 |---|---|---|---|
 | Week 02 | ปัญหาคืออะไร? ใครเกี่ยวข้อง? ขอบเขตอยู่ตรงไหน? | Problem Frame, Stakeholder Map, Context Diagram, Scope, Open Questions | Week 03 Elicitation Plan |
 | Week 03 | ต้องเก็บข้อมูลจากใคร ด้วยวิธีใด และถามอย่างไร? | Elicitation Plan, Interview Guide, Bias Check, Rehearsal Notes, Initial Candidates | Week 04 Stakeholder Simulation / Evidence Collection |
+| Week 04 | บทสนทนา AI แปลงเป็น evidence, need และ requirement candidate ได้อย่างไร? | AI Conversation Excerpt, Evidence Log, Requirement Candidates, Submission Summary | Week 05 Requirement Backlog |
 
 ## วิธีใช้สอน
 

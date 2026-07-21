@@ -7,7 +7,7 @@
 | 01 | Problem Brief Kick-off | [README](./week-01-problem-brief/README.md) | [Contract](./week-01-problem-brief/assignment-contract.md) |
 | 02 | Stakeholder, Context and Scope | [README](./week-02-stakeholder-context-scope/README.md) | [Contract](./week-02-stakeholder-context-scope/assignment-contract.md) |
 | 03 | Elicitation Plan and AI Interview Rehearsal | [README](./week-03-elicitation-interview-design/README.md) | [Contract](./week-03-elicitation-interview-design/assignment-contract.md) |
-| 04 | AI Stakeholder Simulation, Facilitation and Negotiation | [README](./week-04-stakeholder-simulation-negotiation/README.md) | [Contract](./week-04-stakeholder-simulation-negotiation/assignment-contract.md) |
+| 04 | AI Evidence Rehearsal | [README](./week-04-stakeholder-simulation-negotiation/README.md) / [Student Guide](./week-04-stakeholder-simulation-negotiation/student-workshop-guide.md) | [Contract](./week-04-stakeholder-simulation-negotiation/assignment-contract.md) |
 | 05 | Requirement Analysis and Prioritization | [README](./week-05-requirement-analysis-prioritization/README.md) | [Contract](./week-05-requirement-analysis-prioritization/assignment-contract.md) |
 | 06 | Requirement Models and Acceptance Criteria | [README](./week-06-requirement-modeling-negotiation/README.md) | [Contract](./week-06-requirement-modeling-negotiation/assignment-contract.md) |
 | 07 | SRS Authoring Studio | [README](./week-07-srs-authoring/README.md) | [Contract](./week-07-srs-authoring/assignment-contract.md) |
