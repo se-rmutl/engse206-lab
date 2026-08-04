@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENGSE206 Week 04: From Conversation to Evidence</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-base: #0f172a;
+            --bg-panel: #1e293b;
+            --bg-panel-light: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --purple: #8b5cf6;
+            --font-head: 'Prompt', sans-serif;
+            --font-body: 'Sarabun', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: #000;
+            color: var(--text-main);
+            font-family: var(--font-body);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #presentation-wrapper {
+            position: relative;
+            width: 100vw;
+            height: 56.25vw; /* 16:9 Aspect Ratio */
+            max-height: 100vh;
+            max-width: 177.78vh;
+            background-color: var(--bg-base);
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            overflow: hidden;
+            font-size: 2cqw; /* Base size using container queries */
+            container-type: inline-size;
+        }
+
+        /* Slide Control UI */
+        .controls-ui {
+            position: absolute;
+            bottom: 2%;
+            right: 2%;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: rgba(30, 41, 59, 0.9);
+            padding: 10px;
+            border-radius: 8px;
+            backdrop-filter: blur(4px);
+        }
+        
+        .nav-ui {
+            position: absolute;
+            bottom: 2%;
+            left: 2%;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(30, 41, 59, 0.9);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        button.btn {
+            background: var(--bg-panel-light);
+            color: var(--text-main);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: var(--font-head);
+            font-size: 0.8rem;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        button.btn:hover { background: var(--primary); }
+        .slide-counter { font-family: var(--font-head); font-weight: 600; font-size: 1rem; }
+
+        /* Slide Styles */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 5% 7%;
+            display: none;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            background-image: url('images/cover_bg.svg');
+            background-size: cover;
+            background-position: center;
+        }
+        .slide.active {
+            display: flex;
+            opacity: 1;
+            z-index: 10;
+        }
+
+        /* Typography */
+        h1 { font-family: var(--font-head); font-size: 3.2em; font-weight: 700; color: var(--text-main); line-height: 1.2; margin-bottom: 0.2em; }
+        h1 span { color: var(--primary); }
+        h2.slide-title { font-family: var(--font-head); font-size: 2.2em; font-weight: 600; color: var(--primary); margin-bottom: 0.8em; border-bottom: 2px solid var(--bg-panel-light); padding-bottom: 10px; display: inline-block; }
+        h3 { font-family: var(--font-head); font-size: 1.5em; font-weight: 500; color: var(--success); margin-bottom: 15px; }
+        
+        p, li { font-size: 1.1em; line-height: 1.6; color: var(--text-main); margin-bottom: 15px; }
+        
+        /* Layouts */
+        .content-area { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 4%; height: 100%; align-items: center; }
+        .two-column.align-top { align-items: start; }
+        
+        .box { background: rgba(30, 41, 59, 0.8); padding: 2em; border-radius: 12px; border: 1px solid var(--bg-panel-light); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .box-highlight { border-left: 5px solid var(--primary); }
+        .box-success { border-left: 5px solid var(--success); }
+        .box-warning { border-left: 5px solid var(--warning); }
+        .box-danger { border-left: 5px solid var(--danger); }
+
+        ul.custom-list { list-style: none; padding: 0; }
+        ul.custom-list li { position: relative; padding-left: 30px; margin-bottom: 15px; }
+        ul.custom-list li i { position: absolute; left: 0; top: 5px; color: var(--primary); font-size: 1.2em; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; background: rgba(30, 41, 59, 0.9); font-size: 0.9em; border-radius: 8px; overflow: hidden; }
+        th, td { padding: 15px 20px; text-align: left; border-bottom: 1px solid var(--bg-panel-light); }
+        th { background: var(--bg-panel-light); color: var(--primary); font-weight: 600; font-family: var(--font-head); }
+        
+        /* Tags */
+        .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 600; font-family: var(--font-head); }
+        .badge-fact { background: var(--success); color: #000; }
+        .badge-need { background: var(--primary); color: #fff; }
+        .badge-unknown { background: var(--danger); color: #fff; }
+        .badge-draft { background: var(--bg-panel-light); color: #fff; }
+        .badge-validation { background: var(--warning); color: #000; }
+
+        .img-container { width: 100%; text-align: center; }
+        .img-container img { max-width: 100%; max-height: 50vh; }
+        
+        .footer-note { position: absolute; bottom: 20px; width: 100%; text-align: center; color: var(--text-muted); font-size: 0.8em; font-family: var(--font-head); left: 0; }
+    </style>
+</head>
+<body>
+
+    <div id="presentation-wrapper">
+        
+        <!-- Controls -->
+        <div class="controls-ui">
+            <button class="btn" onclick="adjustFont(1)" title="Zoom In"><i class="fa-solid fa-magnifying-glass-plus"></i> A+</button>
+            <button class="btn" onclick="adjustFont(-1)" title="Zoom Out"><i class="fa-solid fa-magnifying-glass-minus"></i> A-</button>
+            <button class="btn" onclick="toggleFullScreen()"><i class="fa-solid fa-expand"></i> Fullscreen</button>
+        </div>
+        <div class="nav-ui">
+            <button class="btn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i> Prev</button>
+            <div class="slide-counter"><span id="curr-slide">1</span> / <span id="total-slides">20</span></div>
+            <button class="btn" onclick="nextSlide()">Next <i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+
+        <!-- Slide 1: Title -->
+        <div class="slide active" style="align-items: center; justify-content: center; text-align: center;">
+            <div class="badge badge-draft" style="margin-bottom: 20px; font-size: 1em; background: rgba(59, 130, 246, 0.2); color: var(--primary); border: 1px solid var(--primary);">ENGSE206 • WEEK 04 • UNIT 2</div>
+            <h1>FROM CONVERSATION<br>TO <span>EVIDENCE</span></h1>
+            <p style="font-size: 1.8em; color: var(--text-muted); font-family: var(--font-head); margin-top: 10px;">จากบทสนทนาสู่หลักฐาน ความต้องการ และ Requirement Candidate</p>
+            <div style="margin-top: 40px; padding: 20px; background: rgba(30, 41, 59, 0.6); border-radius: 12px;">
+                <p style="margin:0; font-size: 1.2em;"><i class="fa-solid fa-laptop-code text-primary"></i> ฉบับ Beginner-Friendly สำหรับนักศึกษาวิศวกรรมซอฟต์แวร์</p>
+            </div>
+            <div class="footer-note">วิชาการกำหนดความต้องการและการออกแบบทางซอฟต์แวร์ | กรณีศึกษา: Campus Resource Booking</div>
+        </div>
+
+        <!-- Slide 2: Lesson Objective -->
+        <div class="slide">
+            <h2 class="slide-title">คำถามหลักประจำสัปดาห์ (Essential Question)</h2>
+            <div class="content-area">
+                <div class="box box-highlight" style="text-align: center; padding: 3em;">
+                    <i class="fa-solid fa-quote-left" style="font-size: 3em; color: rgba(59, 130, 246, 0.3); margin-bottom: 20px; display: block;"></i>
+                    <h3 style="font-size: 2em; color: var(--text-main); line-height: 1.4;">"จากสิ่งที่เราได้ยิน เราจะแยกว่าอะไรคือ <span style="color: var(--primary);">หลักฐาน</span> อะไรคือ <span style="color: var(--success);">ความต้องการ</span> และอะไรที่ <span style="color: var(--warning);">ยังต้องยืนยัน</span> ได้อย่างไร?"</h3>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <p style="font-size: 1.3em;"><strong>Core Concepts:</strong> Evidence <i class="fa-solid fa-arrow-right"></i> Need <i class="fa-solid fa-arrow-right"></i> Requirement Candidate</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Where are we? -->
+        <div class="slide">
+            <h2 class="slide-title">กระบวนการ Requirements Engineering (Week 1-6)</h2>
+            <div class="content-area">
+                <div class="box" style="padding: 1.5em;">
+                    <table style="background: transparent;">
+                        <tr>
+                            <th style="width: 15%;">Week</th>
+                            <th>คำถามที่ต้องตอบให้ได้</th>
+                            <th>สิ่งที่ส่งต่อไปสัปดาห์ถัดไป</th>
+                        </tr>
+                        <tr><td>W1</td><td>ปัญหาคืออะไร? อะไรคือข้อสมมติฐาน?</td><td>Problem Brief</td></tr>
+                        <tr><td>W2</td><td>ใครเกี่ยวข้อง? ขอบเขตอยู่ตรงไหน?</td><td>Stakeholder & Scope</td></tr>
+                        <tr><td>W3</td><td>ต้องถามอะไรเพื่อเรียนรู้สิ่งที่ไม่รู้?</td><td>Interview Guide + Rehearsal</td></tr>
+                        <tr style="background: rgba(59, 130, 246, 0.2);">
+                            <td><strong style="color: var(--primary);">W4 (Today)</strong></td>
+                            <td><strong style="color: var(--text-main);">เรารู้อะไร และยังไม่รู้อะไรจากบทสนทนา?</strong></td>
+                            <td><strong style="color: var(--primary);">Evidence Log + Req. Candidates</strong></td>
+                        </tr>
+                        <tr><td>W5</td><td>Requirement ใดควรทำก่อน?</td><td>Prioritized Backlog</td></tr>
+                        <tr><td>W6</td><td>สื่อสารและตรวจความถูกต้องอย่างไร?</td><td>User Story & Acceptance Criteria</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Part A Intro -->
+        <div class="slide" style="align-items: center; justify-content: center; text-align: center;">
+            <h3 style="color: var(--text-muted); font-size: 2em; margin-bottom: 10px;">PART A</h3>
+            <h1 style="font-size: 4em; color: var(--primary);">What is Evidence?</h1>
+            <p style="font-size: 1.5em; margin-top: 20px;">หลักฐานที่ดีคือจุดเริ่มต้นของการออกแบบซอฟต์แวร์</p>
+        </div>
+
+        <!-- Slide 5: What is Evidence? -->
+        <div class="slide">
+            <h2 class="slide-title">1. Evidence (หลักฐาน) คืออะไร?</h2>
+            <div class="content-area two-column">
+                <div>
+                    <p>ในวิชานี้ <strong>Evidence</strong> คือร่องรอยของสิ่งที่ผู้ให้ข้อมูลกล่าว ทำ หรือตรวจพบ โดยต้อง <span style="color: var(--primary);">ระบุแหล่งที่มาให้ย้อนกลับได้เสมอ</span></p>
+                    <ul class="custom-list">
+                        <li><i class="fa-solid fa-check text-success"></i> <strong>ตัวอย่างที่ดี:</strong> ข้อความสรุปจากการสัมภาษณ์, ขั้นตอนที่สังเกตเห็น, ฟิลด์ในฟอร์มปัจจุบัน</li>
+                        <li><i class="fa-solid fa-xmark text-danger"></i> <strong>สิ่งที่ไม่ใช่ Evidence:</strong> ความต้องการ Feature ที่ลอยๆ หรือ สิ่งที่ทีมทึกทักเอาเองว่าผู้ใช้ต้องการ</li>
+                    </ul>
+                    <div class="box box-warning" style="margin-top: 20px;">
+                        <p style="margin:0;"><i class="fa-solid fa-triangle-exclamation" style="color: var(--warning);"></i> <strong>Evidence ยังไม่เท่ากับ Requirement!</strong><br> มันช่วยให้ทีมตอบได้อย่างซื่อสัตย์ว่า "ข้อสรุปนี้มาจากอะไร"</p>
+                    </div>
+                </div>
+                <div class="img-container">
+                    <!-- Placeholder for visual if needed, but text is rich enough -->
+                    <div class="box box-highlight" style="background: rgba(15, 23, 42, 0.9);">
+                        <h4 style="color:var(--primary); margin-bottom:10px;">Evidence ที่ดี:</h4>
+                        <p><em>"Student กลับไปถามในแชตหลังส่งคำขอ เพราะไม่เห็นความคืบหน้า"</em><br><span style="font-size: 0.8em; color: var(--text-muted);">- Source: Student Simulation, excerpt 02</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Evidence vs Interpretation -->
+        <div class="slide">
+            <h2 class="slide-title">1.1 Evidence ต่างจาก Interpretation อย่างไร?</h2>
+            <div class="content-area">
+                <p style="text-align: center; margin-bottom: 20px;">การตีความไม่ใช่สิ่งผิด แต่ <strong>ต้องแยกช่อง</strong> เพื่อให้คนอื่นเห็นว่าข้อสรุปเกิดจาก Evidence ใด</p>
+                <div class="img-container" style="margin-bottom: 20px;">
+                    <img src="images/evidence_vs_interp.svg" alt="Evidence vs Interpretation">
+                </div>
+                <div class="box box-warning" style="text-align: center;">
+                    <strong>กฎหยุดคิด 5 วินาที:</strong> ถ้าประโยคขึ้นต้นได้ด้วย <em>"ทีมคิดว่า..."</em> ประโยคนั้นคือการตีความ!
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Anatomy of Evidence Note -->
+        <div class="slide">
+            <h2 class="slide-title">1.2 โครงสร้างของ Evidence Note (Lite)</h2>
+            <div class="content-area">
+                <p>ในการบันทึก Lab ให้ใช้โครงสร้าง 6 ช่อง เพื่อความครบถ้วนและตรวจสอบย้อนหลังได้:</p>
+                <table style="margin-top: 20px;">
+                    <tr><th>Field</th><th>คำถามที่ช่วยกรอก</th><th>ตัวอย่าง (Campus Booking)</th></tr>
+                    <tr><td><strong>1. Evidence ID</strong></td><td>อ้างอิงรายการนี้ด้วยรหัสใด?</td><td><code>E-02</code></td></tr>
+                    <tr><td><strong>2. Source</strong></td><td>ข้อมูลมาจากใคร/ช่วงใด?</td><td>Student Simulation, excerpt 02</td></tr>
+                    <tr><td><strong>3. Observed/Heard</strong></td><td>ได้ยิน/เห็นอะไร (ไม่เติมข้อสรุป)?</td><td>กลับไปถามในแชตหลังส่งคำขอ</td></tr>
+                    <tr><td><strong>4. Tag</strong></td><td>เป็น Fact, Need หรือ Unknown?</td><td><span class="badge badge-need">Need</span></td></tr>
+                    <tr><td><strong>5. Interpretation</strong></td><td>ทีมคิดว่าสิ่งนี้หมายถึงอะไร?</td><td>ต้องการเห็นความคืบหน้าโดยไม่ถามซ้ำ</td></tr>
+                    <tr><td><strong>6. Follow-up</strong></td><td>ต้องถาม/ตรวจอะไรต่อ?</td><td>สถานะใดช่วยให้ตัดสินใจได้?</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide 8: Part B Intro -->
+        <div class="slide" style="align-items: center; justify-content: center; text-align: center;">
+            <h3 style="color: var(--text-muted); font-size: 2em; margin-bottom: 10px;">PART B</h3>
+            <h1 style="font-size: 4em; color: var(--success);">Fact, Need, Unknown</h1>
+            <p style="font-size: 1.5em; margin-top: 20px;">การจำแนกข้อมูลเพื่อกำหนด "การกระทำถัดไป"</p>
+        </div>
+
+        <!-- Slide 9: Why Tag? -->
+        <div class="slide">
+            <h2 class="slide-title">2. ทำไมต้อง Tag ข้อมูล?</h2>
+            <div class="content-area">
+                <p style="text-align: center; margin-bottom: 30px;">Tag ไม่ได้มีไว้เพื่อให้ตารางดูเป็นทางการ แต่มีไว้เพื่อ <strong>กำหนดการกระทำ (Action) ถัดไป</strong>ของทีม</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+                    <div class="box box-success">
+                        <h3 style="color: var(--success);"><i class="fa-solid fa-check-circle"></i> FACT (ข้อเท็จจริง)</h3>
+                        <p style="font-size: 0.9em; min-height: 80px;">สิ่งที่ระบุหรือสังเกตได้ภายในขอบเขตของ Source นั้น</p>
+                        <p style="font-size: 0.85em; color: var(--text-muted);"><strong>Action:</strong> เก็บ Source และตรวจว่าจริงกับทุกคนหรือไม่</p>
+                    </div>
+                    <div class="box box-highlight">
+                        <h3 style="color: var(--primary);"><i class="fa-solid fa-bullseye"></i> NEED (ความต้องการ)</h3>
+                        <p style="font-size: 0.9em; min-height: 80px;">ผลลัพธ์หรือความช่วยเหลือที่ Stakeholder ต้องการเพื่อทำงาน</p>
+                        <p style="font-size: 0.85em; color: var(--text-muted);"><strong>Action:</strong> ถามเหตุผล และสร้าง Candidate</p>
+                    </div>
+                    <div class="box box-danger">
+                        <h3 style="color: var(--danger);"><i class="fa-solid fa-question-circle"></i> UNKNOWN</h3>
+                        <p style="font-size: 0.9em; min-height: 80px;">สิ่งที่ยังไม่รู้ ข้อมูลขัดแย้ง หรือยังไม่มี Authority ยืนยัน</p>
+                        <p style="font-size: 0.85em; color: var(--text-muted);"><strong>Action:</strong> สร้าง Follow-up Question หรือหา Source เพิ่ม</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Decision Guide -->
+        <div class="slide">
+            <h2 class="slide-title">2.1 Decision Guide (วิธีเลือก Tag)</h2>
+            <div class="content-area">
+                <div class="img-container">
+                    <img src="images/tagging_flow.svg" alt="Tagging Flow">
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Need != Feature -->
+        <div class="slide">
+            <h2 class="slide-title">2.2 Need ไม่เท่ากับ Feature</h2>
+            <div class="content-area two-column align-top">
+                <div>
+                    <p>Stakeholder มักจะพูดถึงความต้องการออกมาเป็น <strong>Feature (Solution)</strong> เพราะเป็นสิ่งที่พวกเขานึกภาพออกง่ายที่สุด</p>
+                    <p>หน้าที่ของนักวิศวกรรมซอฟต์แวร์ <strong>ไม่ใช่การปฏิเสธ Feature</strong> แต่ต้องใช้การตั้งคำถาม (Probe) เพื่อหา <strong>"ผลลัพธ์ที่เขาต้องการจริงๆ (Need)"</strong></p>
+                </div>
+                <div>
+                    <div class="box box-danger" style="margin-bottom: 15px; padding: 1.5em;">
+                        <h4 style="color: var(--danger); margin-bottom: 10px;">💬 สิ่งที่ได้ยิน (Feature Request)</h4>
+                        <p style="font-style: italic; margin: 0;">"อยากได้ระบบส่ง Notification เข้ามือถือ"</p>
+                    </div>
+                    <div style="text-align: center; margin-bottom: 15px;">
+                        <i class="fa-solid fa-arrow-down text-muted" style="font-size: 1.5em;"></i><br>
+                        <span style="font-size: 0.9em; color: var(--text-muted);">Probe: ถ้าไม่รู้สถานะจะเกิดอะไร? ต้องตัดสินใจอะไรต่อ?</span>
+                    </div>
+                    <div class="box box-success" style="padding: 1.5em;">
+                        <h4 style="color: var(--success); margin-bottom: 10px;">🎯 Need ที่ซ่อนอยู่ (Underlying Need)</h4>
+                        <p style="font-style: italic; margin: 0;">"ต้องรู้การเปลี่ยนสถานะให้ทันเวลา เพื่อวางแผนงานต่อไปได้"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Part C Intro -->
+        <div class="slide" style="align-items: center; justify-content: center; text-align: center;">
+            <h3 style="color: var(--text-muted); font-size: 2em; margin-bottom: 10px;">PART C</h3>
+            <h1 style="font-size: 4em; color: var(--warning);">Requirement Candidate</h1>
+            <p style="font-size: 1.5em; margin-top: 20px;">การร่างข้อกำหนดที่อ้างอิงจากหลักฐาน</p>
+        </div>
+
+        <!-- Slide 13: What is Candidate -->
+        <div class="slide">
+            <h2 class="slide-title">3. Requirement Candidate คืออะไร?</h2>
+            <div class="content-area">
+                <p>คือ <strong>ข้อกำหนดฉบับร่าง</strong> ที่เกิดจาก Evidence/Need และยังต้องผ่านการตรวจคุณภาพ ยืนยัน และจัดลำดับ Priority ในสัปดาห์ถัดๆ ไป</p>
+                <div class="box box-highlight" style="margin: 20px 0;">
+                    <p style="margin:0; text-align:center;">คำว่า <strong>"Candidate"</strong> ป้องกันไม่ให้ทีมเข้าใจผิดว่าข้อมูลทุกอย่างในขั้นตอนนี้ได้รับการอนุมัติแล้ว</p>
+                </div>
+                
+                <h3>สถานะของ Candidate ในสัปดาห์นี้มี 2 แบบ:</h3>
+                <ul class="custom-list">
+                    <li><i class="fa-solid fa-file-pen" style="color: var(--bg-panel-light);"></i> <strong>Draft:</strong> มี Source เพียงพอ และขอบเขตค่อนข้างชัดเจน</li>
+                    <li><i class="fa-solid fa-triangle-exclamation" style="color: var(--warning);"></i> <strong>Needs Validation:</strong> Source มาจาก AI Simulation, เป็น Assumption, หรือยังขาด Authority อนุมัติ</li>
+                </ul>
+                <p style="color: var(--text-muted); font-size: 0.9em; text-align: center; margin-top: 10px;">(การใช้สถานะ Needs Validation ในสัปดาห์นี้ถือเป็นผลลัพธ์ที่ถูกต้อง!)</p>
+            </div>
+        </div>
+
+        <!-- Slide 14: Sentence Structure -->
+        <div class="slide">
+            <h2 class="slide-title">3.1 โครงสร้างประโยคแบบ Lite</h2>
+            <div class="content-area">
+                <div class="box" style="text-align: center; padding: 2em; margin-bottom: 30px; background: rgba(59, 130, 246, 0.1);">
+                    <h3 style="font-size: 1.8em; color: #fff;">ระบบต้อง/ควร <u>[พฤติกรรม/คุณสมบัติ]</u> เพื่อ <u>[เป้าหมายจาก Need]</u></h3>
+                </div>
+                <table style="font-size: 1em;">
+                    <tr><th>ส่วนประกอบ</th><th>คำถามตรวจทาน</th><th>ตัวอย่าง</th></tr>
+                    <tr>
+                        <td><strong>Actor/System</strong></td>
+                        <td>ใครหรือระบบใดต้องทำ?</td>
+                        <td><span style="color: var(--primary);">ระบบควร</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Behavior</strong></td>
+                        <td>ต้องทำอะไร / มีคุณสมบัติใด?</td>
+                        <td><span style="color: var(--success);">แสดงสถานะคำขอและขั้นตอนที่ดำเนินการอยู่</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Purpose</strong></td>
+                        <td>ช่วยตอบ Need ใด?</td>
+                        <td><span style="color: var(--warning);">เพื่อลดการถามซ้ำและช่วยผู้ขอวางแผน</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide 15: Traceability -->
+        <div class="slide">
+            <h2 class="slide-title">3.2 Traceability (การตรวจสอบย้อนกลับ)</h2>
+            <div class="content-area two-column">
+                <div class="img-container">
+                    <img src="images/traceability_ladder.svg" alt="Traceability Ladder">
+                </div>
+                <div>
+                    <p>การเชื่อมโยง (Trace) ไม่ได้พิสูจน์ว่า Candidate ถูกต้อง 100% แต่ทำให้ <strong>การตรวจ แก้ไข และเจรจามีเหตุผลรองรับ</strong></p>
+                    <div class="box box-success" style="padding: 1.5em; margin-top: 15px;">
+                        <h4 style="margin-bottom: 10px;">ตัวอย่างเส้นทาง:</h4>
+                        <p style="font-size: 0.9em; margin-bottom: 5px;"><strong>E-03:</strong> Staff ตรวจตารางก่อนตอบ</p>
+                        <p style="font-size: 0.9em; margin-bottom: 5px;"><strong>Need:</strong> ต้องตรวจ Availability จากข้อมูลที่ตรงกัน</p>
+                        <p style="font-size: 0.9em; margin-bottom: 0; color: var(--success);"><strong>REQ-01:</strong> ระบบแสดงเวลาว่างเพื่อป้องกันช่วงเวลาชนกัน</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 16: Quality Checks -->
+        <div class="slide">
+            <h2 class="slide-title">3.3 Candidate Quality Check (5 ข้อ)</h2>
+            <div class="content-area">
+                <ul class="custom-list" style="font-size: 1.2em;">
+                    <li style="margin-bottom: 20px;"><i class="fa-solid fa-link"></i> <strong>1. Source:</strong> มี E-ID หรือระบุ <code>Needs Validation</code> หรือไม่?</li>
+                    <li style="margin-bottom: 20px;"><i class="fa-solid fa-1"></i> <strong>2. One Idea:</strong> 1 Candidate = พฤติกรรมหลักเพียง 1 เรื่องหรือไม่?</li>
+                    <li style="margin-bottom: 20px;"><i class="fa-solid fa-shield-halved text-danger"></i> <strong>3. No Invented Policy:</strong> เผลอแต่งตัวเลข (เช่น "ภายใน 5 นาที") สิทธิ์ หรือกฎ ที่ Source ไม่ได้ให้ไว้หรือไม่?</li>
+                    <li style="margin-bottom: 20px;"><i class="fa-solid fa-bullseye text-success"></i> <strong>4. Need Link:</strong> อธิบายได้หรือไม่ว่า Candidate นี้ช่วยให้ผู้ใช้บรรลุ Need อะไร?</li>
+                    <li style="margin-bottom: 20px;"><i class="fa-solid fa-flask text-warning"></i> <strong>5. Test Later:</strong> พอจะเห็นภาพไหมว่าจะเขียน Test (Acceptance Criteria) ตรวจสอบมันอย่างไร?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 17: Part D Intro -->
+        <div class="slide" style="align-items: center; justify-content: center; text-align: center;">
+            <h3 style="color: var(--text-muted); font-size: 2em; margin-bottom: 10px;">PART D</h3>
+            <h1 style="font-size: 4em; color: var(--danger);">Conflict & Unknown</h1>
+            <p style="font-size: 1.5em; margin-top: 20px;">การจัดการความขัดแย้งอย่างเป็นระบบ</p>
+        </div>
+
+        <!-- Slide 18: Handling Conflict -->
+        <div class="slide">
+            <h2 class="slide-title">4. Conflict ไม่ได้แปลว่ามีคนหนึ่งผิด</h2>
+            <div class="content-area">
+                <p style="text-align: center;">ความขัดแย้งเกิดเมื่อ Stakeholder มีเป้าหมายหรือข้อจำกัดไม่ตรงกัน<br>หน้าที่ของเราคือ <strong>ทำให้ความต่างมองเห็นได้ ไม่ใช่ตัดสินใจเอาเอง</strong></p>
+                <div class="img-container" style="margin: 20px 0;">
+                    <img src="images/conflict_resolution.svg" alt="Conflict Resolution">
+                </div>
+                <div class="box box-warning" style="text-align: center; padding: 1em;">
+                    <strong>กฎของการจัดการ Conflict เบื้องต้น:</strong> เปลี่ยนคำถามจาก "ใครชนะ?" เป็น "แต่ละฝ่ายต้องการผลลัพธ์อะไร?"
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 19: Responsible AI -->
+        <div class="slide">
+            <h2 class="slide-title">5. Responsible AI (AI เป็นพื้นที่ซ้อม)</h2>
+            <div class="content-area two-column">
+                <div>
+                    <p>การใช้ AI จำลอง Stakeholder มีประโยชน์ในการฝึกถามและบันทึก แต่ <strong>AI ไม่มีอำนาจสร้างนโยบายมหาวิทยาลัย</strong></p>
+                    <ul class="custom-list" style="margin-top: 20px;">
+                        <li><i class="fa-solid fa-check text-success"></i> <strong>สิ่งที่ควรทำ:</strong> ใช้ Closed-world Role Card, และ <strong>ติดป้าย "Simulation"</strong> ใน Source เสมอ</li>
+                        <li><i class="fa-solid fa-xmark text-danger"></i> <strong>สิ่งที่ไม่ควรทำ:</strong> ปล่อยให้ AI แต่งกฎกติกาตัวเลขเอง หรือ นำผล Simulation ไปอ้างเป็น Requirement สุดท้าย</li>
+                    </ul>
+                </div>
+                <div class="box box-danger" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <i class="fa-solid fa-robot" style="font-size: 4em; color: var(--danger); margin-bottom: 20px;"></i>
+                    <h3 style="color: var(--danger);">Simulation is NOT Fact</h3>
+                    <p style="font-size: 0.9em; margin-bottom: 0;">หากข้อมูลมาจาก AI ให้กำหนด Candidate Status เป็น <code>Needs Validation</code> เสมอ</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 20: Summary & Submission -->
+        <div class="slide">
+            <h2 class="slide-title">สรุปงานสัปดาห์นี้ (Lab Submission)</h2>
+            <div class="content-area">
+                <div class="box box-highlight" style="margin-bottom: 20px;">
+                    <h3 style="margin-bottom: 10px;">เป้าหมายภายใน 180 นาที:</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            <p><strong>1. Evidence Log:</strong> 5 รายการ<br><span style="font-size: 0.8em; color: var(--text-muted);">(Observed ต้องแยกจาก Interpretation และมี Source AI Tag)</span></p>
+                            <p><strong>2. Req. Candidates:</strong> 3-5 ข้อ<br><span style="font-size: 0.8em; color: var(--text-muted);">(มี E-ID เชื่อมโยง หรือติดป้าย Needs Validation)</span></p>
+                        </div>
+                        <div>
+                            <p><strong>3. Conflict / Unknown:</strong> 1 เรื่อง<br><span style="font-size: 0.8em; color: var(--text-muted);">(แสดง 2 ด้าน พร้อมระบุ Next Question)</span></p>
+                            <p><strong>4. Peer Review & Commit:</strong><br><span style="font-size: 0.8em; color: var(--text-muted);">`submit(w04): evidence and requirement candidates`</span></p>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center; font-size: 1.2em; font-weight: bold; color: var(--success);"><i class="fa-solid fa-flag-checkered"></i> Exit Ticket: ระบุ Candidate 1 ข้อ พร้อม Evidence ที่รองรับ</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            if (index < 0) currentSlide = slides.length - 1;
+            else if (index >= slides.length) currentSlide = 0;
+            else currentSlide = index;
+            
+            slides[currentSlide].classList.add('active');
+            document.getElementById('curr-slide').innerText = currentSlide + 1;
+        }
+
+        function nextSlide() { showSlide(currentSlide + 1); }
+        function prevSlide() { showSlide(currentSlide - 1); }
+
+        // Font Resize via CSS variables and container query base
+        let baseSize = 2; // cqw
+        function adjustFont(step) {
+            baseSize += step * 0.2;
+            if(baseSize < 1.4) baseSize = 1.4;
+            if(baseSize > 3.0) baseSize = 3.0;
+            document.getElementById('presentation-wrapper').style.fontSize = baseSize + 'cqw';
+        }
+
+        // Fullscreen
+        function toggleFullScreen() {
+            const el = document.getElementById('presentation-wrapper');
+            if (!document.fullscreenElement) {
+                if (el.requestFullscreen) el.requestFullscreen();
+                else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+            }
+        }
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+        
+        // Init
+        showSlide(0);
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+        <rect width="800" height="400" fill="transparent"/>
+        <!-- Evidence Box -->
+        <rect x="50" y="50" width="300" height="300" rx="15" fill="#1e293b" stroke="#3b82f6" stroke-width="3"/>
+        <circle cx="200" cy="120" r="40" fill="#334155"/>
+        <text x="200" y="135" font-size="30" text-anchor="middle">👁️</text>
+        <text x="200" y="200" fill="#3b82f6" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle">Evidence</text>
+        <text x="200" y="240" fill="#f8fafc" font-family="sans-serif" font-size="18" text-anchor="middle">สิ่งที่สังเกตได้ยิน / เห็นจริง</text>
+        <text x="200" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">มีแหล่งที่มา (Source) อ้างอิงชัดเจน</text>
+        
+        <!-- Interpretation Box -->
+        <rect x="450" y="50" width="300" height="300" rx="15" fill="#1e293b" stroke="#f59e0b" stroke-width="3"/>
+        <circle cx="600" cy="120" r="40" fill="#334155"/>
+        <text x="600" y="135" font-size="30" text-anchor="middle">💡</text>
+        <text x="600" y="200" fill="#f59e0b" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle">Interpretation</text>
+        <text x="600" y="240" fill="#f8fafc" font-family="sans-serif" font-size="18" text-anchor="middle">ความหมายที่ทีมสรุปเอง</text>
+        <text x="600" y="270" fill="#94a3b8" font-family="sans-serif" font-size="14" text-anchor="middle">มักขึ้นต้นด้วย "ทีมคิดว่า..."</text>
+        
+        <!-- Arrow -->
+        <path d="M 370 200 L 430 200" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="8,4" fill="none"/>
+        <polygon points="430,190 445,200 430,210" fill="#cbd5e1"/>
+    </svg>
