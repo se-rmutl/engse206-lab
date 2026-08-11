@@ -1,10 +1,10 @@
-# Campus Resource Booking — Example Completed Work (Week 2–4)
+# Campus Resource Booking — Example Completed Work (Week 2–5)
 
 > **สถานะ:** Canonical teaching example สำหรับ ENGSE206  
 > **Case:** Case 01 — ระบบจองพื้นที่ทำงานกลุ่มและอุปกรณ์การเรียนรู้  
 > **หลักการใช้งาน:** อ่านตัวอย่างจาก Course Repo แต่ทำและส่งหลักฐานของทีมใน Team Repo
 
-ชุดนี้แสดงหน้าตาของ “งานที่ทำเสร็จในระดับพร้อมส่ง” โดยใช้กรณีศึกษาเดียวต่อเนื่องสามสัปดาห์ จุดสำคัญไม่ใช่จำนวนข้อความ แต่คือการอธิบายที่มาของข้อสรุปและการตามรอยได้ตั้งแต่คำถามจนถึง Requirement Candidate
+ชุดนี้แสดงหน้าตาของ “งานที่ทำเสร็จในระดับพร้อมส่ง” โดยใช้กรณีศึกษาเดียวต่อเนื่องหลายสัปดาห์ จุดสำคัญไม่ใช่จำนวนข้อความ แต่คือการอธิบายที่มาของข้อสรุปและการตามรอยได้ตั้งแต่คำถามจนถึง Requirement Backlog v0.1
 
 ![Learning flow](week-02/images/w02-learning-flow.svg)
 
@@ -14,7 +14,8 @@
 |---|---|---|---|
 | [Week 02](week-02/02-stakeholder-context-scope.md) | ใครเกี่ยวข้อง ระบบอยู่ตรงไหน และอะไรอยู่ใน/นอกขอบเขต | Stakeholder Register, System Context, Scope, Assumption, Open Question | `OQ-*`, `AS-*`, stakeholder และ boundary |
 | [Week 03](week-03/03-elicitation-plan.md) | ต้องหาความรู้อะไร จากใคร ด้วยวิธีใด และจะถามอย่างไร | Elicitation Objectives/Plan และ [Interview Guide](week-03/03-interview-guide.md) | `EO-*`, `EP-*`, `Q-*`, expected evidence |
-| [Week 04](week-04/04-evidence-log.md) | ได้หลักฐานอะไร ขัดแย้งกันตรงไหน และแปลงเป็น candidate อย่างไร | Evidence Log, [Negotiation Record](week-04/04-negotiation-record.md), [Requirement Candidates](week-04/04-requirement-candidates.md) | `E-*`, `N-*`, `RC-*` สำหรับ Week 5 analysis/prioritization |
+| [Week 04](week-04/ENGSE206_Week04_Campus_Resource_Booking_Completed_Example.md) | ได้หลักฐานอะไร ขัดแย้งกันตรงไหน และแปลงเป็น candidate อย่างไร | [Completed Example + Week 05 Handoff](week-04/ENGSE206_Week04_Campus_Resource_Booking_Completed_Example.md), [Evidence Log](week-04/04-evidence-log.md), [Negotiation Record](week-04/04-negotiation-record.md), [Requirement Candidates](week-04/04-requirement-candidates.md) | `E-*`, `N-*`, `RC-*` สำหรับ Week 5 analysis/prioritization |
+| [Week 05](week-05/05-requirement-backlog.md) | Requirement ใดสำคัญ อยู่ประเภทใด และพร้อมใช้ต่อ Week06 หรือไม่ | [Requirement Backlog v0.1](week-05/05-requirement-backlog.md), [Prioritization Rationale](week-05/05-prioritization-rationale.md), [Open Questions/Issues](week-05/05-open-questions-and-issues.md) | `FR-*`, `NFR-*`, `BR-*`, `ISSUE-*` สำหรับ Week 6 requirement models |
 
 ## แผนที่ไฟล์
 
@@ -30,12 +31,19 @@ examples/campus-resource-booking/
 │   ├── 03-interview-guide.md
 │   ├── submission-week-03.md
 │   └── images/
-└── week-04/
+├── week-04/
+    ├── ENGSE206_Week04_Campus_Resource_Booking_Completed_Example.md
+    ├── ENGSE206_Week04_Campus_Resource_Booking_Completed_Example.docx
     ├── 04-evidence-log.md
     ├── 04-negotiation-record.md
     ├── 04-requirement-candidates.md
     ├── submission-week-04.md
     └── images/
+└── week-05/
+    ├── 05-requirement-backlog.md
+    ├── 05-prioritization-rationale.md
+    ├── 05-open-questions-and-issues.md
+    └── submission-week-05.md
 ```
 
 ## กติกาการอ่านตัวอย่าง
@@ -44,7 +52,8 @@ examples/campus-resource-booking/
 2. คำตอบจาก stakeholder simulation ใช้ tag `SN` และยังไม่ถือเป็นนโยบายจริง
 3. ข้อที่ยังไม่มีหลักฐานอยู่ใน `AS-*` หรือ `OQ-*`; ห้ามเปลี่ยนเป็น requirement แบบ Approved
 4. Requirement Candidate ทุกข้ออ้าง `E-*` และระบุสถานะ ความเชื่อมั่น และสิ่งที่ต้องตรวจต่อ
-5. ชื่อบุคคล นโยบาย ตัวเลข และข้อมูลใช้งานเป็นข้อมูลจำลองเท่านั้น
+5. Week05 Backlog ต้องแยก requirement ที่ `Ready for Week06` ออกจาก `Needs Follow-up` และ `Hold`
+6. ชื่อบุคคล นโยบาย ตัวเลข และข้อมูลใช้งานเป็นข้อมูลจำลองเท่านั้น
 
 ## Definition of Done ของชุดตัวอย่าง
 

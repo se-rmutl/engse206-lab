@@ -1,6 +1,6 @@
-# Week 05: Case Analysis Studio and Card Sorting
+# Week 05: Requirement Analysis and Backlog Prioritization
 > **Repository workflow:** อ่านโจทย์จาก Course Repo แต่ทำและส่งงานใน Team Repo ของกลุ่ม  
-> [เปิด Assignment Contract](assignment-contract.md) | [คู่มือ 2 Repository](../../docs/two-repository-workflow.md)
+> [Learning Blueprint TH](ENGSE206_Week05_Learning_Blueprint_TH.md) | [Teaching Notes TH](ENGSE206_Week05_เอกสารประกอบการสอน_TH.md) | [Student Lab Guide](student-lab-guide.md) | [Rubric](rubric.md) | [Prompt Pack](prompt-pack.md) | [เปิด Assignment Contract](assignment-contract.md) | [คู่มือ 2 Repository](../../docs/two-repository-workflow.md)
 
 ## ข้อมูลสัปดาห์
 
@@ -9,19 +9,33 @@
 | บทเรียน | 3.1 Requirement Analysis, Classification และ Prioritization |
 | CLO | CLO2, CLO3 |
 | เวลา | ทฤษฎี 2 ชั่วโมง + ปฏิบัติ/กิจกรรม 3 ชั่วโมง |
-| รูปแบบ | Card Sorting + Affinity Mapping + Prioritization |
-| ผลงานที่ต้องส่ง | Categorized and Prioritized Backlog |
+| รูปแบบ | Trace Check + Card Sorting + Prioritization + Backlog Build |
+| ผลงานที่ต้องส่ง | Requirement Backlog v0.1 |
 
 ## เป้าหมายการเรียนรู้
 
-แยก functional/non-functional requirements, business rules, constraints และจัดลำดับด้วยคุณค่า ความเสี่ยง ความเร่งด่วน และ dependency
+แยก Functional Requirement, NFR, Business Rule, Constraint และ Issue จาก Requirement Candidate ของ Week04 จากนั้นจัดลำดับด้วยคุณค่า ความเสี่ยง ความเร่งด่วน และ dependency
 
 เมื่อจบสัปดาห์ นักศึกษาต้องสร้างหลักฐานการเรียนรู้ที่เชื่อมโยงกับ Case Project ของตน ไม่ใช่เพียงทำกิจกรรมตามตัวอย่าง
+
+## ไฟล์หลักของ Week05
+
+| Artifact | File |
+|---|---|
+| Learning Blueprint | [ENGSE206_Week05_Learning_Blueprint_TH.md](ENGSE206_Week05_Learning_Blueprint_TH.md) |
+| Teaching Notes | [ENGSE206_Week05_เอกสารประกอบการสอน_TH.md](ENGSE206_Week05_เอกสารประกอบการสอน_TH.md) / [DOCX](ENGSE206_Week05_เอกสารประกอบการสอน_TH.docx) |
+| Teaching Slides | [slides/ENGSE206_Week05_Requirement_Backlog_Slides.pptx](slides/ENGSE206_Week05_Requirement_Backlog_Slides.pptx) |
+| Student Lab | [student-lab-guide.md](student-lab-guide.md) |
+| Activities | [Trace Check](activities/w05-trace-check.md), [Card Sorting](activities/w05-card-sorting.md), [Prioritization Matrix](activities/w05-prioritization-matrix.md) |
+| Case Study | [case-study-campus-resource-booking.md](case-study-campus-resource-booking.md) |
+| Prompt Pack | [prompt-pack.md](prompt-pack.md) |
+| Rubric | [rubric.md](rubric.md) |
 
 ## การเตรียมก่อนเรียน
 
 - อ่าน artefact ของสัปดาห์ก่อนและเปิด repository ของกลุ่มให้พร้อม
-- เตรียมแม่แบบที่เกี่ยวข้องจาก [`templates/`](../../templates/README.md)
+- เตรียมแม่แบบ [`templates/05-requirement-backlog.md`](../../templates/05-requirement-backlog.md)
+- เปิดตัวอย่าง [Campus Resource Booking Week05](../../examples/campus-resource-booking/week-05/README.md)
 - ผู้สอนเตรียม worked example, checklist/rubric และเวลา feedback ระหว่าง workshop
 
 ## แผนสอนทฤษฎี 2 ชั่วโมง
@@ -48,10 +62,10 @@
 
 ## แผน Workshop/LAB 3 ชั่วโมง
 
-1. นำ evidence มารวมเป็น candidate requirements
-2. card sorting แยกประเภท
-3. ระบุ NFR/constraint/business rule
-4. จัดลำดับ priority พร้อม rationale
+1. ตรวจ trace ของ RC จาก Week04
+2. card sorting แยก Functional/NFR/Business Rule/Constraint/Issue
+3. จัดลำดับ priority พร้อม rationale
+4. แยก Ready / Needs Follow-up / Hold
 5. ปรับ backlog และ commit
 
 ### Checkpoints
@@ -62,10 +76,11 @@
 
 ## สิ่งที่ต้องส่ง
 
-1. อัปเดตไฟล์ใน repository ของกลุ่ม
-2. เก็บภาพ/บันทึก/หลักฐานใน `evidence/` เมื่อมีสัมภาษณ์ role-play หรือ test
-3. เขียน Team Worklog ระบุผู้รับผิดชอบและงานที่ทำ
-4. ใช้ commit message ที่บอกเนื้อหาการเปลี่ยนแปลง
+1. `docs/05-requirement-backlog.md`
+2. `submissions/week-05-submission.md`
+3. `project-management/team-worklog.md`
+4. `project-management/risk-and-issue-log.md` เมื่อมี unknown/policy/dependency
+5. ใช้ commit message: `submit(w05): prioritized requirement backlog`
 
 ## เกณฑ์ตรวจแบบเร็ว
 
