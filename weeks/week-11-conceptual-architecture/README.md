@@ -2,86 +2,72 @@
 > **Repository workflow:** อ่านโจทย์จาก Course Repo แต่ทำและส่งงานใน Team Repo ของกลุ่ม  
 > [เปิด Assignment Contract](assignment-contract.md) | [คู่มือ 2 Repository](../../docs/two-repository-workflow.md)
 
+> **ข้อเสนอ (ยังไม่แทนที่ไฟล์ใน repo)** — ปรับให้ตรงกับสื่อ W11 บนเว็บรายวิชา (C4 ระดับ 1–2, Lab 180 นาที, ส่งงานเป็น Word)
+
 ## ข้อมูลสัปดาห์
 
 | รายการ | รายละเอียด |
 |---|---|
-| บทเรียน | 5.1 Conceptual Architecture |
+| บทเรียน | 5.1 Conceptual Architecture — C4 ระดับ 1 (Context) และระดับ 2 (Container) |
 | CLO | CLO5 |
-| เวลา | ทฤษฎี 2 ชั่วโมง + ปฏิบัติ/กิจกรรม 3 ชั่วโมง |
-| รูปแบบ | Architecture Studio + Diagram Critique |
-| ผลงานที่ต้องส่ง | Architecture View + Design Rationale |
+| เวลา | ทฤษฎี 2 ชั่วโมง + ปฏิบัติ 3 ชั่วโมง |
+| คำถามของสัปดาห์ | ระบบแบ่งเป็นกี่ชิ้นที่ต้องรัน แต่ละชิ้นใช้เทคโนโลยีชนิดไหน และกติกาสำคัญอยู่ชิ้นไหน? |
+| ผลงานที่ต้องส่ง | Conceptual Architecture (Word ตาม Template) + ภาพ .drawio/PNG + Design Spine คอลัมน์ W11 |
+| stack อ้างอิง | React · Node.js + Express · PostgreSQL (เปลี่ยนได้เมื่อมี decision card อ้าง NFR หรือข้อจำกัดของทีม) |
 
-## เป้าหมายการเรียนรู้
+## สื่อบนเว็บรายวิชา
 
-กำหนด system boundary, component/service, data, interface และ external dependency ให้ตอบ requirement
+| หน้า | ใช้เมื่อไร |
+|---|---|
+| [อ่านก่อนเรียน](https://se-rmutl.github.io/engse206/week11/intro.html) | ก่อนคาบ — W10 ให้อะไร ทำไมต้องมี W11 และ C4 คืออะไร |
+| [สไลด์ทฤษฎี](https://se-rmutl.github.io/engse206/week11/slides.html) | ในคาบทฤษฎี |
+| [ตัวอย่าง CRBS ที่ทำเสร็จแล้ว](https://se-rmutl.github.io/engse206/week11/index.html) | เปิดคู่กับ Template ตลอด Lab |
+| [คู่มือ Lab 180 นาที](https://se-rmutl.github.io/engse206/week11/lab.html) | ในคาบปฏิบัติ — ลำดับงาน ข้อสังเกต เกณฑ์ผ่าน Miro และการส่งงาน |
 
-เมื่อจบสัปดาห์ นักศึกษาต้องสร้างหลักฐานการเรียนรู้ที่เชื่อมโยงกับ Case Project ของตน ไม่ใช่เพียงทำกิจกรรมตามตัวอย่าง
+## ไฟล์ในโฟลเดอร์นี้
 
-## การเตรียมก่อนเรียน
+| โฟลเดอร์ | มีอะไร |
+|---|---|
+| `reference/` | Template (แบบฟอร์มงานกลุ่ม) · Completed Sample ของ CRBS (.docx + .pdf) |
+| `lab/` | Lab Worksheets A–D (.docx + .pdf) · `figures/` รูปของคู่มือ Lab และบอร์ด Miro W11 (.drawio + PNG) |
+| `assets/` | ภาพใน Completed Sample (.drawio + PNG) — เปิดใน draw.io เพื่อดูวิธีวาด |
 
-- อ่าน artefact ของสัปดาห์ก่อนและเปิด repository ของกลุ่มให้พร้อม
-- เตรียมแม่แบบที่เกี่ยวข้องจาก [`templates/`](../../templates/README.md)
-- ผู้สอนเตรียม worked example, checklist/rubric และเวลา feedback ระหว่าง workshop
+## Lab 180 นาที
 
-## แผนสอนทฤษฎี 2 ชั่วโมง
+| ช่วง | นาที | ทำอะไร | Worksheet → Template |
+|---|---:|---|---|
+| Step 0 | 10 | เปิด SRS + W10 ของทีม แบ่งบทบาท คัดลอก Template | หัวข้อ 1 |
+| A Context | 25 | ระบบ 1 กล่อง + actor + ระบบภายนอก (Core / Extension / TBD) | W11-A → หัวข้อ 2 |
+| B Container | 45 | การ์ด 3 แบบ → เมนูชนิด → container diagram + ตาราง (รันที่ไหน ใครควบคุม) | W11-B → หัวข้อ 3–4 |
+| Checkpoint 1 | 10 | Miro: โพสต์ Context + Container ให้คู่ถาม "driver ที่ห้ามพลาดของทีม อยู่ container ไหน" | — |
+| C NFR + decision | 40 | NFR ทุกข้อ → container ที่กระทบ หรือ TBD · decision card ≤ 3 ใบ | W11-C → หัวข้อ 5–6 |
+| D Spine + DD | 25 | เดิน Spine บน container diagram · อัปเดต open decisions | W11-D → หัวข้อ 7–8 |
+| Checkpoint 2 | 10 | Done checklist 6 ข้อ + คู่อ่านช่อง 3–4 บน Miro | หัวข้อ 10 |
+| ปิด | 15 | export PNG วางใน Template · commit ร่าง · แบ่งการบ้าน | — |
 
-### 1) Activate prior knowledge — 15 นาที
-- ทบทวนงานสัปดาห์ก่อนด้วยคำถามสั้นหรือ artefact ที่มีข้อผิดพลาด
-- เชื่อมสิ่งที่จะเรียนกับ Requirement-to-Design Package ของกลุ่ม
+คู่ตรวจบน Miro W11: กลุ่ม 1 กับ 2 · 3 กับ 4 · 5 กับ 6 · 7 กับ 8 · 9 กับ 10
 
-### 2) Mini lecture + worked example — 55 นาที
-- System boundary and conceptual architecture
-- Components/services, data, interfaces, dependencies
-- Architecture diagram reading and rationale
+## สิ่งที่ต้องส่ง (ก่อนคาบ W12)
 
-ผู้สอนควรใช้ Case เดียวตัวอย่าง 1 เรื่อง และแสดงทั้งตัวอย่างที่ดี/ไม่ดีเพื่อให้เห็นเกณฑ์คุณภาพชัดเจน
+ดู path ทั้งหมดใน [Assignment Contract](assignment-contract.md) — สรุป:
 
-### 3) Guided analysis — 35 นาที
-- ให้กลุ่มวิเคราะห์สถานการณ์สั้น
-- ใช้ think-pair-share หรือถามตอบเพื่อทดลองตัดสินใจ
-- สรุป misconception สำคัญก่อนปฏิบัติ
+1. `design/11-conceptual-architecture-v0.1.docx` — Template W11 ครบ 11 หัวข้อ
+2. `diagrams/architecture/` — Context และ Container เป็น .drawio + .png
+3. `design/00-design-spine.md` — เติมคอลัมน์ "W11 กล่องที่รับผิดชอบ"
+4. `evidence/week-11/` — ภาพ frame Miro ก่อน/หลังแก้
+5. `submissions/week-11-submission.md` และ commit `submit(w11): conceptual architecture`
 
-### 4) Briefing งานปฏิบัติ — 15 นาที
-- อธิบาย output, rubric, commit/submission rule และเวลาส่ง
-- ย้ำความต่างระหว่าง **facts**, **assumptions**, **requirements** และ **design choices** ตามหัวข้อของสัปดาห์
+## Done checklist W11
 
-## แผน Workshop/LAB 3 ชั่วโมง
+- [ ] Context diagram: ระบบ 1 กล่อง + actor ครบ + ระบบภายนอกพร้อมป้าย Core / Extension / TBD
+- [ ] Container diagram: ทุก container มีชื่อ + [ชนิด · เทคโนโลยี] + หน้าที่; ลูกศรทุกเส้นบอกว่าส่งอะไร
+- [ ] ตาราง container บอกสภาพแวดล้อม (รันที่ไหน ใครควบคุม) และข้อมูลที่เก็บ
+- [ ] NFR ทุกข้อชี้ได้ว่ากระทบ container ไหน หรือเป็น TBD; decision card ≤ 3 ใบอ้าง NFR/driver
+- [ ] ทุกขั้น Build now/Overview ใน Spine เดินผ่าน container ได้ และกติกา D1–D3 อยู่ฝั่ง server
+- [ ] ใช้ stack อ้างอิง หรือมี decision card เมื่อเปลี่ยน; ไม่มีเทคโนโลยีเกินจำเป็น; ทุกภาพมี .drawio + PNG
 
-1. กำหนด system boundary
-2. แบ่งองค์ประกอบตามความรับผิดชอบ
-3. ระบุ data/interface/external dependency
-4. วาด conceptual architecture
-5. diagram critique และ revise
+## ขอบเขตของสัปดาห์นี้
 
-### Checkpoints
-- นาทีที่ 45: แสดง output ขั้นต้นให้เพื่อนหรือผู้สอนตรวจ
-- นาทีที่ 100: ต้องมี artefact ที่มีโครงสร้างครบ แม้รายละเอียดไม่สมบูรณ์
-- นาทีที่ 155: ตรวจ checklist และอธิบายสิ่งที่เปลี่ยนหลังได้รับ feedback
-- ก่อนจบ: commit/push หรือส่งลิงก์ตามช่องทางอาจารย์กำหนด
-
-## สิ่งที่ต้องส่ง
-
-1. อัปเดตไฟล์ใน repository ของกลุ่ม
-2. เก็บภาพ/บันทึก/หลักฐานใน `evidence/` เมื่อมีสัมภาษณ์ role-play หรือ test
-3. เขียน Team Worklog ระบุผู้รับผิดชอบและงานที่ทำ
-4. ใช้ commit message ที่บอกเนื้อหาการเปลี่ยนแปลง
-
-## เกณฑ์ตรวจแบบเร็ว
-
-- [ ] โครงสร้างเอกสารถูกต้องและครบหัวข้อ
-- [ ] เนื้อหาสอดคล้องกับ Case Card/หลักฐาน ไม่คิด solution ลอย ๆ
-- [ ] ขอบเขตไม่ใหญ่เกินข้อกำหนดรายวิชา
-- [ ] มีเหตุผลหรือหลักฐานรองรับ requirement/design decision
-- [ ] ทุกคนมีส่วนร่วมที่ตรวจสอบได้
-- [ ] ส่งงานครบและตรงเวลา
-
-## การให้ feedback
-
-ใช้คำถามชี้นำ เช่น
-- หลักฐานใดสนับสนุนข้อสรุปนี้
-- stakeholder คนใดยังไม่ได้พิจารณา
-- requirement นี้ตรวจสอบความสำเร็จได้อย่างไร
-- design decision นี้ตอบ requirement ข้อใด
+วาดถึง C4 ระดับ 2 เท่านั้น — component ข้างใน API ทำใน W13 · เรื่องที่ SRS ยังไม่ตอบให้เขียน TBD และบันทึกเป็น open decision ห้ามแต่งตัวเลข นโยบาย หรือ protocol
 
 ดู [แผนประเมินผล](../../docs/assessment-rubrics.md) และ [Artefact Roadmap](../../docs/artefact-roadmap.md)

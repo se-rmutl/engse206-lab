@@ -1,5 +1,8 @@
 # เอกสารรายสัปดาห์และ Assignment Contracts
 
+> **ข้อเสนอ (ยังไม่แทนที่ไฟล์ใน repo)** — ปรับตามแผนใหม่: W10–W13 ออกแบบ · W14 นำเสนอ สรุป และส่งมอบงานให้ Dev · W15 สอบปลายภาค
+> แถว W01–W13 คงเดิม · โฟลเดอร์ `week-14-design-review`, `week-15-usability-test-iteration`, `week-16-project-showcase`, `week-17-final-exam` เป็นของแผนเดิม ผู้สอนตัดสินใจว่าจะเก็บหรือย้ายออก
+
 > นักศึกษาอ่านจากตารางนี้ แล้วทำ/ส่งงานใน Team Repo ของกลุ่ม
 
 | Week | หัวข้อ | คำสั่งงาน | Assignment Contract |
@@ -13,11 +16,11 @@
 | 07 | SRS Authoring Studio | [README](./week-07-srs-authoring/README.md) | [Contract](./week-07-srs-authoring/assignment-contract.md) |
 | 08 | SRS Validation, Traceability and Change | [README](./week-08-srs-validation-traceability/README.md) | [Contract](./week-08-srs-validation-traceability/assignment-contract.md) |
 | 10 | Design Strategy and Rationale | [README](./week-10-design-strategy/README.md) | [Contract](./week-10-design-strategy/assignment-contract.md) |
-| 11 | Conceptual Architecture | [README](./week-11-conceptual-architecture/README.md) | [Contract](./week-11-conceptual-architecture/assignment-contract.md) |
+| 11 | Conceptual Architecture (C4 ระดับ 1–2) | [README](./week-11-conceptual-architecture/README.md) | [Contract](./week-11-conceptual-architecture/assignment-contract.md) |
 | 12 | UX/UI Prototype and Accessibility | [README](./week-12-ux-ui-prototype/README.md) | [Contract](./week-12-ux-ui-prototype/assignment-contract.md) |
-| 13 | Detailed Design | [README](./week-13-detailed-design/README.md) | [Contract](./week-13-detailed-design/assignment-contract.md) |
-| 14 | Design Review | [README](./week-14-design-review/README.md) | [Contract](./week-14-design-review/assignment-contract.md) |
-| 15 | Usability/Peer Test and Iteration | [README](./week-15-usability-test-iteration/README.md) | [Contract](./week-15-usability-test-iteration/assignment-contract.md) |
-| 16 | Showcase and Finalization | [README](./week-16-project-showcase/README.md) | [Contract](./week-16-project-showcase/assignment-contract.md) |
+| 13 | Detailed Design + ร่าง Developer Handoff (C4 ระดับ 3) | [README](./week-13-detailed-design/README.md) | [Contract](./week-13-detailed-design/assignment-contract.md) |
+| 14 | นำเสนอ · สรุปรายวิชา · ส่งมอบงานให้ Dev (Developer Handoff v1.0) | ประกาศในสัปดาห์ที่ 13 | ประกาศในสัปดาห์ที่ 13 |
 
-Week 09 และ Week 17 เป็นการสอบรายบุคคล ไม่มี weekly team submission ตามตาราง 15 สัปดาห์เรียน
+Week 09 (สอบกลางภาค) และ Week 15 (สอบปลายภาค) เป็นการสอบรายบุคคล ไม่มี weekly team submission ตามตาราง 15 สัปดาห์เรียน
+
+สื่อการสอนรายสัปดาห์ (สไลด์ · ตัวอย่าง · คู่มือ Lab) อยู่ที่เว็บรายวิชา <https://se-rmutl.github.io/engse206/>
