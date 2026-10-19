@@ -1,7 +1,7 @@
 # เอกสารรายสัปดาห์และ Assignment Contracts
 
-> **ข้อเสนอ (ยังไม่แทนที่ไฟล์ใน repo)** — ปรับตามแผนใหม่: W10–W13 ออกแบบ · W14 นำเสนอ สรุป และส่งมอบงานให้ Dev · W15 สอบปลายภาค
-> แถว W01–W13 คงเดิม · โฟลเดอร์ `week-14-design-review`, `week-15-usability-test-iteration`, `week-16-project-showcase`, `week-17-final-exam` เป็นของแผนเดิม ผู้สอนตัดสินใจว่าจะเก็บหรือย้ายออก
+> **ข้อเสนอ (ยังไม่แทนที่ไฟล์ใน repo) · ฉบับนี้ใช้แทนข้อเสนอในชุด ENGSE206_Web_W10-W15_v1.0** — ปรับตามแผนใหม่: W10–W13 ออกแบบ · W14 นำเสนอ สรุป และส่งมอบงานให้ Dev · W15 สอบปลายภาค
+> แถว W01–W13 คงเดิม · โฟลเดอร์ `week-14-design-review`, `week-15-usability-test-iteration`, `week-16-project-showcase`, `week-17-final-exam` เป็นของแผนเดิม ผู้สอนตัดสินใจว่าจะเก็บหรือย้ายออก · โฟลเดอร์ใหม่ `week-15-final-exam` ใช้แทน `week-17-final-exam`
 
 > นักศึกษาอ่านจากตารางนี้ แล้วทำ/ส่งงานใน Team Repo ของกลุ่ม
 
@@ -20,7 +20,8 @@
 | 12 | UX/UI Prototype and Accessibility | [README](./week-12-ux-ui-prototype/README.md) | [Contract](./week-12-ux-ui-prototype/assignment-contract.md) |
 | 13 | Detailed Design + ร่าง Developer Handoff (C4 ระดับ 3) | [README](./week-13-detailed-design/README.md) | [Contract](./week-13-detailed-design/assignment-contract.md) |
 | 14 | นำเสนอ · สรุปรายวิชา · ส่งมอบงานให้ Dev (Developer Handoff v1.0) | ประกาศในสัปดาห์ที่ 13 | ประกาศในสัปดาห์ที่ 13 |
+| 15 | สอบปลายภาค — Take-home 24 ชั่วโมง (ส่วน ก กลุ่ม + ส่วน ข รายบุคคล) | [README](./week-15-final-exam/README.md) | — (กติกาอยู่ใน README และประกาศรูปแบบสอบ) |
 
-Week 09 (สอบกลางภาค) และ Week 15 (สอบปลายภาค) เป็นการสอบรายบุคคล ไม่มี weekly team submission ตามตาราง 15 สัปดาห์เรียน
+Week 09 (สอบกลางภาค) เป็นการสอบ ไม่มี weekly team submission · Week 15 (สอบปลายภาค) เป็น take-home: ส่วน ก ส่งใน Team Repo (branch `final-exam` · Pull Request) และส่วน ข ส่งรายบุคคลตามช่องทางที่ผู้สอนกำหนด
 
 สื่อการสอนรายสัปดาห์ (สไลด์ · ตัวอย่าง · คู่มือ Lab) อยู่ที่เว็บรายวิชา <https://se-rmutl.github.io/engse206/>
