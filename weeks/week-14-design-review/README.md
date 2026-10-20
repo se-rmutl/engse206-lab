@@ -1,4 +1,7 @@
 # Week 14: Workshop 5: Peer Design Review Simulation
+
+> **เนื้อหาเดิม** — ภาคเรียนนี้ W14 เป็นการนำเสนอ สรุปรายวิชา และส่งมอบงานให้ Dev (Developer Handoff v1.0) รายละเอียดประกาศในสัปดาห์ที่ 13 · ดู [weeks/README.md](../README.md)
+
 > **Repository workflow:** อ่านโจทย์จาก Course Repo แต่ทำและส่งงานใน Team Repo ของกลุ่ม  
 > [เปิด Assignment Contract](assignment-contract.md) | [คู่มือ 2 Repository](../../docs/two-repository-workflow.md)
 
