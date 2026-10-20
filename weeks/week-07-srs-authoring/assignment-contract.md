@@ -4,8 +4,8 @@
 |---|---|
 | Assignment ID | `W07-v1.0` |
 | Topic | SRS Authoring Studio |
-| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab-v2/blob/main/weeks/week-07-srs-authoring/README.md) |
-| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab-v2/tree/main/cases) |
+| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab/blob/main/weeks/week-07-srs-authoring/README.md) |
+| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab/tree/main/cases) |
 | Milestone | SRS Draft v1 |
 | Student output paths | `docs/07-srs-v1.md`, `submissions/week-07-submission.md` |
 | Submission commit | `submit(w07): SRS draft v1` |

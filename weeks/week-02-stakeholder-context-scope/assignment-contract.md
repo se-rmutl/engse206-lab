@@ -4,8 +4,8 @@
 |---|---|
 | Assignment ID | `W02-v1.0` |
 | Topic | Stakeholder, Context and Scope |
-| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab-v2/blob/main/weeks/week-02-stakeholder-context-scope/README.md) |
-| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab-v2/tree/main/cases) |
+| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab/blob/main/weeks/week-02-stakeholder-context-scope/README.md) |
+| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab/tree/main/cases) |
 | Milestone | Stakeholder Map + System Context + Scope |
 | Student output paths | `docs/02-stakeholder-context-scope.md`, `diagrams/context/`, `feedback/week-02-peer-feedback.md`, `submissions/week-02-submission.md` |
 | Submission commit | `submit(w02): stakeholder context and scope` |

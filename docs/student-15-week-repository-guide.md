@@ -2,7 +2,7 @@
 
 ## 1. Repository ที่ต้องเปิดสองแท็บ
 
-- Course/Lab Repo: https://github.com/se-rmutl/engse206-lab-v2
+- Course/Lab Repo: https://github.com/se-rmutl/engse206-lab
 - Team Repo: repository ของกลุ่มที่สร้างจาก https://github.com/se-rmutl/engse206-project-template
 
 ## 2. ก่อนเริ่ม Week 1

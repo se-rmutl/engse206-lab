@@ -13,7 +13,7 @@
 
 > **READ from Course Repo → WORK and SUBMIT in Team Repo**
 
-- Repository นี้ (`engse206-lab-v2`) เป็นแหล่งโจทย์ 10 cases, คำสั่งงาน, workshop, rubric และตัวอย่าง
+- Repository นี้ (`engse206-lab`) เป็นแหล่งโจทย์ 10 cases, คำสั่งงาน, workshop, rubric และตัวอย่าง
 - นักศึกษาใช้ repository ของกลุ่มที่สร้างจาก [https://github.com/se-rmutl/engse206-project-template](https://github.com/se-rmutl/engse206-project-template) เป็นพื้นที่ทำงานและส่งงานตลอด 15 สัปดาห์เรียน
 - ห้ามส่งงานโดยแก้ Course Repo และห้ามนำ Course Repo ทั้งชุดไปใส่ใน Team Repo
 

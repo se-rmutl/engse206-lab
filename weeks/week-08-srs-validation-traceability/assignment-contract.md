@@ -4,8 +4,8 @@
 |---|---|
 | Assignment ID | `W08-v1.0` |
 | Topic | SRS Validation, Traceability and Change |
-| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab-v2/blob/main/weeks/week-08-srs-validation-traceability/README.md) |
-| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab-v2/tree/main/cases) |
+| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab/blob/main/weeks/week-08-srs-validation-traceability/README.md) |
+| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab/tree/main/cases) |
 | Milestone | Reviewed SRS + Traceability + Baseline |
 | Student output paths | `docs/08-validation-traceability.md`, `docs/requirements-change-log.md`, `final/midterm-snapshot/`, `submissions/week-08-submission.md` |
 | Submission commit | `submit(w08): SRS validation and traceability` |

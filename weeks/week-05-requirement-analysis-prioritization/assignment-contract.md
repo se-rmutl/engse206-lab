@@ -4,8 +4,8 @@
 |---|---|
 | Assignment ID | `W05-v1.0` |
 | Topic | Requirement Analysis and Prioritization |
-| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab-v2/blob/main/weeks/week-05-requirement-analysis-prioritization/README.md) |
-| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab-v2/tree/main/cases) |
+| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab/blob/main/weeks/week-05-requirement-analysis-prioritization/README.md) |
+| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab/tree/main/cases) |
 | Milestone | Categorized and Prioritized Backlog |
 | Student output paths | `docs/05-requirement-backlog.md`, `evidence/week-05/`, `submissions/week-05-submission.md` |
 | Submission commit | `submit(w05): prioritized requirement backlog` |

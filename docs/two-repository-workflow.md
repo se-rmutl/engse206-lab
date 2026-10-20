@@ -5,7 +5,7 @@
 
 | Repository | เจ้าของ/ผู้ดูแล | ใช้ทำอะไร | นักศึกษาแก้ไขหรือไม่ |
 |---|---|---|---|
-| [`engse206-lab-v2`](https://github.com/se-rmutl/engse206-lab-v2) | อาจารย์ผู้สอน | แหล่งโจทย์ 10 cases, คำสั่งงานรายสัปดาห์, workshop, rubric, prompt pack และตัวอย่าง | **อ่านอย่างเดียว** |
+| [`engse206-lab`](https://github.com/se-rmutl/engse206-lab) | อาจารย์ผู้สอน | แหล่งโจทย์ 10 cases, คำสั่งงานรายสัปดาห์, workshop, rubric, prompt pack และตัวอย่าง | **อ่านอย่างเดียว** |
 | Repository ของแต่ละกลุ่มที่สร้างจาก [`engse206-project-template`](https://github.com/se-rmutl/engse206-project-template) | นักศึกษาแต่ละกลุ่ม | พื้นที่สร้างชิ้นงาน เก็บหลักฐาน บันทึกการมีส่วนร่วม และส่งงานต่อเนื่อง | **แก้ไขและส่งงานที่นี่** |
 
 > กฎจำง่าย: **READ from Course Repo → WORK and SUBMIT in Team Repo**

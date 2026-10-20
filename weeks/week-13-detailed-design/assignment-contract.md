@@ -4,8 +4,8 @@
 |---|---|
 | Assignment ID | `W13-v1.0` |
 | Topic | Detailed Design |
-| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab-v2/blob/main/weeks/week-13-detailed-design/README.md) |
-| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab-v2/tree/main/cases) |
+| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab/blob/main/weeks/week-13-detailed-design/README.md) |
+| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab/tree/main/cases) |
 | Milestone | Data, Interaction and Component Design |
 | Student output paths | `design/13-detailed-design.md`, `diagrams/sequence/`, `diagrams/erd/`, `diagrams/domain-model/`, `submissions/week-13-submission.md` |
 | Submission commit | `submit(w13): detailed design` |

@@ -4,8 +4,8 @@
 |---|---|
 | Assignment ID | `W16-v1.0` |
 | Topic | Showcase and Finalization |
-| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab-v2/blob/main/weeks/week-16-project-showcase/README.md) |
-| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab-v2/tree/main/cases) |
+| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab/blob/main/weeks/week-16-project-showcase/README.md) |
+| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab/tree/main/cases) |
 | Milestone | Final SRS + Design Package + Reflection |
 | Student output paths | `final/`, `feedback/15-individual-reflection.md`, `submissions/week-16-submission.md` |
 | Submission commit | `submit(w16): final requirement to design package` |
