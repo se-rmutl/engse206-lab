@@ -13,7 +13,7 @@
 
 > **READ from Course Repo → WORK and SUBMIT in Team Repo**
 
-- Repository นี้ (`engse206-lab-v2`) เป็นแหล่งโจทย์ 10 cases, คำสั่งงาน, workshop, rubric และตัวอย่าง
+- Repository นี้ (`engse206-lab`) เป็นแหล่งโจทย์ 10 cases, คำสั่งงาน, workshop, rubric และตัวอย่าง
 - นักศึกษาใช้ repository ของกลุ่มที่สร้างจาก [https://github.com/se-rmutl/engse206-project-template](https://github.com/se-rmutl/engse206-project-template) เป็นพื้นที่ทำงานและส่งงานตลอด 15 สัปดาห์เรียน
 - ห้ามส่งงานโดยแก้ Course Repo และห้ามนำ Course Repo ทั้งชุดไปใส่ใน Team Repo
 
@@ -70,18 +70,19 @@ ENGSE206-Requirements-and-Design/
 | 3 | Elicitation Plan and Interview Design | [Week 03](weeks/week-03-elicitation-interview-design/README.md) |
 | 4 | AI Evidence Rehearsal, Evidence Log, Requirement Candidates | [Week 04](weeks/week-04-stakeholder-simulation-negotiation/README.md) |
 | 5 | Requirement Analysis, Classification, Prioritization | [Week 05](weeks/week-05-requirement-analysis-prioritization/README.md) |
+| 5b | Requirement Baseline Review & Readiness Gate | [Week 05b](weeks/week-05b-baseline-review-studio/README.md) |
 | 6 | User Story, Use Case, Acceptance Criteria, Negotiation Board | [Week 06](weeks/week-06-requirement-modeling-negotiation/README.md) |
 | 7 | SRS Authoring Studio | [Week 07](weeks/week-07-srs-authoring/README.md) |
 | 8 | SRS Quality Clinic, Traceability, Change Management | [Week 08](weeks/week-08-srs-validation-traceability/README.md) |
 | 9 | สอบกลางภาค | [Week 09](weeks/week-09-midterm/README.md) |
-| 10 | Design Strategy and Design Rationale | [Week 10](weeks/week-10-design-strategy/README.md) |
-| 11 | Conceptual Architecture Studio | [Week 11](weeks/week-11-conceptual-architecture/README.md) |
+| 10 | Design Strategy Studio (scope · drivers · Design Spine) | [Week 10](weeks/week-10-design-strategy/README.md) |
+| 11 | Conceptual Architecture (C4 ระดับ 1–2) | [Week 11](weeks/week-11-conceptual-architecture/README.md) |
 | 12 | UX/UI Prototype and Accessibility | [Week 12](weeks/week-12-ux-ui-prototype/README.md) |
-| 13 | Detailed Design Studio | [Week 13](weeks/week-13-detailed-design/README.md) |
-| 14 | Design Review Simulation | [Week 14](weeks/week-14-design-review/README.md) |
-| 15 | Usability / Peer Test and Iteration | [Week 15](weeks/week-15-usability-test-iteration/README.md) |
-| 16 | Requirement-to-Design Showcase and Reflection | [Week 16](weeks/week-16-project-showcase/README.md) |
-| 17 | สอบปลายภาค | [Week 17](weeks/week-17-final-exam/README.md) |
+| 13 | Detailed Design + ร่าง Developer Handoff (C4 ระดับ 3) | [Week 13](weeks/week-13-detailed-design/README.md) |
+| 14 | นำเสนอ · สรุปรายวิชา · ส่งมอบงานให้ Dev (Developer Handoff v1.0) — รายละเอียดประกาศในสัปดาห์ที่ 13 | — |
+| 15 | สอบปลายภาค — Take-home 24 ชั่วโมง | [Week 15](weeks/week-15-final-exam/README.md) |
+
+โฟลเดอร์ `weeks/week-14-design-review`, `week-15-usability-test-iteration`, `week-16-project-showcase`, `week-17-final-exam` เป็นของแผน 15+2 เดิม — ภาคเรียนนี้ไม่ใช้ (ดู [weeks/README.md](weeks/README.md))
 
 ## หมายเหตุสำหรับผู้สอน
 

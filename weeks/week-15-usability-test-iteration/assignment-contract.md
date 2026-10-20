@@ -4,8 +4,8 @@
 |---|---|
 | Assignment ID | `W15-v1.0` |
 | Topic | Usability/Peer Test and Iteration |
-| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab-v2/blob/main/weeks/week-15-usability-test-iteration/README.md) |
-| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab-v2/tree/main/cases) |
+| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab/blob/main/weeks/week-15-usability-test-iteration/README.md) |
+| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab/tree/main/cases) |
 | Milestone | Test Evidence + Revised Package |
 | Student output paths | `evidence/week-15/`, updated `docs/` and `design/`, `submissions/week-15-submission.md` |
 | Submission commit | `submit(w15): usability evidence and revisions` |

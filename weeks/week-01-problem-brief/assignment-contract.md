@@ -4,8 +4,8 @@
 |---|---|
 | Assignment ID | `W01-v1.0` |
 | Topic | Problem Brief Kick-off |
-| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab-v2/blob/main/weeks/week-01-problem-brief/README.md) |
-| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab-v2/tree/main/cases) |
+| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab/blob/main/weeks/week-01-problem-brief/README.md) |
+| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab/tree/main/cases) |
 | Milestone | Problem Brief v0.1 |
 | Student output paths | `docs/01-problem-brief-v0.1.md`, `evidence/week-01/`, `submissions/week-01-submission.md` |
 | Submission commit | `submit(w01): problem brief v0.1` |

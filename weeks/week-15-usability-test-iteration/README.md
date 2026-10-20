@@ -1,4 +1,7 @@
 # Week 15: LAB 5: Usability/Peer Test and Iteration
+
+> **แผนเดิม — ไม่ใช้ในภาคเรียนนี้** · ดูตารางปัจจุบันที่ [weeks/README.md](../README.md)
+
 > **Repository workflow:** อ่านโจทย์จาก Course Repo แต่ทำและส่งงานใน Team Repo ของกลุ่ม  
 > [เปิด Assignment Contract](assignment-contract.md) | [คู่มือ 2 Repository](../../docs/two-repository-workflow.md)
 

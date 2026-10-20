@@ -4,8 +4,8 @@
 |---|---|
 | Assignment ID | `W12-v1.0` |
 | Topic | UX/UI Prototype and Accessibility |
-| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab-v2/blob/main/weeks/week-12-ux-ui-prototype/README.md) |
-| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab-v2/tree/main/cases) |
+| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab/blob/main/weeks/week-12-ux-ui-prototype/README.md) |
+| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab/tree/main/cases) |
 | Milestone | Wireframe/Prototype + Accessibility Notes |
 | Student output paths | `design/12-ux-ui-prototype.md`, `diagrams/ui-flow/`, `assets/prototype-exports/`, `submissions/week-12-submission.md` |
 | Submission commit | `submit(w12): UX UI prototype and accessibility` |

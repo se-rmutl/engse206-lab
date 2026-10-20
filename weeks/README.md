@@ -1,7 +1,7 @@
 # เอกสารรายสัปดาห์และ Assignment Contracts
 
-> **ข้อเสนอ (ยังไม่แทนที่ไฟล์ใน repo) · ฉบับนี้ใช้แทนข้อเสนอในชุด ENGSE206_Web_W10-W15_v1.0** — ปรับตามแผนใหม่: W10–W13 ออกแบบ · W14 นำเสนอ สรุป และส่งมอบงานให้ Dev · W15 สอบปลายภาค
-> แถว W01–W13 คงเดิม · โฟลเดอร์ `week-14-design-review`, `week-15-usability-test-iteration`, `week-16-project-showcase`, `week-17-final-exam` เป็นของแผนเดิม ผู้สอนตัดสินใจว่าจะเก็บหรือย้ายออก · โฟลเดอร์ใหม่ `week-15-final-exam` ใช้แทน `week-17-final-exam`
+> แผนภาคเรียนนี้: W10–W13 ออกแบบ · W14 นำเสนอ สรุป และส่งมอบงานให้ Dev · W15 สอบปลายภาค  
+> โฟลเดอร์ `week-14-design-review`, `week-15-usability-test-iteration`, `week-16-project-showcase`, `week-17-final-exam` เป็นของแผนเดิม ผู้สอนตัดสินใจว่าจะเก็บหรือย้ายออก · โฟลเดอร์ใหม่ `week-15-final-exam` ใช้แทน `week-17-final-exam`
 
 > นักศึกษาอ่านจากตารางนี้ แล้วทำ/ส่งงานใน Team Repo ของกลุ่ม
 
@@ -12,6 +12,7 @@
 | 03 | Elicitation Plan and AI Interview Rehearsal | [README](./week-03-elicitation-interview-design/README.md) | [Contract](./week-03-elicitation-interview-design/assignment-contract.md) |
 | 04 | AI Evidence Rehearsal | [README](./week-04-stakeholder-simulation-negotiation/README.md) / [Student Guide](./week-04-stakeholder-simulation-negotiation/student-workshop-guide.md) | [Contract](./week-04-stakeholder-simulation-negotiation/assignment-contract.md) |
 | 05 | Requirement Analysis and Prioritization | [README](./week-05-requirement-analysis-prioritization/README.md) | [Contract](./week-05-requirement-analysis-prioritization/assignment-contract.md) |
+| 05b | Requirement Baseline Review & Readiness Gate | [README](./week-05b-baseline-review-studio/README.md) | `W05-RBR-v1.0` (อยู่ใน README) |
 | 06 | Requirement Models and Acceptance Criteria | [README](./week-06-requirement-modeling-negotiation/README.md) | [Contract](./week-06-requirement-modeling-negotiation/assignment-contract.md) |
 | 07 | SRS Authoring Studio | [README](./week-07-srs-authoring/README.md) | [Contract](./week-07-srs-authoring/assignment-contract.md) |
 | 08 | SRS Validation, Traceability and Change | [README](./week-08-srs-validation-traceability/README.md) | [Contract](./week-08-srs-validation-traceability/assignment-contract.md) |

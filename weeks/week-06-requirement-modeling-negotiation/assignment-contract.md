@@ -4,8 +4,8 @@
 |---|---|
 | Assignment ID | `W06-v1.0` |
 | Topic | Requirement Models and Acceptance Criteria |
-| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab-v2/blob/main/weeks/week-06-requirement-modeling-negotiation/README.md) |
-| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab-v2/tree/main/cases) |
+| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab/blob/main/weeks/week-06-requirement-modeling-negotiation/README.md) |
+| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab/tree/main/cases) |
 | Milestone | User Stories + Use Cases + Acceptance Criteria |
 | Student output paths | `docs/06-requirement-models.md`, `diagrams/use-case/`, `diagrams/activity/`, `submissions/week-06-submission.md` |
 | Submission commit | `submit(w06): requirement models and acceptance criteria` |

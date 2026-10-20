@@ -4,8 +4,8 @@
 |---|---|
 | Assignment ID | `W10-v1.0` |
 | Topic | Design Strategy and Rationale |
-| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab-v2/blob/main/weeks/week-10-design-strategy/README.md) |
-| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab-v2/tree/main/cases) |
+| Course instruction | [เปิดคำสั่งงาน](https://github.com/se-rmutl/engse206-lab/blob/main/weeks/week-10-design-strategy/README.md) |
+| Source of case | [`cases/`](https://github.com/se-rmutl/engse206-lab/tree/main/cases) |
 | Milestone | Design Strategy + Rationale |
 | Student output paths | `design/10-design-strategy.md`, `submissions/week-10-submission.md` |
 | Submission commit | `submit(w10): design strategy and rationale` |

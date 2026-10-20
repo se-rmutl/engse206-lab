@@ -4,6 +4,6 @@
 
 - https://github.com/se-rmutl/engse206-project-template
 
-นักศึกษาให้กด **Use this template** จาก repository ข้างต้น แล้วอ่านคำสั่งจาก `https://github.com/se-rmutl/engse206-lab-v2`
+นักศึกษาให้กด **Use this template** จาก repository ข้างต้น แล้วอ่านคำสั่งจาก `https://github.com/se-rmutl/engse206-lab`
 
 ดู [Two-Repository Operating Model](../docs/two-repository-workflow.md)

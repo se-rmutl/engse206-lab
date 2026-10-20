@@ -27,7 +27,7 @@
 
 | Artifact | File |
 |---|---|
-| เอกสารกิจกรรม (ฉบับเต็ม) | [ENGSE206_Requirement_Baseline_Review_Studio_TH.pdf](ENGSE206_Requirement_Baseline_Review_Studio_TH.pdf) / [DOCX](ENGSE206_Requirement_Baseline_Review_Studio_TH.docx) |
+| เอกสารกิจกรรม (ฉบับเต็ม) | [ENGSE206_Requirement_Baseline_Review_Studio_TH.pdf](ENGSE206_Requirement_Baseline_Review_Studio_TH.pdf) |
 | ตัวอย่างเดินทีละขั้น (Case X) | [EXAMPLE-baseline-review-walkthrough-casex.md](EXAMPLE-baseline-review-walkthrough-casex.md) |
 | แม่แบบไฟล์ส่งงาน (กรอกในรีโปกลุ่ม) | [`submissions/baseline-review-submission.md`](https://github.com/se-rmutl/engse206-project-template/blob/main/submissions/baseline-review-submission.md) (ใน Team Repo template) |
 | Rubric | _(เพิ่มภายหลังถ้ามีเวอร์ชันให้คะแนน)_ |
